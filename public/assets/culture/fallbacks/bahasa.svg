@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#f3ede2"/>
+  <rect x="24" y="24" width="752" height="452" rx="8" fill="none" stroke="#c8bba6" stroke-width="1.5"/>
+  <g opacity="0.12" stroke="#3b4d7a" stroke-width="1.5" fill="none">
+    <path d="M80 120 H720 M80 180 H720 M80 240 H720 M80 300 H720 M80 360 H720"/>
+  </g>
+  <g transform="translate(400, 225)" fill="none" stroke="#2d3b63" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-150" y="-75" width="300" height="150" rx="10" fill="#ebe2d3" stroke="#2d3b63" stroke-width="2.5"/>
+    <line x1="-120" y1="-35" x2="120" y2="-35" stroke="#8c7a62" stroke-width="2"/>
+    <line x1="-120" y1="0" x2="90" y2="0" stroke="#8c7a62" stroke-width="2"/>
+    <line x1="-120" y1="35" x2="110" y2="35" stroke="#8c7a62" stroke-width="2"/>
+    <path d="M-85 -15 C-65 -45, -45 15, -25 -15 C-5 -45, 15 15, 35 -15 C55 -45, 75 15, 95 -15" stroke="#b34b28" stroke-width="3"/>
+    <circle cx="-125" cy="0" r="6" fill="#b34b28" stroke="none"/>
+    <circle cx="125" cy="0" r="6" fill="#b34b28" stroke="none"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#2c241d" letter-spacing="2">BAHASA &amp; AKSARA DAERAH</text>
+  <text x="400" y="410" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#6e6256" letter-spacing="3">WARISAN TUTUR NUSANTARA</text>
+</svg>

@@ -1,0 +1,2892 @@
+[
+  {
+    "id": "qz-11-001",
+    "provinceId": "11",
+    "provinceName": "Aceh",
+    "regencyId": "1107",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Aceh (KABUPATEN ACEH BARAT) yang memiliki karakter \"Aerofon (Tiup)\" adalah...",
+    "options": [
+      "Garantung",
+      "Kenong",
+      "Sapek",
+      "Serune Kale"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Serune Kale berasal dari KABUPATEN ACEH BARAT, Provinsi Aceh. Sarune Kale berasal dari Nanggroe Aceh Darussalam yang mempunyai jenis bunyi Aerofon, yaitu bunyi yang berasal dari hembusan angin.",
+    "relatedItemSlug": "musik-serune-kale-11"
+  },
+  {
+    "id": "qz-11-002",
+    "provinceId": "11",
+    "provinceName": "Aceh",
+    "regencyId": "1171",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Aceh yang dikenal dengan ciri \"Mi kuning tebal dengan bumbu kari kaya rempah, daging, atau makanan laut\" adalah...",
+    "options": [
+      "Mie Aceh",
+      "Seruit",
+      "Soto Betawi",
+      "Mie Kocok"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Mie Aceh berasal dari KOTA BANDA ACEH, Provinsi Aceh. Mi kuning tebal dengan bumbu kari kaya rempah, daging, atau makanan laut",
+    "relatedItemSlug": "makanan-mie-aceh-11"
+  },
+  {
+    "id": "qz-11-003",
+    "provinceId": "11",
+    "provinceName": "Aceh",
+    "regencyId": "1101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Aceh yang memiliki ciri khas \"Jas leher tertutup (Baje Meukasah), celana panjang (Sileuweu), kopiah khas (Meukeutop)\" adalah...",
+    "options": [
+      "Babaju Kubaya Panjang",
+      "Linto Baro",
+      "Baju Baniang",
+      "Pattuqduq Towaine"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Linto Baro berasal dari KABUPATEN SIMEULUE, Provinsi Aceh. Linto Baro merupakan busana adat tradisional khas Aceh yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-linto-baro-11"
+  },
+  {
+    "id": "qz-11-004",
+    "provinceId": "11",
+    "provinceName": "Aceh",
+    "regencyId": "1101",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN SIMEULUE, Provinsi Aceh adalah...",
+    "options": [
+      "PUS ING",
+      "RAEGO (REGO)",
+      "PATAM-PATAM",
+      "RANAU"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "PATAM-PATAM berasal dari KABUPATEN SIMEULUE, Provinsi Aceh. Bagia.n dari tari Ular-ular Lembing berasal dari Tamiang pesisir timur D.I.",
+    "relatedItemSlug": "tarian-patam-patam-11"
+  },
+  {
+    "id": "qz-11-005",
+    "provinceId": "11",
+    "provinceName": "Aceh",
+    "regencyId": "1111",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Aceh (KABUPATEN ACEH UTARA)?",
+    "options": [
+      "Bahasa Dobel",
+      "Bahasa Dusun Deyah",
+      "Bahasa Elnama",
+      "Bahasa Aceh"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Aceh berasal dari KABUPATEN ACEH UTARA, Provinsi Aceh. Bahasa Aceh dituturkan di wilayah pesisir Provinsi Aceh yang terbentang dari Selat Malaka sampai ke pantai barat menghadap Lautan Hindia.",
+    "relatedItemSlug": "bahasa-bahasa-aceh-11"
+  },
+  {
+    "id": "qz-12-006",
+    "provinceId": "12",
+    "provinceName": "Sumatera Utara",
+    "regencyId": "1204",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sumatera Utara (KABUPATEN TAPANULI TENGAH) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Aramba",
+      "Entebong",
+      "Talindo atau Popondi",
+      "Baasi"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Aramba berasal dari KABUPATEN TAPANULI TENGAH, Provinsi Sumatera Utara. Aramba berasal dari Pulau Nias, Sumatera Utara yang mempunyai jenis bunyi Ideofon, yaitu bunyi yang berasal dari bahan dasarnya.",
+    "relatedItemSlug": "musik-aramba-12"
+  },
+  {
+    "id": "qz-12-007",
+    "provinceId": "12",
+    "provinceName": "Sumatera Utara",
+    "regencyId": "1271",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sumatera Utara yang dikenal dengan ciri \"Kue pipih kuning bersarang dari tapioka, telur, dan santan\" adalah...",
+    "options": [
+      "Sate Maranggi",
+      "Bika Ambon",
+      "Gudeg",
+      "Soto Lamongan"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bika Ambon berasal dari KOTA SIBOLGA, Provinsi Sumatera Utara. Kue pipih kuning bersarang dari tapioka, telur, dan santan",
+    "relatedItemSlug": "makanan-bika-ambon-12"
+  },
+  {
+    "id": "qz-12-008",
+    "provinceId": "12",
+    "provinceName": "Sumatera Utara",
+    "regencyId": "1201",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sumatera Utara yang memiliki ciri khas \"Tenun tradisional disampirkan di bahu atau dijadikan sarung\" adalah...",
+    "options": [
+      "Jas Tutu",
+      "Jas Baniang",
+      "Kain Ulos (Batak Toba)",
+      "Ewer"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Kain Ulos (Batak Toba) berasal dari KABUPATEN NIAS, Provinsi Sumatera Utara. Kain Ulos (Batak Toba) merupakan busana adat tradisional khas Sumatera Utara yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-kain-ulos-batak-toba-12"
+  },
+  {
+    "id": "qz-12-009",
+    "provinceId": "12",
+    "provinceName": "Sumatera Utara",
+    "regencyId": "1211",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KARO, Provinsi Sumatera Utara adalah...",
+    "options": [
+      "RAMAYANA",
+      "RANGKE'",
+      "RA RAS",
+      "PARAKUT"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "PARAKUT berasal dari KABUPATEN KARO, Provinsi Sumatera Utara. Tarian tradisi dari daerah Karo Sumatra Utara.",
+    "relatedItemSlug": "tarian-parakut-12"
+  },
+  {
+    "id": "qz-12-010",
+    "provinceId": "12",
+    "provinceName": "Sumatera Utara",
+    "regencyId": "1208",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sumatera Utara (KABUPATEN ASAHAN)?",
+    "options": [
+      "Bahasa Batak",
+      "Bahasa Eik (Foau)",
+      "Bahasa Emplawas",
+      "Bahasa Fermanggem"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Batak berasal dari KABUPATEN ASAHAN, Provinsi Sumatera Utara. Bahasa Batak dituturkan di Kabupaten Asahan, Kota Tanjung Balai, Kabupaten Simalungun (khususnya bagian pesisir barat), Kabupaten Dairi, Kabupaten Tapanuli Tengah...",
+    "relatedItemSlug": "bahasa-bahasa-batak-12"
+  },
+  {
+    "id": "qz-13-011",
+    "provinceId": "13",
+    "provinceName": "Sumatera Barat",
+    "regencyId": "1304",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sumatera Barat (KABUPATEN SIJUNJUNG) yang memiliki karakter \"Aerofon (Tiup)\" adalah...",
+    "options": [
+      "Sapek",
+      "Saluang",
+      "Calong",
+      "Anna Baccing"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Saluang berasal dari KABUPATEN SIJUNJUNG, Provinsi Sumatera Barat. Saluang berasal dari Minangkabau, Sumatera Barat yang mempunyai jenis bunyi Aerofon, yaitu bunyi yang berasal dari hembusan angin.",
+    "relatedItemSlug": "musik-saluang-13"
+  },
+  {
+    "id": "qz-13-012",
+    "provinceId": "13",
+    "provinceName": "Sumatera Barat",
+    "regencyId": "1304",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sumatera Barat yang dikenal dengan ciri \"Daging sapi yang dimasak perlahan dalam santan dan rempah hingga mengering\" adalah...",
+    "options": [
+      "Lontong Balap",
+      "Ayam Taliwang",
+      "Rendang",
+      "Kolo"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Rendang berasal dari KABUPATEN SIJUNJUNG, Provinsi Sumatera Barat. Daging sapi yang dimasak perlahan dalam santan dan rempah hingga mengering",
+    "relatedItemSlug": "makanan-rendang-13"
+  },
+  {
+    "id": "qz-13-013",
+    "provinceId": "13",
+    "provinceName": "Sumatera Barat",
+    "regencyId": "1301",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sumatera Barat yang memiliki ciri khas \"Penutup kepala menyerupai tanduk kerbau (Tengkuluk)\" adalah...",
+    "options": [
+      "Yokal",
+      "Baju Kurung Cekak Musang (Melayu Deli)",
+      "Baju Betabur",
+      "Bundo Kanduang"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bundo Kanduang berasal dari KABUPATEN KEPULAUAN MENTAWAI, Provinsi Sumatera Barat. Bundo Kanduang merupakan busana adat tradisional khas Sumatera Barat yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-bundo-kanduang-13"
+  },
+  {
+    "id": "qz-13-014",
+    "provinceId": "13",
+    "provinceName": "Sumatera Barat",
+    "regencyId": "1301",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KEPULAUAN MENTAWAI, Provinsi Sumatera Barat adalah...",
+    "options": [
+      "PADA-PADA",
+      "RATIB MEUSEKAT",
+      "RE RE RE",
+      "REJANG"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PADA-PADA berasal dari KABUPATEN KEPULAUAN MENTAWAI, Provinsi Sumatera Barat. Bagian pertama dari tari Tan Bentang berasal dari Sumatera Barat.",
+    "relatedItemSlug": "tarian-pada-pada-13"
+  },
+  {
+    "id": "qz-13-015",
+    "provinceId": "13",
+    "provinceName": "Sumatera Barat",
+    "regencyId": "1309",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sumatera Barat (KABUPATEN PASAMAN)?",
+    "options": [
+      "Bahasa Fayu",
+      "Bahasa Batak",
+      "Bahasa Gane",
+      "Bahasa Gua"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Batak berasal dari KABUPATEN PASAMAN, Provinsi Sumatera Barat. Bahasa Batak yang berada di Provinsi Sumatera Barat dituturkan di Desa Simpang Tiga Cubadak, Kecamatan Talamau, Kabupaten Pasaman Barat.",
+    "relatedItemSlug": "bahasa-bahasa-batak-13"
+  },
+  {
+    "id": "qz-14-016",
+    "provinceId": "14",
+    "provinceName": "Riau",
+    "regencyId": "1403",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Riau (KABUPATEN INDRAGIRI HILIR) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Kecapi Mandar",
+      "Lalosu Sessungriu",
+      "Gambus",
+      "Tatali"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Gambus berasal dari KABUPATEN INDRAGIRI HILIR, Provinsi Riau. Gambus berasal dari Riau, yang membunyai jenis bunyi Kordofun, yaitu bunyi yang berasal dari dawai atau senar.",
+    "relatedItemSlug": "musik-gambus-14"
+  },
+  {
+    "id": "qz-14-017",
+    "provinceId": "14",
+    "provinceName": "Riau",
+    "regencyId": "1471",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Riau yang dikenal dengan ciri \"Ikan patin kuah kuning berempah dengan cita rasa asam pedas\" adalah...",
+    "options": [
+      "Se'i",
+      "Juhu Singkah",
+      "Nasi Bekepor",
+      "Gulai Ikan Patin"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Gulai Ikan Patin berasal dari KOTA PEKANBARU, Provinsi Riau. Ikan patin kuah kuning berempah dengan cita rasa asam pedas",
+    "relatedItemSlug": "makanan-gulai-ikan-patin-14"
+  },
+  {
+    "id": "qz-14-018",
+    "provinceId": "14",
+    "provinceName": "Riau",
+    "regencyId": "1401",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Riau yang memiliki ciri khas \"Kerah tegak tanpa belahan depan\" adalah...",
+    "options": [
+      "Baju Kurung Cekak Musang",
+      "Baju Penghulu",
+      "Aesan Paksangko",
+      "Jamang Sangsang & Kampret"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Baju Kurung Cekak Musang berasal dari KABUPATEN KUANTAN SINGINGI, Provinsi Riau. Baju Kurung Cekak Musang merupakan busana adat tradisional khas Riau yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-baju-kurung-cekak-musang-14"
+  },
+  {
+    "id": "qz-14-019",
+    "provinceId": "14",
+    "provinceName": "Riau",
+    "regencyId": "1401",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KUANTAN SINGINGI, Provinsi Riau adalah...",
+    "options": [
+      "REDAD HADRAH PONTIANAK",
+      "PECAH LAPAN",
+      "RENGKUH",
+      "RETNA PAMUDYA"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "PECAH LAPAN berasal dari KABUPATEN KUANTAN SINGINGI, Provinsi Riau. Sejenis tari zapin terdapat di daerah Riau yang mempunyai berbagai ragam khas.",
+    "relatedItemSlug": "tarian-pecah-lapan-14"
+  },
+  {
+    "id": "qz-14-020",
+    "provinceId": "14",
+    "provinceName": "Riau",
+    "regencyId": "1403",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Riau (KABUPATEN INDRAGIRI HILIR)?",
+    "options": [
+      "Bahasa Gufinti",
+      "Bahasa Hoti",
+      "Bahasa Banjar",
+      "Bahasa Imiyan"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Banjar berasal dari KABUPATEN INDRAGIRI HILIR, Provinsi Riau. Bahasa Banjar yang berada di Provinsi Riau dituturkan di Desa Pekan Kamis, Kecamatan Tembilahan Hulu; Desa Simpang Gaung, Kecamatan Gaung; Desa Sungairaya dan Kel...",
+    "relatedItemSlug": "bahasa-bahasa-banjar-14"
+  },
+  {
+    "id": "qz-15-021",
+    "provinceId": "15",
+    "provinceName": "Jambi",
+    "regencyId": "1502",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Jambi (KABUPATEN MERANGIN) yang memiliki karakter \"Aerofon (Tiup)\" adalah...",
+    "options": [
+      "Tutuba",
+      "Salude",
+      "Gambus",
+      "Serangko"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Serangko berasal dari KABUPATEN MERANGIN, Provinsi Jambi. Serangko berasal dari Jambi yang terbuat dari tanduk kerbau.",
+    "relatedItemSlug": "musik-serangko-15"
+  },
+  {
+    "id": "qz-15-022",
+    "provinceId": "15",
+    "provinceName": "Jambi",
+    "regencyId": "1571",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Jambi yang dikenal dengan ciri \"Gulai ikan patin yang dimasak menggunakan fermentasi buah durian\" adalah...",
+    "options": [
+      "Gulai Tempoyak",
+      "Ketupat Kandangan",
+      "Tudai",
+      "Ayam Iloni"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Gulai Tempoyak berasal dari KOTA JAMBI, Provinsi Jambi. Gulai ikan patin yang dimasak menggunakan fermentasi buah durian",
+    "relatedItemSlug": "makanan-gulai-tempoyak-15"
+  },
+  {
+    "id": "qz-15-023",
+    "provinceId": "15",
+    "provinceName": "Jambi",
+    "regencyId": "1501",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Jambi yang memiliki ciri khas \"Sulam benang emas, panjang lengan persis di bawah siku\" adalah...",
+    "options": [
+      "Pakaian Adat Pepadun",
+      "Baju Kurung Tanggung",
+      "Ujung Serong",
+      "Kebaya Jawa"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Baju Kurung Tanggung berasal dari KABUPATEN KERINCI, Provinsi Jambi. Baju Kurung Tanggung merupakan busana adat tradisional khas Jambi yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-baju-kurung-tanggung-15"
+  },
+  {
+    "id": "qz-15-024",
+    "provinceId": "15",
+    "provinceName": "Jambi",
+    "regencyId": "1571",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KOTA JAMBI, Provinsi Jambi adalah...",
+    "options": [
+      "RERET",
+      "RINDHA",
+      "PASEMBAH",
+      "RUBDAIDAB"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "PASEMBAH berasal dari KOTA JAMBI, Provinsi Jambi. Tarian tradisional yang dikenal di daerah Jambi, dibawakan oleh 2 orang gadis remaja berusia sekitar 15 sampai 20 tahun.",
+    "relatedItemSlug": "tarian-pasembah-15"
+  },
+  {
+    "id": "qz-15-025",
+    "provinceId": "15",
+    "provinceName": "Jambi",
+    "regencyId": "1507",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Jambi (KABUPATEN TANJUNG JABUNG BARAT)?",
+    "options": [
+      "Bahasa Imbuti (Marind)",
+      "Bahasa Irawa",
+      "Bahasa Joerat",
+      "Bahasa Bajau Tungkal Satu"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bajau Tungkal Satu berasal dari KABUPATEN TANJUNG JABUNG BARAT, Provinsi Jambi. Bahasa Bajau Tungkal Satu dituturkan di Desa Tungkal Satu, Kecamatan Tungkal Ilir, Kabupaten Tanjung Jabung Barat, Provinsi Jambi.",
+    "relatedItemSlug": "bahasa-bahasa-bajau-tungkal-satu-15"
+  },
+  {
+    "id": "qz-16-026",
+    "provinceId": "16",
+    "provinceName": "Sumatera Selatan",
+    "regencyId": "1671",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sumatera Selatan (KOTA PALEMBANG) yang memiliki karakter \"Aerofon (Tiup)\" adalah...",
+    "options": [
+      "Accordion",
+      "Angklung",
+      "Japen",
+      "Ladolado"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Accordion berasal dari KOTA PALEMBANG, Provinsi Sumatera Selatan. Accoridon berasal dari Sumatera Selatan yang mempunyai jenis bunyi Aerofon, yaitu jenis bunyi yang berasal dari hembusan nafas.",
+    "relatedItemSlug": "musik-accordion-16"
+  },
+  {
+    "id": "qz-16-027",
+    "provinceId": "16",
+    "provinceName": "Sumatera Selatan",
+    "regencyId": "1671",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sumatera Selatan yang dikenal dengan ciri \"Olahan ikan giling dan sagu, disajikan dengan kuah cuko asam pedas manis\" adalah...",
+    "options": [
+      "Tili Aya",
+      "Pempek",
+      "Coto Makassar",
+      "Lapa-Lapa"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Pempek berasal dari KOTA PALEMBANG, Provinsi Sumatera Selatan. Olahan ikan giling dan sagu, disajikan dengan kuah cuko asam pedas manis",
+    "relatedItemSlug": "makanan-pempek-16"
+  },
+  {
+    "id": "qz-16-028",
+    "provinceId": "16",
+    "provinceName": "Sumatera Selatan",
+    "regencyId": "1601",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sumatera Selatan yang memiliki ciri khas \"Pakaian pengantin kebesaran Sriwijaya, merah muda/emas, mahkota teratai\" adalah...",
+    "options": [
+      "Jawi Jangkep",
+      "Pesa'an (Madura)",
+      "Aesan Gede",
+      "Pegon & Lambung (Sasak)"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Aesan Gede berasal dari KABUPATEN OGAN KOMERING ULU, Provinsi Sumatera Selatan. Aesan Gede merupakan busana adat tradisional khas Sumatera Selatan yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-aesan-gede-16"
+  },
+  {
+    "id": "qz-16-029",
+    "provinceId": "16",
+    "provinceName": "Sumatera Selatan",
+    "regencyId": "1671",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KOTA PALEMBANG, Provinsi Sumatera Selatan adalah...",
+    "options": [
+      "SABUK",
+      "SALAWARPALEMBANGAN",
+      "SALONDE",
+      "PADANG PANJANG"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "PADANG PANJANG berasal dari KOTA PALEMBANG, Provinsi Sumatera Selatan. Tarian hiburan terdapat di daerah Padang Bindu dan sekitarnya Kabupaten Lematang Ilir Ogan Tengah - Sumatera Selatan.",
+    "relatedItemSlug": "tarian-padang-panjang-16"
+  },
+  {
+    "id": "qz-16-030",
+    "provinceId": "16",
+    "provinceName": "Sumatera Selatan",
+    "regencyId": "1611",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sumatera Selatan (KABUPATEN EMPAT LAWANG)?",
+    "options": [
+      "Bahasa Jawa",
+      "Bahasa Jair",
+      "Bahasa Kabola",
+      "Bahasa Kaiely"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Jawa berasal dari KABUPATEN EMPAT LAWANG, Provinsi Sumatera Selatan. Bahasa Jawa yang berada di Provinsi Sumatera Selatan dituturkan di Desa Makarti Jaya, Kecamatan Tembingtinggi, Kabupaten Empat Lawang dan Desa Sebubus, Kecamatan ...",
+    "relatedItemSlug": "bahasa-bahasa-jawa-16"
+  },
+  {
+    "id": "qz-17-031",
+    "provinceId": "17",
+    "provinceName": "Bengkulu",
+    "regencyId": "1771",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Bengkulu (KOTA BENGKULU) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Serunai",
+      "Doll",
+      "Ganda",
+      "Tifa"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Doll berasal dari KOTA BENGKULU, Provinsi Bengkulu. Doll berasal dari Bengkulu yang mempunyai jenis bunyi Membranofon, yaitu jenis bunyi yang asalnya dengan memukul.",
+    "relatedItemSlug": "musik-doll-17"
+  },
+  {
+    "id": "qz-17-032",
+    "provinceId": "17",
+    "provinceName": "Bengkulu",
+    "regencyId": "1701",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Bengkulu yang dikenal dengan ciri \"Ikan berbalut kelapa parut berbumbu yang dibungkus daun talas dan direbus\" adalah...",
+    "options": [
+      "Sop Saudara",
+      "Nasi Lapola",
+      "Pendap",
+      "Mie Aceh"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Pendap berasal dari KABUPATEN BENGKULU SELATAN, Provinsi Bengkulu. Ikan berbalut kelapa parut berbumbu yang dibungkus daun talas dan direbus",
+    "relatedItemSlug": "makanan-pendap-17"
+  },
+  {
+    "id": "qz-17-033",
+    "provinceId": "17",
+    "provinceName": "Bengkulu",
+    "regencyId": "1701",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Bengkulu yang memiliki ciri khas \"Jas tertutup dan baju kurung beludru merah/hitam ornamen emas\" adalah...",
+    "options": [
+      "Payas Alit",
+      "King Baba",
+      "Babaju Kun Galung Pacinan",
+      "Baju Betabur"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Baju Betabur berasal dari KABUPATEN BENGKULU SELATAN, Provinsi Bengkulu. Baju Betabur merupakan busana adat tradisional khas Bengkulu yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-baju-betabur-17"
+  },
+  {
+    "id": "qz-17-034",
+    "provinceId": "17",
+    "provinceName": "Bengkulu",
+    "regencyId": "1701",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN BENGKULU SELATAN, Provinsi Bengkulu adalah...",
+    "options": [
+      "PANYEMBRAMA",
+      "SALAWARSAKONCANG",
+      "SAM AN",
+      "SAMINDARA"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PANYEMBRAMA berasal dari KABUPATEN BENGKULU SELATAN, Provinsi Bengkulu. Tarian wanita yang dipakai untuk menyambut tamu, di mana perbendaharaan geraknya diambil dari tari-tarian upacara seperti Rejang, Pendet dan Gabor.",
+    "relatedItemSlug": "tarian-panyembrama-17"
+  },
+  {
+    "id": "qz-17-035",
+    "provinceId": "17",
+    "provinceName": "Bengkulu",
+    "regencyId": "1702",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Bengkulu (KABUPATEN REJANG LEBONG)?",
+    "options": [
+      "Bahasa Kaigar",
+      "Bahasa Bengkulu",
+      "Bahasa Kamang",
+      "Bahasa Kanum Barkari"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Bengkulu berasal dari KABUPATEN REJANG LEBONG, Provinsi Bengkulu. Bahasa Bengkulu dituturkan di wilayah Kecamatan Ipuh, Kecamatan Teluk Segara, Kecamatan Muara Bangkahulu, Kota Bengkulu; Desa Pelalo, Desa Taba Tinggi daerah Pada...",
+    "relatedItemSlug": "bahasa-bahasa-bengkulu-17"
+  },
+  {
+    "id": "qz-18-036",
+    "provinceId": "18",
+    "provinceName": "Lampung",
+    "regencyId": "1801",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Lampung (KABUPATEN LAMPUNG BARAT) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Kendang",
+      "Talempong",
+      "Bende",
+      "Arbab"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bende berasal dari KABUPATEN LAMPUNG BARAT, Provinsi Lampung. Bende berasal dari Lampung yang mempunyai jenis bunyi Ideofon, yaitu jenis bunyi yang berasal dari bahan dasarnya.",
+    "relatedItemSlug": "musik-bende-18"
+  },
+  {
+    "id": "qz-18-037",
+    "provinceId": "18",
+    "provinceName": "Lampung",
+    "regencyId": "1871",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Lampung yang dikenal dengan ciri \"Ikan sungai goreng/bakar yang dicampur sambal terasi, tempoyak, atau mangga\" adalah...",
+    "options": [
+      "Aunu Senebre",
+      "Arsik",
+      "Ayam Pop",
+      "Seruit"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Seruit berasal dari KOTA BANDAR LAMPUNG, Provinsi Lampung. Ikan sungai goreng/bakar yang dicampur sambal terasi, tempoyak, atau mangga",
+    "relatedItemSlug": "makanan-seruit-18"
+  },
+  {
+    "id": "qz-18-038",
+    "provinceId": "18",
+    "provinceName": "Lampung",
+    "regencyId": "1801",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Lampung yang memiliki ciri khas \"Siger (mahkota) berlekuk sembilan bahan kuningan/emas\" adalah...",
+    "options": [
+      "Pakaian Adat Pepadun",
+      "Kustin",
+      "Pakaian Tonaas & Walian",
+      "Baju Pokko"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Pakaian Adat Pepadun berasal dari KABUPATEN LAMPUNG BARAT, Provinsi Lampung. Pakaian Adat Pepadun merupakan busana adat tradisional khas Lampung yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-pakaian-adat-pepadun-18"
+  },
+  {
+    "id": "qz-18-039",
+    "provinceId": "18",
+    "provinceName": "Lampung",
+    "regencyId": "1806",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN LAMPUNG UTARA, Provinsi Lampung adalah...",
+    "options": [
+      "SALLIA",
+      "PUTRIMANDI",
+      "SAMBAN BARANGKAP",
+      "SAMPIUNG,NGEKNGEK"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "PUTRIMANDI berasal dari KABUPATEN LAMPUNG UTARA, Provinsi Lampung. Tari kreasi baru yang dikenal di daerah Lampung, menggambarkan gadis-gadis sedang mandi.",
+    "relatedItemSlug": "tarian-putrimandi-18"
+  },
+  {
+    "id": "qz-18-040",
+    "provinceId": "18",
+    "provinceName": "Lampung",
+    "regencyId": "1805",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Lampung (KABUPATEN LAMPUNG TENGAH)?",
+    "options": [
+      "Bahasa Kanum Barkari",
+      "Bahasa Karufo Auf",
+      "Bahasa Bali",
+      "Bahasa Kayu Agung"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Bali berasal dari KABUPATEN LAMPUNG TENGAH, Provinsi Lampung. Bahasa Bali yang berada di Provinsi Lampung dituturkan di Desa Rama Murti, Kecamatan Seputih Raman, Kabupaten Lampung Tengah dan Desa Bali Sadar Utara, Kecamatan ...",
+    "relatedItemSlug": "bahasa-bahasa-bali-18"
+  },
+  {
+    "id": "qz-19-041",
+    "provinceId": "19",
+    "provinceName": "Kepulauan Bangka Belitung",
+    "regencyId": "1971",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kepulauan Bangka Belitung (KOTA PANGKAL PINANG) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Tebangan",
+      "Taktok Trieng",
+      "Druni Dana",
+      "Gendang Melayu"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Gendang Melayu berasal dari KOTA PANGKAL PINANG, Provinsi Kepulauan Bangka Belitung. Gendang melayu berasal dari Kepulauan bangka belitung yang mempunyai jenis bunyi Membranofon, yaitu jenis bunyi yang asalnya dengan memukul di sekitar area lunak ...",
+    "relatedItemSlug": "musik-gendang-melayu-19"
+  },
+  {
+    "id": "qz-19-042",
+    "provinceId": "19",
+    "provinceName": "Kepulauan Bangka Belitung",
+    "regencyId": "1971",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kepulauan Bangka Belitung yang dikenal dengan ciri \"Sup ikan laut kuah kuning kunyit dan asam jawa, sering dicampur nanas\" adalah...",
+    "options": [
+      "Lempah Kuning",
+      "Dendeng Batokok",
+      "Mie Tarempa",
+      "Bagar Hiu"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Lempah Kuning berasal dari KOTA PANGKAL PINANG, Provinsi Kepulauan Bangka Belitung. Sup ikan laut kuah kuning kunyit dan asam jawa, sering dicampur nanas",
+    "relatedItemSlug": "makanan-lempah-kuning-19"
+  },
+  {
+    "id": "qz-19-043",
+    "provinceId": "19",
+    "provinceName": "Kepulauan Bangka Belitung",
+    "regencyId": "1901",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kepulauan Bangka Belitung yang memiliki ciri khas \"Baju kurung beludru sutra merah/ungu, mahkota emas Paksian\" adalah...",
+    "options": [
+      "Payunga & Takowa",
+      "Paksian",
+      "Baju Pokko & Seppa Tallung Buku",
+      "Manteren Lamo & Kimun Gia"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Paksian berasal dari KABUPATEN BANGKA, Provinsi Kepulauan Bangka Belitung. Paksian merupakan busana adat tradisional khas Kepulauan Bangka Belitung yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-paksian-19"
+  },
+  {
+    "id": "qz-19-044",
+    "provinceId": "19",
+    "provinceName": "Kepulauan Bangka Belitung",
+    "regencyId": "1901",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN BANGKA, Provinsi Kepulauan Bangka Belitung adalah...",
+    "options": [
+      "SAMPANGASE",
+      "SANGHYANG",
+      "Tari Campak",
+      "SAPARO SIARORO"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Tari Campak berasal dari KABUPATEN BANGKA, Provinsi Kepulauan Bangka Belitung. Tari Campak merupakan tarian pergaulan tradisional khas Kepulauan Bangka Belitung yang menggambarkan keceriaan bujang dan dayang dengan iringan akordion, gendang,...",
+    "relatedItemSlug": "tarian-tari-campak-19"
+  },
+  {
+    "id": "qz-19-045",
+    "provinceId": "19",
+    "provinceName": "Kepulauan Bangka Belitung",
+    "regencyId": "1901",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kepulauan Bangka Belitung (KABUPATEN BANGKA)?",
+    "options": [
+      "Bahasa Kaureh",
+      "Bahasa Kejer Manirem",
+      "Bahasa Kerinci",
+      "Bahasa Kayu Agung"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Kayu Agung berasal dari KABUPATEN BANGKA, Provinsi Kepulauan Bangka Belitung. Bahasa Kayu Agung yang berada di Provinsi Kepulauan Bangka Belitung dituturkan di Desa Kimak, Kecamatan Merawang, Kabupaten Bangka dan di Desa Sarang Mandi, Kecam...",
+    "relatedItemSlug": "bahasa-bahasa-kayu-agung-19"
+  },
+  {
+    "id": "qz-21-046",
+    "provinceId": "21",
+    "provinceName": "Kepulauan Riau",
+    "regencyId": "2101",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kepulauan Riau (KABUPATEN KARIMUN) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Kenong",
+      "Gendang Panjang",
+      "Sapek",
+      "Calong"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Gendang Panjang berasal dari KABUPATEN KARIMUN, Provinsi Kepulauan Riau. Gendang panjang berasal dari Kepulauan Riau yang mempunyai jenis bunyi Membranofon yang digunakan dengan cara menepukkan tangan pada area yang lunak.",
+    "relatedItemSlug": "musik-gendang-panjang-21"
+  },
+  {
+    "id": "qz-21-047",
+    "provinceId": "21",
+    "provinceName": "Kepulauan Riau",
+    "regencyId": "2105",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kepulauan Riau yang dikenal dengan ciri \"Mi pipih khas Anambas ditumis dengan bumbu pedas dan suwiran ikan tongkol\" adalah...",
+    "options": [
+      "Kerak Telor",
+      "Sate Maranggi",
+      "Mie Tarempa",
+      "Gudeg"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Mie Tarempa berasal dari KABUPATEN KEPULAUAN ANAMBAS, Provinsi Kepulauan Riau. Mi pipih khas Anambas ditumis dengan bumbu pedas dan suwiran ikan tongkol",
+    "relatedItemSlug": "makanan-mie-tarempa-21"
+  },
+  {
+    "id": "qz-21-048",
+    "provinceId": "21",
+    "provinceName": "Kepulauan Riau",
+    "regencyId": "2101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kepulauan Riau yang memiliki ciri khas \"Kerah tegak tanpa belahan depan\" adalah...",
+    "options": [
+      "Baju Batabue",
+      "Aesan Gede",
+      "Baju Pangsi",
+      "Baju Kurung Cekak Musang"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Baju Kurung Cekak Musang berasal dari KABUPATEN KARIMUN, Provinsi Kepulauan Riau. Baju Kurung Cekak Musang merupakan busana adat tradisional khas Kepulauan Riau yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-baju-kurung-cekak-musang-21"
+  },
+  {
+    "id": "qz-21-049",
+    "provinceId": "21",
+    "provinceName": "Kepulauan Riau",
+    "regencyId": "2101",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KARIMUN, Provinsi Kepulauan Riau adalah...",
+    "options": [
+      "SELENDANG AWANG",
+      "SAR UN",
+      "SAW AW AR",
+      "SE.KIN"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "SELENDANG AWANG berasal dari KABUPATEN KARIMUN, Provinsi Kepulauan Riau. Tari hiburan bersifat lucu yang merupakan bagian dari teater Makayong dari Riay terutama sekitar Pulau Bintan.",
+    "relatedItemSlug": "tarian-selendang-awang-21"
+  },
+  {
+    "id": "qz-21-050",
+    "provinceId": "21",
+    "provinceName": "Kepulauan Riau",
+    "regencyId": "2101",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kepulauan Riau (KABUPATEN KARIMUN)?",
+    "options": [
+      "Bahasa Klamu",
+      "Bahasa Melayu",
+      "Bahasa Kokenop",
+      "Bahasa Komering"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Melayu berasal dari KABUPATEN KARIMUN, Provinsi Kepulauan Riau. Bahasa Melayu dituturkan di Provinsi Kepulauan Riau.",
+    "relatedItemSlug": "bahasa-bahasa-melayu-21"
+  },
+  {
+    "id": "qz-31-051",
+    "provinceId": "31",
+    "provinceName": "DKI Jakarta",
+    "regencyId": "3173",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi DKI Jakarta (KOTA JAKARTA PUSAT) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Geso Geso",
+      "Momongan",
+      "Accordion",
+      "Tehyan"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Tehyan berasal dari KOTA JAKARTA PUSAT, Provinsi DKI Jakarta. Tehyan berasal dari Ibukota Jakarta yang mempunyai jenis suara Kordofon yang digunakan dengan cara digesek di bagian dawai atau senarnya, hampir sama dengan memai...",
+    "relatedItemSlug": "musik-tehyan-31"
+  },
+  {
+    "id": "qz-31-052",
+    "provinceId": "31",
+    "provinceName": "DKI Jakarta",
+    "regencyId": "3171",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi DKI Jakarta yang dikenal dengan ciri \"Ketan putih, telur, dan ebi yang disangrai kering bersama bumbu halus\" adalah...",
+    "options": [
+      "Kerak Telor",
+      "Gudeg",
+      "Soto Lamongan",
+      "Plecing Kangkung"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Kerak Telor berasal dari KOTA JAKARTA SELATAN, Provinsi DKI Jakarta. Ketan putih, telur, dan ebi yang disangrai kering bersama bumbu halus",
+    "relatedItemSlug": "makanan-kerak-telor-31"
+  },
+  {
+    "id": "qz-31-053",
+    "provinceId": "31",
+    "provinceName": "DKI Jakarta",
+    "regencyId": "3101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi DKI Jakarta yang memiliki ciri khas \"Kebaya peranakan warna cerah, bordir bunga\" adalah...",
+    "options": [
+      "Kain Hinggi & Lau (Sumba)",
+      "Kebaya Encim",
+      "Baamar Galung Pancar Matahari",
+      "Sapei Sapaq"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Kebaya Encim berasal dari KABUPATEN KEPULAUAN SERIBU, Provinsi DKI Jakarta. Kebaya Encim merupakan busana adat tradisional khas DKI Jakarta yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-kebaya-encim-31"
+  },
+  {
+    "id": "qz-31-054",
+    "provinceId": "31",
+    "provinceName": "DKI Jakarta",
+    "regencyId": "3101",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KEPULAUAN SERIBU, Provinsi DKI Jakarta adalah...",
+    "options": [
+      "TANBENTAN",
+      "TANGED",
+      "TANDAK",
+      "TANTULO"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "TANDAK berasal dari KABUPATEN KEPULAUAN SERIBU, Provinsi DKI Jakarta. Tari tradisional Betawi yang asalnya dari tarian rakyat yang sifatnya masih prirnitif dan dipertunjukkan sebagai hiburan.",
+    "relatedItemSlug": "tarian-tandak-31"
+  },
+  {
+    "id": "qz-31-055",
+    "provinceId": "31",
+    "provinceName": "DKI Jakarta",
+    "regencyId": "3101",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi DKI Jakarta (KABUPATEN KEPULAUAN SERIBU)?",
+    "options": [
+      "Bahasa Mooi",
+      "Bahasa Mpur Pantai",
+      "Bahasa Nafri",
+      "Bahasa Bugis"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bugis berasal dari KABUPATEN KEPULAUAN SERIBU, Provinsi DKI Jakarta. Bahasa Bugis merupakan bahasa yang berasal di Pulau Sulawesi.",
+    "relatedItemSlug": "bahasa-bahasa-bugis-31"
+  },
+  {
+    "id": "qz-32-056",
+    "provinceId": "32",
+    "provinceName": "Jawa Barat",
+    "regencyId": "3273",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Jawa Barat (KOTA BANDUNG) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Angklung",
+      "Ladolado",
+      "Pupuik Batang Padi",
+      "Bangsi Alas"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Angklung berasal dari KOTA BANDUNG, Provinsi Jawa Barat. Angklung berasal dari Jawa barat yang mempunyai jenis bunyi Ideofon.",
+    "relatedItemSlug": "musik-angklung-32"
+  },
+  {
+    "id": "qz-32-057",
+    "provinceId": "32",
+    "provinceName": "Jawa Barat",
+    "regencyId": "3273",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Jawa Barat yang dikenal dengan ciri \"Bakso tahu goreng berbahan ikan tenggiri bersiram bumbu kacang\" adalah...",
+    "options": [
+      "Se'i",
+      "Batagor",
+      "Juhu Singkah",
+      "Nasi Bekepor"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Batagor berasal dari KOTA BANDUNG, Provinsi Jawa Barat. Bakso tahu goreng berbahan ikan tenggiri bersiram bumbu kacang",
+    "relatedItemSlug": "makanan-batagor-32"
+  },
+  {
+    "id": "qz-32-058",
+    "provinceId": "32",
+    "provinceName": "Jawa Barat",
+    "regencyId": "3201",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Jawa Barat yang memiliki ciri khas \"Hitam untuk pria, kebaya sederhana wanita (rakyat jelata)\" adalah...",
+    "options": [
+      "Ta'a",
+      "Payunga & Takowa",
+      "Baju Pangsi & Kebaya Sunda",
+      "Baju Pokko & Seppa Tallung Buku"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Baju Pangsi & Kebaya Sunda berasal dari KABUPATEN BOGOR, Provinsi Jawa Barat. Baju Pangsi & Kebaya Sunda merupakan busana adat tradisional khas Jawa Barat yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-baju-pangsi-kebaya-sunda-32"
+  },
+  {
+    "id": "qz-32-059",
+    "provinceId": "32",
+    "provinceName": "Jawa Barat",
+    "regencyId": "3201",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN BOGOR, Provinsi Jawa Barat adalah...",
+    "options": [
+      "TATAK GARO- GARO",
+      "TELADAN SURI",
+      "TENG EN LETTO",
+      "PALEREDAN"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "PALEREDAN berasal dari KABUPATEN BOGOR, Provinsi Jawa Barat. Di dalam lbing Panca Paleredan terlihat sekali perbedaannya dan Tepak dua lbing Paleredan iramanya sedang, titik cepat seperti tepak tiga.",
+    "relatedItemSlug": "tarian-paleredan-32"
+  },
+  {
+    "id": "qz-32-060",
+    "provinceId": "32",
+    "provinceName": "Jawa Barat",
+    "regencyId": "3209",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Jawa Barat (KABUPATEN CIREBON)?",
+    "options": [
+      "Bahasa Jawa",
+      "Bahasa Murkim",
+      "Bahasa Nalik Selatan",
+      "Bahasa Napiti"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Jawa berasal dari KABUPATEN CIREBON, Provinsi Jawa Barat. Bahasa Jawa berasal dari Pulau Jawa.",
+    "relatedItemSlug": "bahasa-bahasa-jawa-32"
+  },
+  {
+    "id": "qz-33-061",
+    "provinceId": "33",
+    "provinceName": "Jawa Tengah",
+    "regencyId": "3372",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Jawa Tengah (KOTA SURAKARTA) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Hapetan",
+      "Gamelan",
+      "Sapek",
+      "Calong"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Gamelan berasal dari KOTA SURAKARTA, Provinsi Jawa Tengah. Gamelan berasal dari Jawa Tengah yang mempunyai jenis bunyi Ideofon.",
+    "relatedItemSlug": "musik-gamelan-33"
+  },
+  {
+    "id": "qz-33-062",
+    "provinceId": "33",
+    "provinceName": "Jawa Tengah",
+    "regencyId": "3374",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Jawa Tengah yang dikenal dengan ciri \"Gulungan kulit lumpia berisi rebung, telur, ayam/udang\" adalah...",
+    "options": [
+      "Bingka",
+      "Tinutuan / Bubur Manado",
+      "Lumpia Semarang",
+      "Kaledo"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Lumpia Semarang berasal dari KOTA SEMARANG, Provinsi Jawa Tengah. Gulungan kulit lumpia berisi rebung, telur, ayam/udang",
+    "relatedItemSlug": "makanan-lumpia-semarang-33"
+  },
+  {
+    "id": "qz-33-063",
+    "provinceId": "33",
+    "provinceName": "Jawa Tengah",
+    "regencyId": "3301",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Jawa Tengah yang memiliki ciri khas \"Setelan bangsawan pria (Beskap, blangkon, keris, kain jarik)\" adalah...",
+    "options": [
+      "Jas Tutu",
+      "Jas Baniang",
+      "Ewer",
+      "Jawi Jangkep"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Jawi Jangkep berasal dari KABUPATEN CILACAP, Provinsi Jawa Tengah. Jawi Jangkep merupakan busana adat tradisional khas Jawa Tengah yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-jawi-jangkep-33"
+  },
+  {
+    "id": "qz-33-064",
+    "provinceId": "33",
+    "provinceName": "Jawa Tengah",
+    "regencyId": "3301",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN CILACAP, Provinsi Jawa Tengah adalah...",
+    "options": [
+      "PACAK",
+      "TENGEN LETTO",
+      "TEPAK DUA",
+      "TIDI LO RANTE"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PACAK berasal dari KABUPATEN CILACAP, Provinsi Jawa Tengah. Ukuran gerak wiraga tari Jawa , gaya S~rakarta, menurut watak, sifat dan lukisan jiwa yang diperagakan secara tepat.",
+    "relatedItemSlug": "tarian-pacak-33"
+  },
+  {
+    "id": "qz-33-065",
+    "provinceId": "33",
+    "provinceName": "Jawa Tengah",
+    "regencyId": "3325",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Jawa Tengah (KABUPATEN BATANG)?",
+    "options": [
+      "Bahasa Namut",
+      "Bahasa Jawa",
+      "Bahasa Ndarame",
+      "Bahasa Nggem"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Jawa berasal dari KABUPATEN BATANG, Provinsi Jawa Tengah. Bahasa Jawa adalah bahasa yang tanah asalnya berada di Pulau Jawa.",
+    "relatedItemSlug": "bahasa-bahasa-jawa-33"
+  },
+  {
+    "id": "qz-34-066",
+    "provinceId": "34",
+    "provinceName": "DI Yogyakarta",
+    "regencyId": "3471",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi DI Yogyakarta (KOTA YOGYAKARTA) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Guoto",
+      "Tambua & Tansa",
+      "Gendang",
+      "Serune Kalee (Serunai)"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Gendang berasal dari KOTA YOGYAKARTA, Provinsi DI Yogyakarta. Gendang berasal dari Yogyakarta yang mempunyai jenis bunyi Ideofon.",
+    "relatedItemSlug": "musik-gendang-34"
+  },
+  {
+    "id": "qz-34-067",
+    "provinceId": "34",
+    "provinceName": "DI Yogyakarta",
+    "regencyId": "3471",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi DI Yogyakarta yang dikenal dengan ciri \"Nangka muda rebusan santan dan gula aren, disajikan dengan krecek dan telur\" adalah...",
+    "options": [
+      "Cakalang Fufu",
+      "Palumara",
+      "Kapurung",
+      "Gudeg"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Gudeg berasal dari KOTA YOGYAKARTA, Provinsi DI Yogyakarta. Nangka muda rebusan santan dan gula aren, disajikan dengan krecek dan telur",
+    "relatedItemSlug": "makanan-gudeg-34"
+  },
+  {
+    "id": "qz-34-068",
+    "provinceId": "34",
+    "provinceName": "DI Yogyakarta",
+    "regencyId": "3401",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi DI Yogyakarta yang memiliki ciri khas \"Baju adat pria keraton, pakem jarik wiru Yogya\" adalah...",
+    "options": [
+      "Kesatrian Ageng",
+      "Manteren Lamo & Kimun Gia",
+      "Baju Kain Rumput",
+      "Bundo Kanduang"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Kesatrian Ageng berasal dari KABUPATEN KULON PROGO, Provinsi DI Yogyakarta. Kesatrian Ageng merupakan busana adat tradisional khas DI Yogyakarta yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-kesatrian-ageng-34"
+  },
+  {
+    "id": "qz-34-069",
+    "provinceId": "34",
+    "provinceName": "DI Yogyakarta",
+    "regencyId": "3471",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KOTA YOGYAKARTA, Provinsi DI Yogyakarta adalah...",
+    "options": [
+      "TEGEL",
+      "SASTROWECONO, R.A.C",
+      "TEMENGGUNG",
+      "TENGKULAI"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "SASTROWECONO, R.A.C berasal dari KOTA YOGYAKARTA, Provinsi DI Yogyakarta. Raden Andreas Corsinus Sastrowecono .",
+    "relatedItemSlug": "tarian-sastrowecono-r-a-c-34"
+  },
+  {
+    "id": "qz-34-070",
+    "provinceId": "34",
+    "provinceName": "DI Yogyakarta",
+    "regencyId": "3401",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi DI Yogyakarta (KABUPATEN KULON PROGO)?",
+    "options": [
+      "Bahasa Ngalum",
+      "Bahasa Nobuk (Kwerba)",
+      "Bahasa Jawa",
+      "Bahasa Ogan"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Jawa berasal dari KABUPATEN KULON PROGO, Provinsi DI Yogyakarta. Bahasa Jawa merupakan bahasa daerah yang paling banyak dituturkan masyarakat yang tinggal di Pulau Jawa.",
+    "relatedItemSlug": "bahasa-bahasa-jawa-34"
+  },
+  {
+    "id": "qz-35-071",
+    "provinceId": "35",
+    "provinceName": "Jawa Timur",
+    "regencyId": "3502",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Jawa Timur (KABUPATEN PONOROGO) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Bangsi Alas",
+      "Canang",
+      "Gonrang",
+      "Bonang"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bonang berasal dari KABUPATEN PONOROGO, Provinsi Jawa Timur. Bonang berasal dari Jawa Timur yang mempunyai jenis bunyi Ideofon.",
+    "relatedItemSlug": "musik-bonang-35"
+  },
+  {
+    "id": "qz-35-072",
+    "provinceId": "35",
+    "provinceName": "Jawa Timur",
+    "regencyId": "3578",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Jawa Timur yang dikenal dengan ciri \"Sup daging sapi berkuah hitam pekat dari kluwek\" adalah...",
+    "options": [
+      "Rawon",
+      "Sate Pokea",
+      "Halua Kenari",
+      "Kuah Pliek U"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Rawon berasal dari KOTA SURABAYA, Provinsi Jawa Timur. Sup daging sapi berkuah hitam pekat dari kluwek",
+    "relatedItemSlug": "makanan-rawon-35"
+  },
+  {
+    "id": "qz-35-073",
+    "provinceId": "35",
+    "provinceName": "Jawa Timur",
+    "regencyId": "3501",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Jawa Timur yang memiliki ciri khas \"Kaos garis merah-putih, jas hitam longgar, celana gombrang, Odheng\" adalah...",
+    "options": [
+      "Baju Kurung Cekak Musang",
+      "Pesa'an (Madura)",
+      "Aesan Gede",
+      "Baju Pangsi"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Pesa'an (Madura) berasal dari KABUPATEN PACITAN, Provinsi Jawa Timur. Pesa'an (Madura) merupakan busana adat tradisional khas Jawa Timur yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-pesa-an-madura-35"
+  },
+  {
+    "id": "qz-35-074",
+    "provinceId": "35",
+    "provinceName": "Jawa Timur",
+    "regencyId": "3501",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN PACITAN, Provinsi Jawa Timur adalah...",
+    "options": [
+      "TENGKULAI",
+      "TEPAKSIRIH",
+      "PADANGULAN",
+      "TIGAL"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "PADANGULAN berasal dari KABUPATEN PACITAN, Provinsi Jawa Timur. Tarian yang tergolong kreasi baru di Banyuwangi atau dalam istilah daerah disebut golongan tari Angklung.",
+    "relatedItemSlug": "tarian-padangulan-35"
+  },
+  {
+    "id": "qz-35-075",
+    "provinceId": "35",
+    "provinceName": "Jawa Timur",
+    "regencyId": "3529",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Jawa Timur (KABUPATEN SUMENEP)?",
+    "options": [
+      "Bahasa Oirata",
+      "Bahasa Palu e",
+      "Bahasa Pembuang",
+      "Bahasa Bajo"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bajo berasal dari KABUPATEN SUMENEP, Provinsi Jawa Timur. Bahasa Bajo merupakan bahasa yang berasal dari Pulau Sulawesi.",
+    "relatedItemSlug": "bahasa-bahasa-bajo-35"
+  },
+  {
+    "id": "qz-36-076",
+    "provinceId": "36",
+    "provinceName": "Banten",
+    "regencyId": "3601",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Banten (KABUPATEN PANDEGLANG) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Gendang",
+      "Faritia",
+      "Ole Ole",
+      "Gambang"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Gendang berasal dari KABUPATEN PANDEGLANG, Provinsi Banten. Gendang berasal dari Banten yang mempunyai jenis bunyi Membranofon.",
+    "relatedItemSlug": "musik-gendang-36"
+  },
+  {
+    "id": "qz-36-077",
+    "provinceId": "36",
+    "provinceName": "Banten",
+    "regencyId": "3673",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Banten yang dikenal dengan ciri \"Daging ikan bandeng halus tanpa tulang yang dibumbui dan dibakar\" adalah...",
+    "options": [
+      "Nasi Lapola",
+      "Sate Bandeng",
+      "Mie Aceh",
+      "Mie Gomak"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Sate Bandeng berasal dari KOTA SERANG, Provinsi Banten. Daging ikan bandeng halus tanpa tulang yang dibumbui dan dibakar",
+    "relatedItemSlug": "makanan-sate-bandeng-36"
+  },
+  {
+    "id": "qz-36-078",
+    "provinceId": "36",
+    "provinceName": "Banten",
+    "regencyId": "3601",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Banten yang memiliki ciri khas \"Setelan kemeja kerah berdiri dan celana komprang hitam (rakyat umum/pesilat)\" adalah...",
+    "options": [
+      "Baju Kurung Tanggung",
+      "Baju Seting",
+      "Baju Pangsi",
+      "Dandanan Care Haji & Care None Pengantin Cina"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Baju Pangsi berasal dari KABUPATEN PANDEGLANG, Provinsi Banten. Baju Pangsi merupakan busana adat tradisional khas Banten yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-baju-pangsi-36"
+  },
+  {
+    "id": "qz-36-079",
+    "provinceId": "36",
+    "provinceName": "Banten",
+    "regencyId": "3603",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN TANGERANG, Provinsi Banten adalah...",
+    "options": [
+      "TEPAK DUA",
+      "TIDI LO RANTE",
+      "TINULUK MALIEK",
+      "SADAWUH"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "SADAWUH berasal dari KABUPATEN TANGERANG, Provinsi Banten. Tari Rakyat Sadawuh adalah sebentuk tarian tradisional yang dilaksanakan pada waktu-waktu tertentu pada upacara mangkat (permulaan hajatan).",
+    "relatedItemSlug": "tarian-sadawuh-36"
+  },
+  {
+    "id": "qz-36-080",
+    "provinceId": "36",
+    "provinceName": "Banten",
+    "regencyId": "3604",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Banten (KABUPATEN SERANG)?",
+    "options": [
+      "Bahasa Jawa",
+      "Bahasa Patani",
+      "Bahasa Piru",
+      "Bahasa Punan Merah"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Jawa berasal dari KABUPATEN SERANG, Provinsi Banten. Bahasa Jawa yang merupakan bahasa masyarakat Jawa termasuk dalam lima bahasa daerah dengan penutur terbanyak.",
+    "relatedItemSlug": "bahasa-bahasa-jawa-36"
+  },
+  {
+    "id": "qz-51-081",
+    "provinceId": "51",
+    "provinceName": "Bali",
+    "regencyId": "5104",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Bali (KABUPATEN GIANYAR) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Rapai",
+      "Pangora",
+      "sarune Bolon",
+      "Gengceng"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Gengceng berasal dari KABUPATEN GIANYAR, Provinsi Bali. Gengceng berasal dari Bali yang mempunyai jenis bunyi Ideofon.",
+    "relatedItemSlug": "musik-gengceng-51"
+  },
+  {
+    "id": "qz-51-082",
+    "provinceId": "51",
+    "provinceName": "Bali",
+    "regencyId": "5101",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Bali yang dikenal dengan ciri \"Ayam utuh isi bumbu genep Bali yang dipanggang/dikukus perlahan\" adalah...",
+    "options": [
+      "Ayam Betutu",
+      "Pengkang",
+      "Mandai",
+      "Nasi Subut"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Ayam Betutu berasal dari KABUPATEN JEMBRANA, Provinsi Bali. Ayam utuh isi bumbu genep Bali yang dipanggang/dikukus perlahan",
+    "relatedItemSlug": "makanan-ayam-betutu-51"
+  },
+  {
+    "id": "qz-51-083",
+    "provinceId": "51",
+    "provinceName": "Bali",
+    "regencyId": "5101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Bali yang memiliki ciri khas \"Pakaian kebesaran kerajaan/pengantin, kain songket prada emas, srinata, mahkota tinggi\" adalah...",
+    "options": [
+      "Dandanan Care Haji & Care None Pengantin Cina",
+      "Payas Agung",
+      "Basahan / Solo Basahan",
+      "Penadon (Ponorogo)"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Payas Agung berasal dari KABUPATEN JEMBRANA, Provinsi Bali. Payas Agung merupakan busana adat tradisional khas Bali yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-payas-agung-51"
+  },
+  {
+    "id": "qz-51-084",
+    "provinceId": "51",
+    "provinceName": "Bali",
+    "regencyId": "5101",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN JEMBRANA, Provinsi Bali adalah...",
+    "options": [
+      "POLOPALO",
+      "PRABU",
+      "PAJEGAN",
+      "PULAUSARI"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "PAJEGAN berasal dari KABUPATEN JEMBRANA, Provinsi Bali. Sebutan lengkapnya ialah Topeng Pajegan.",
+    "relatedItemSlug": "tarian-pajegan-51"
+  },
+  {
+    "id": "qz-51-085",
+    "provinceId": "51",
+    "provinceName": "Bali",
+    "regencyId": "5101",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Bali (KABUPATEN JEMBRANA)?",
+    "options": [
+      "Bahasa Yaben",
+      "Bahasa Yali Anggruk",
+      "Bahasa Yatoke",
+      "Bahasa Bali"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bali berasal dari KABUPATEN JEMBRANA, Provinsi Bali. Bahasa Bali merupakan bahasa yang berasal dari Pulau Bali.",
+    "relatedItemSlug": "bahasa-bahasa-bali-51"
+  },
+  {
+    "id": "qz-52-086",
+    "provinceId": "52",
+    "provinceName": "Nusa Tenggara Barat",
+    "regencyId": "5202",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Nusa Tenggara Barat (KABUPATEN LOMBOK TENGAH) yang memiliki karakter \"Aerofon (Tiup)\" adalah...",
+    "options": [
+      "Serunai",
+      "Hapetan",
+      "Saron",
+      "Suling"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Serunai berasal dari KABUPATEN LOMBOK TENGAH, Provinsi Nusa Tenggara Barat. Serunai berasal dari Nusa Tenggara Barat yang mempunyai jenis bunyi Aerofon.",
+    "relatedItemSlug": "musik-serunai-52"
+  },
+  {
+    "id": "qz-52-087",
+    "provinceId": "52",
+    "provinceName": "Nusa Tenggara Barat",
+    "regencyId": "5271",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Nusa Tenggara Barat yang dikenal dengan ciri \"Ayam bakar pedas dengan bumbu cabai dan terasi\" adalah...",
+    "options": [
+      "Tudai",
+      "Ayam Taliwang",
+      "Ayam Iloni",
+      "Kue Tetu"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Ayam Taliwang berasal dari KOTA MATARAM, Provinsi Nusa Tenggara Barat. Ayam bakar pedas dengan bumbu cabai dan terasi",
+    "relatedItemSlug": "makanan-ayam-taliwang-52"
+  },
+  {
+    "id": "qz-52-088",
+    "provinceId": "52",
+    "provinceName": "Nusa Tenggara Barat",
+    "regencyId": "5201",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Nusa Tenggara Barat yang memiliki ciri khas \"Jas gaya Eropa (Pegon - pria), baju hitam kerah V tanpa lengan (Lambung - wanita)\" adalah...",
+    "options": [
+      "Kebaya Rancongan (Madura)",
+      "Baju Amarasi",
+      "Pegon & Lambung (Sasak)",
+      "Bagajah Gamuling Baular Lulut"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Pegon & Lambung (Sasak) berasal dari KABUPATEN LOMBOK BARAT, Provinsi Nusa Tenggara Barat. Pegon & Lambung (Sasak) merupakan busana adat tradisional khas Nusa Tenggara Barat yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-pegon-lambung-sasak-52"
+  },
+  {
+    "id": "qz-52-089",
+    "provinceId": "52",
+    "provinceName": "Nusa Tenggara Barat",
+    "regencyId": "5204",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN SUMBAWA, Provinsi Nusa Tenggara Barat adalah...",
+    "options": [
+      "PGOGUL",
+      "POMAMAAN",
+      "PRAWIRAWATANG",
+      "PASAJI"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "PASAJI berasal dari KABUPATEN SUMBAWA, Provinsi Nusa Tenggara Barat. Tari kreasi baru daerah Sumbawa, Nusa Tenggara Barat yang intinya mengungkapkan persembahan hidangan kepada Sultan.",
+    "relatedItemSlug": "tarian-pasaji-52"
+  },
+  {
+    "id": "qz-52-090",
+    "provinceId": "52",
+    "provinceName": "Nusa Tenggara Barat",
+    "regencyId": "5201",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Nusa Tenggara Barat (KABUPATEN LOMBOK BARAT)?",
+    "options": [
+      "Bahasa Bajo",
+      "Bahasa Yei Bawah",
+      "Bahasa Yokari",
+      "Bahasa Abui (Aboa)"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Bajo berasal dari KABUPATEN LOMBOK BARAT, Provinsi Nusa Tenggara Barat. Bahasa Bajo merupakan bahasa yang bertanah asal dari Pulau Sulawesi.",
+    "relatedItemSlug": "bahasa-bahasa-bajo-52"
+  },
+  {
+    "id": "qz-53-091",
+    "provinceId": "53",
+    "provinceName": "Nusa Tenggara Timur",
+    "regencyId": "5314",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Nusa Tenggara Timur (KABUPATEN ROTE NDAO) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Siter",
+      "Sasando",
+      "Terah Umat",
+      "Gesok – Gesok"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Sasando berasal dari KABUPATEN ROTE NDAO, Provinsi Nusa Tenggara Timur. Sasando berasal dari Nusa Tenggara Timur yang mempunyai jenis bunyi Chordofon.",
+    "relatedItemSlug": "musik-sasando-53"
+  },
+  {
+    "id": "qz-53-092",
+    "provinceId": "53",
+    "provinceName": "Nusa Tenggara Timur",
+    "regencyId": "5371",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Nusa Tenggara Timur yang dikenal dengan ciri \"Daging babi atau sapi asap menggunakan kayu kosambi\" adalah...",
+    "options": [
+      "Jepa",
+      "Sinonggi",
+      "Se'i",
+      "Gatang Kenari"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Se'i berasal dari KOTA KUPANG, Provinsi Nusa Tenggara Timur. Daging babi atau sapi asap menggunakan kayu kosambi",
+    "relatedItemSlug": "makanan-se-i-53"
+  },
+  {
+    "id": "qz-53-093",
+    "provinceId": "53",
+    "provinceName": "Nusa Tenggara Timur",
+    "regencyId": "5301",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Nusa Tenggara Timur yang memiliki ciri khas \"Kain tenun ikat, topi bertepi lebar daun lontar (Ti'ilangga)\" adalah...",
+    "options": [
+      "Baju Upak Nyamu",
+      "Baju Antakusuma & Baju Takwo",
+      "Makuta / Mukuta",
+      "Baju Ti'ilangga (Rote)"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Baju Ti'ilangga (Rote) berasal dari KABUPATEN SUMBA BARAT, Provinsi Nusa Tenggara Timur. Baju Ti'ilangga (Rote) merupakan busana adat tradisional khas Nusa Tenggara Timur yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-baju-ti-ilangga-rote-53"
+  },
+  {
+    "id": "qz-53-094",
+    "provinceId": "53",
+    "provinceName": "Nusa Tenggara Timur",
+    "regencyId": "5301",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN SUMBA BARAT, Provinsi Nusa Tenggara Timur adalah...",
+    "options": [
+      "PADOA",
+      "PUJU",
+      "PURENGKEI",
+      "RADAP RAHAYU"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PADOA berasal dari KABUPATEN SUMBA BARAT, Provinsi Nusa Tenggara Timur. Tari tradisional yang tumbuh dan berkembang di kalangan masyarakat Sahu, Nusa Tenggara Timur yang berfungsi sebagai hiburan.",
+    "relatedItemSlug": "tarian-padoa-53"
+  },
+  {
+    "id": "qz-53-095",
+    "provinceId": "53",
+    "provinceName": "Nusa Tenggara Timur",
+    "regencyId": "5307",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Nusa Tenggara Timur (KABUPATEN ALOR)?",
+    "options": [
+      "Bahasa Balantak",
+      "Bahasa Abui (Aboa)",
+      "Bahasa Barakai",
+      "Bahasa Batero"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Abui (Aboa) berasal dari KABUPATEN ALOR, Provinsi Nusa Tenggara Timur. Bahasa Abui (Aboa) dituturkan oleh sebagian besar masyarakat di Kecamatan Alor Tengah Utara, Alor Selatan, Lembur, dan Mataru di Kabupaten Alor, Provinsi NTT.",
+    "relatedItemSlug": "bahasa-bahasa-abui-aboa-53"
+  },
+  {
+    "id": "qz-61-096",
+    "provinceId": "61",
+    "provinceName": "Kalimantan Barat",
+    "regencyId": "6103",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kalimantan Barat (KABUPATEN LANDAK) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Gendang Panjang",
+      "Tuma",
+      "Serunai",
+      "Keso"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Tuma berasal dari KABUPATEN LANDAK, Provinsi Kalimantan Barat. Tuma berasal dari Kalimantan Barat yang mempunyai jenis bunyi Membranofon.",
+    "relatedItemSlug": "musik-tuma-61"
+  },
+  {
+    "id": "qz-61-097",
+    "provinceId": "61",
+    "provinceName": "Kalimantan Barat",
+    "regencyId": "6101",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kalimantan Barat yang dikenal dengan ciri \"Bubur beras sangrai dengan berbagai sayuran, pakis, dan daun kesum\" adalah...",
+    "options": [
+      "Wadi",
+      "Ayam Cincane",
+      "Bubur Pedas",
+      "Klappertaart"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bubur Pedas berasal dari KABUPATEN SAMBAS, Provinsi Kalimantan Barat. Bubur beras sangrai dengan berbagai sayuran, pakis, dan daun kesum",
+    "relatedItemSlug": "makanan-bubur-pedas-61"
+  },
+  {
+    "id": "qz-61-098",
+    "provinceId": "61",
+    "provinceName": "Kalimantan Barat",
+    "regencyId": "6101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kalimantan Barat yang memiliki ciri khas \"Kulit kayu (rompi dan cawat), bulu burung enggang\" adalah...",
+    "options": [
+      "Pakaian Tonaas & Walian",
+      "Baju Pokko",
+      "Baju Cele",
+      "King Baba"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "King Baba berasal dari KABUPATEN SAMBAS, Provinsi Kalimantan Barat. King Baba merupakan busana adat tradisional khas Kalimantan Barat yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-king-baba-61"
+  },
+  {
+    "id": "qz-61-099",
+    "provinceId": "61",
+    "provinceName": "Kalimantan Barat",
+    "regencyId": "6108",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KAPUAS HULU, Provinsi Kalimantan Barat adalah...",
+    "options": [
+      "PAHLAWAN",
+      "SAWERI GADING",
+      "SEKUNDANG",
+      "SELENDANG AWANG"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PAHLAWAN berasal dari KABUPATEN KAPUAS HULU, Provinsi Kalimantan Barat. Sebuah tarian tunggal pria yang terdapat pada suku Dayak Taman di daerah Kapuas Hulu, Kalimantan Barat.",
+    "relatedItemSlug": "tarian-pahlawan-61"
+  },
+  {
+    "id": "qz-61-100",
+    "provinceId": "61",
+    "provinceName": "Kalimantan Barat",
+    "regencyId": "6102",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kalimantan Barat (KABUPATEN BENGKAYANG)?",
+    "options": [
+      "Bahasa Biritai",
+      "Bahasa Bakatik",
+      "Bahasa Boing",
+      "Bahasa Budong-Budong (Tangkou)"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Bakatik berasal dari KABUPATEN BENGKAYANG, Provinsi Kalimantan Barat. Bahasa Bakatik dituturkan oleh masyarakat terutama di wilayah Kabupaten Bengkayang, yang tersebar di wilayah Kecamatan Ledo, Sanggau Ledo, Teriak, dan Bengkayang;...",
+    "relatedItemSlug": "bahasa-bahasa-bakatik-61"
+  },
+  {
+    "id": "qz-62-101",
+    "provinceId": "62",
+    "provinceName": "Kalimantan Tengah",
+    "regencyId": "6202",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kalimantan Tengah (KABUPATEN KOTAWARINGIN TIMUR) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Gesok – Gesok",
+      "Tutuba",
+      "Japen",
+      "Salude"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Japen berasal dari KABUPATEN KOTAWARINGIN TIMUR, Provinsi Kalimantan Tengah. Japen berasal dari Kalimantan Tengah yang mempunyai jenis bunyi Kordofon.",
+    "relatedItemSlug": "musik-japen-62"
+  },
+  {
+    "id": "qz-62-102",
+    "provinceId": "62",
+    "provinceName": "Kalimantan Tengah",
+    "regencyId": "6271",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kalimantan Tengah yang dikenal dengan ciri \"Sayur umbut rotan muda dimasak dengan ikan baung dan rempah\" adalah...",
+    "options": [
+      "Cakalang Fufu",
+      "Palumara",
+      "Kapurung",
+      "Juhu Singkah"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Juhu Singkah berasal dari KOTA PALANGKA RAYA, Provinsi Kalimantan Tengah. Sayur umbut rotan muda dimasak dengan ikan baung dan rempah",
+    "relatedItemSlug": "makanan-juhu-singkah-62"
+  },
+  {
+    "id": "qz-62-103",
+    "provinceId": "62",
+    "provinceName": "Kalimantan Tengah",
+    "regencyId": "6201",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kalimantan Tengah yang memiliki ciri khas \"Rompi serat daun nanas/kulit kayu nyamu, cangkang trenggiling/motif (Dayak Ngaju)\" adalah...",
+    "options": [
+      "Sangkarut",
+      "Baju Nggembe",
+      "Baju Labbu",
+      "Baju Koja"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Sangkarut berasal dari KABUPATEN KOTAWARINGIN BARAT, Provinsi Kalimantan Tengah. Sangkarut merupakan busana adat tradisional khas Kalimantan Tengah yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-sangkarut-62"
+  },
+  {
+    "id": "qz-62-104",
+    "provinceId": "62",
+    "provinceName": "Kalimantan Tengah",
+    "regencyId": "6201",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN KOTAWARINGIN BARAT, Provinsi Kalimantan Tengah adalah...",
+    "options": [
+      "SAU",
+      "PALANGKA",
+      "SAY ANG MELAYANG",
+      "SELAMAT DATANG"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "PALANGKA berasal dari KABUPATEN KOTAWARINGIN BARAT, Provinsi Kalimantan Tengah. Sebuah kotak berbentuk empat persegi panjang yang terbuat dari papan-papan kayu .",
+    "relatedItemSlug": "tarian-palangka-62"
+  },
+  {
+    "id": "qz-62-105",
+    "provinceId": "62",
+    "provinceName": "Kalimantan Tengah",
+    "regencyId": "6204",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kalimantan Tengah (KABUPATEN BARITO SELATAN)?",
+    "options": [
+      "Bahasa Dabe",
+      "Bahasa Dani",
+      "Bahasa Bakumpai",
+      "Bahasa Dawan (Timor)"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Bakumpai berasal dari KABUPATEN BARITO SELATAN, Provinsi Kalimantan Tengah. Bahasa Bakumpai dituturkan oleh masyarakat di Kecamatan Dusun Selatan dan Kecamatan Karau Kuala, Kabupaten Barito Selatan dan di Kabupaten Kapuas, Provinsi Kalima...",
+    "relatedItemSlug": "bahasa-bahasa-bakumpai-62"
+  },
+  {
+    "id": "qz-63-106",
+    "provinceId": "63",
+    "provinceName": "Kalimantan Selatan",
+    "regencyId": "6305",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kalimantan Selatan (KABUPATEN TAPIN) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Santu",
+      "Saluang",
+      "Gendang Panjang",
+      "Panting"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Panting berasal dari KABUPATEN TAPIN, Provinsi Kalimantan Selatan. Panting berasal dari Kalimantan Selatan yang mempunyai jenis bunyi Kordofon.",
+    "relatedItemSlug": "musik-panting-63"
+  },
+  {
+    "id": "qz-63-107",
+    "provinceId": "63",
+    "provinceName": "Kalimantan Selatan",
+    "regencyId": "6371",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kalimantan Selatan yang dikenal dengan ciri \"Soto ayam berkuah rempah kayu manis dan pala, dimakan bersama ketupat\" adalah...",
+    "options": [
+      "Soto Banjar",
+      "Ikan Kuah Kuning",
+      "Ikan Bungkus",
+      "Bika Ambon"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Soto Banjar berasal dari KOTA BANJARMASIN, Provinsi Kalimantan Selatan. Soto ayam berkuah rempah kayu manis dan pala, dimakan bersama ketupat",
+    "relatedItemSlug": "makanan-soto-banjar-63"
+  },
+  {
+    "id": "qz-63-108",
+    "provinceId": "63",
+    "provinceName": "Kalimantan Selatan",
+    "regencyId": "6301",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kalimantan Selatan yang memiliki ciri khas \"Baju pengantin Hindu kuno tanpa kemeja, melati, mahkota naga\" adalah...",
+    "options": [
+      "Baju Kurung Cekak Musang",
+      "Bagajah Gamuling Baular Lulut",
+      "Aesan Gede",
+      "Baju Pangsi"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bagajah Gamuling Baular Lulut berasal dari KABUPATEN TANAH LAUT, Provinsi Kalimantan Selatan. Bagajah Gamuling Baular Lulut merupakan busana adat tradisional khas Kalimantan Selatan yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-bagajah-gamuling-baular-lulut-63"
+  },
+  {
+    "id": "qz-63-109",
+    "provinceId": "63",
+    "provinceName": "Kalimantan Selatan",
+    "regencyId": "6303",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN BANJAR, Provinsi Kalimantan Selatan adalah...",
+    "options": [
+      "SEKAPUR SIRIH",
+      "SE LEND ANG",
+      "PENGANTIN BANJAR",
+      "SEMAT"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "PENGANTIN BANJAR berasal dari KABUPATEN BANJAR, Provinsi Kalimantan Selatan. Sebuah tari daerah kreasi baru dari Kalirnantan Selatan yang rnenggarnbarkan tradisi adat pe0ngantin Banjar.",
+    "relatedItemSlug": "tarian-pengantin-banjar-63"
+  },
+  {
+    "id": "qz-63-110",
+    "provinceId": "63",
+    "provinceName": "Kalimantan Selatan",
+    "regencyId": "6302",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kalimantan Selatan (KABUPATEN KOTA BARU)?",
+    "options": [
+      "Bahasa Dabe",
+      "Bahasa Dani",
+      "Bahasa Dawan (Timor)",
+      "Bahasa Bajau Semayap"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bajau Semayap berasal dari KABUPATEN KOTA BARU, Provinsi Kalimantan Selatan. Bahasa Bajau Semayap dituturkan oleh masyarakat di Desa Semayap, Kecamatan Pulau Laututara, Kabupaten Kotabaru, Provinsi Kalimantan Selatan.",
+    "relatedItemSlug": "bahasa-bahasa-bajau-semayap-63"
+  },
+  {
+    "id": "qz-64-111",
+    "provinceId": "64",
+    "provinceName": "Kalimantan Timur",
+    "regencyId": "6401",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kalimantan Timur (KABUPATEN PASER) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Sampe",
+      "Serunai",
+      "Keso",
+      "Guoto"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Sampe berasal dari KABUPATEN PASER, Provinsi Kalimantan Timur. Sampe berasal dari Kalimantan Timur yang mempunyai jenis bunyi Kordofon.",
+    "relatedItemSlug": "musik-sampe-64"
+  },
+  {
+    "id": "qz-64-112",
+    "provinceId": "64",
+    "provinceName": "Kalimantan Timur",
+    "regencyId": "6402",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kalimantan Timur yang dikenal dengan ciri \"Nasi liwet masak kendil dengan ikan asin, rempah, dan minyak sayur\" adalah...",
+    "options": [
+      "Sate Ulat Sagu",
+      "Nasi Bekepor",
+      "Timphan",
+      "Sate Padang"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Nasi Bekepor berasal dari KABUPATEN KUTAI BARAT, Provinsi Kalimantan Timur. Nasi liwet masak kendil dengan ikan asin, rempah, dan minyak sayur",
+    "relatedItemSlug": "makanan-nasi-bekepor-64"
+  },
+  {
+    "id": "qz-64-113",
+    "provinceId": "64",
+    "provinceName": "Kalimantan Timur",
+    "regencyId": "6401",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kalimantan Timur yang memiliki ciri khas \"Beludru hitam sulaman pasmen emas (Kutai, kelas menengah-atas)\" adalah...",
+    "options": [
+      "Baju Beludru Merah",
+      "Pakaian Adat Pepadun",
+      "Kustin",
+      "Ujung Serong"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Kustin berasal dari KABUPATEN PASER, Provinsi Kalimantan Timur. Kustin merupakan busana adat tradisional khas Kalimantan Timur yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-kustin-64"
+  },
+  {
+    "id": "qz-64-114",
+    "provinceId": "64",
+    "provinceName": "Kalimantan Timur",
+    "regencyId": "6401",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN PASER, Provinsi Kalimantan Timur adalah...",
+    "options": [
+      "SENANDUNG NAK DARE",
+      "SERABUNGAN",
+      "SEUDATI",
+      "PASIRMUILI"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "PASIRMUILI berasal dari KABUPATEN PASER, Provinsi Kalimantan Timur. Gerakan sampur sambil berlutut.",
+    "relatedItemSlug": "tarian-pasirmuili-64"
+  },
+  {
+    "id": "qz-64-115",
+    "provinceId": "64",
+    "provinceName": "Kalimantan Timur",
+    "regencyId": "6401",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kalimantan Timur (KABUPATEN PASER)?",
+    "options": [
+      "Bahasa Aoheng (Penihing)",
+      "Bahasa Dayak Sei Dusun",
+      "Bahasa Dintere",
+      "Bahasa Dusner (Usner)"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Aoheng (Penihing) berasal dari KABUPATEN PASER, Provinsi Kalimantan Timur. Bahasa Aoheng (Penihing) dituturkan oleh masyarakat di Desa Long Apari, Kecamatan Long Apari, Kabupaten Mahakam Ulu, Provinsi Kalimantan Timur.",
+    "relatedItemSlug": "bahasa-bahasa-aoheng-penihing-64"
+  },
+  {
+    "id": "qz-65-116",
+    "provinceId": "65",
+    "provinceName": "Kalimantan Utara",
+    "regencyId": "6501",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Kalimantan Utara (KABUPATEN MALINAU) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Panting",
+      "Jatung Utang",
+      "FU",
+      "Rebab"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Jatung Utang berasal dari KABUPATEN MALINAU, Provinsi Kalimantan Utara. Jatung Utang adalah alat musik pukul jenis xilofon kayu khas suku Dayak Kenyah di Kabupaten Malinau dan Bulungan, Kalimantan Utara.",
+    "relatedItemSlug": "musik-jatung-utang-65"
+  },
+  {
+    "id": "qz-65-117",
+    "provinceId": "65",
+    "provinceName": "Kalimantan Utara",
+    "regencyId": "6571",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Kalimantan Utara yang dikenal dengan ciri \"Kepiting cangkang lunak digoreng krispi atau dimasak lada hitam\" adalah...",
+    "options": [
+      "Rendang",
+      "Bolu Kemojo",
+      "Kepiting Soka",
+      "Daging Masak Hitam"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Kepiting Soka berasal dari KOTA TARAKAN, Provinsi Kalimantan Utara. Kepiting cangkang lunak digoreng krispi atau dimasak lada hitam",
+    "relatedItemSlug": "makanan-kepiting-soka-65"
+  },
+  {
+    "id": "qz-65-118",
+    "provinceId": "65",
+    "provinceName": "Kalimantan Utara",
+    "regencyId": "6501",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Kalimantan Utara yang memiliki ciri khas \"Ikat kepala, baju atasan (sapei inoq), rok (ta'a) motif tegas (Dayak Kenyah)\" adalah...",
+    "options": [
+      "Aesan Paksangko",
+      "Jamang Sangsang & Kampret",
+      "Menak",
+      "Ta'a"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Ta'a berasal dari KABUPATEN MALINAU, Provinsi Kalimantan Utara. Ta'a merupakan busana adat tradisional khas Kalimantan Utara yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-ta-a-65"
+  },
+  {
+    "id": "qz-65-119",
+    "provinceId": "65",
+    "provinceName": "Kalimantan Utara",
+    "regencyId": "6501",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN MALINAU, Provinsi Kalimantan Utara adalah...",
+    "options": [
+      "Tari Kancet Ledo (Tari Gong)",
+      "SAY ANG MELAYANG",
+      "SELAMAT DATANG",
+      "SELONG (I)"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Tari Kancet Ledo (Tari Gong) berasal dari KABUPATEN MALINAU, Provinsi Kalimantan Utara. Tari Kancet Ledo atau Tari Gong adalah tarian klasik suku Dayak Kenyah di Kalimantan Utara yang menampilkan keanggunan seorang gadis menari di atas sebuah gong pe...",
+    "relatedItemSlug": "tarian-tari-kancet-ledo-tari-gong-65"
+  },
+  {
+    "id": "qz-65-120",
+    "provinceId": "65",
+    "provinceName": "Kalimantan Utara",
+    "regencyId": "6504",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Kalimantan Utara (KABUPATEN NUNUKAN)?",
+    "options": [
+      "Bahasa Devayan",
+      "Bahasa Abai",
+      "Bahasa Dra",
+      "Bahasa Duvle"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Abai berasal dari KABUPATEN NUNUKAN, Provinsi Kalimantan Utara. Bahasa Abai dituturkan di Desa Mansalong, Kecamatan Lumbis, Kabupaten Nunukan, Provinsi Kalimantan Utara.",
+    "relatedItemSlug": "bahasa-bahasa-abai-65"
+  },
+  {
+    "id": "qz-71-121",
+    "provinceId": "71",
+    "provinceName": "Sulawesi Utara",
+    "regencyId": "7102",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sulawesi Utara (KABUPATEN MINAHASA) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Keso",
+      "Guoto",
+      "Tambua & Tansa",
+      "Kolintang"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Kolintang berasal dari KABUPATEN MINAHASA, Provinsi Sulawesi Utara. Kolintang berasal dari Sulawesi Utara yang mempunyai jenis bunyi Ideofon.",
+    "relatedItemSlug": "musik-kolintang-71"
+  },
+  {
+    "id": "qz-71-122",
+    "provinceId": "71",
+    "provinceName": "Sulawesi Utara",
+    "regencyId": "7171",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sulawesi Utara yang dikenal dengan ciri \"Bubur beras campur sayuran (labu, bayam, kangkung, kemangi)\" adalah...",
+    "options": [
+      "Tinutuan / Bubur Manado",
+      "Kaledo",
+      "Pallubasa",
+      "Gohu Ikan"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Tinutuan / Bubur Manado berasal dari KOTA MANADO, Provinsi Sulawesi Utara. Bubur beras campur sayuran (labu, bayam, kangkung, kemangi)",
+    "relatedItemSlug": "makanan-tinutuan-bubur-manado-71"
+  },
+  {
+    "id": "qz-71-123",
+    "provinceId": "71",
+    "provinceName": "Sulawesi Utara",
+    "regencyId": "7101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sulawesi Utara yang memiliki ciri khas \"Serat pisang abaka, lengan panjang potongan kaku (Sangihe Talaud)\" adalah...",
+    "options": [
+      "Baju Kurung Tanggung",
+      "Laku Tepu",
+      "Baju Seting",
+      "Baju Sadariah"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Laku Tepu berasal dari KABUPATEN BOLAANG MONGONDOW, Provinsi Sulawesi Utara. Laku Tepu merupakan busana adat tradisional khas Sulawesi Utara yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-laku-tepu-71"
+  },
+  {
+    "id": "qz-71-124",
+    "provinceId": "71",
+    "provinceName": "Sulawesi Utara",
+    "regencyId": "7102",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN MINAHASA, Provinsi Sulawesi Utara adalah...",
+    "options": [
+      "TANBENTAN",
+      "TANGAN",
+      "PANGAN",
+      "TANJIK"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "PANGAN berasal dari KABUPATEN MINAHASA, Provinsi Sulawesi Utara. Tari kreasi baru dari Minahasa di Sulawesi Utara diciptakan Ny.",
+    "relatedItemSlug": "tarian-pangan-71"
+  },
+  {
+    "id": "qz-71-125",
+    "provinceId": "71",
+    "provinceName": "Sulawesi Utara",
+    "regencyId": "7101",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sulawesi Utara (KABUPATEN BOLAANG MONGONDOW)?",
+    "options": [
+      "Bahasa Kadi (Muyu Utara)",
+      "Bahasa Kaili",
+      "Bahasa Kambera",
+      "Bahasa Bantik"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bantik berasal dari KABUPATEN BOLAANG MONGONDOW, Provinsi Sulawesi Utara. Bahasa Bantik dituturkan di Desa Bantik, Kecamatan Bolaang Timur, Kabupaten Bolaang Mongondow dan Kelurahan Buha, Kecamatan Mapanget, Kabupaten Kota Manado, Provi...",
+    "relatedItemSlug": "bahasa-bahasa-bantik-71"
+  },
+  {
+    "id": "qz-72-126",
+    "provinceId": "72",
+    "provinceName": "Sulawesi Tengah",
+    "regencyId": "7271",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sulawesi Tengah (KOTA PALU) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Ganda",
+      "Suling",
+      "Kecapi Mandar",
+      "Lalosu Sessungriu"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Ganda berasal dari KOTA PALU, Provinsi Sulawesi Tengah. Ganda berasal dari Sulawesi Tengah yang mempunyai jenis bunyi Membranofon.",
+    "relatedItemSlug": "musik-ganda-72"
+  },
+  {
+    "id": "qz-72-127",
+    "provinceId": "72",
+    "provinceName": "Sulawesi Tengah",
+    "regencyId": "7203",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sulawesi Tengah yang dikenal dengan ciri \"Sup kaki lembu berkuah asam pedas bening, sumsum dihisap sedotan\" adalah...",
+    "options": [
+      "Kue Tetu",
+      "Kaledo",
+      "Sate Pokea",
+      "Halua Kenari"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Kaledo berasal dari KABUPATEN MOROWALI, Provinsi Sulawesi Tengah. Sup kaki lembu berkuah asam pedas bening, sumsum dihisap sedotan",
+    "relatedItemSlug": "makanan-kaledo-72"
+  },
+  {
+    "id": "qz-72-128",
+    "provinceId": "72",
+    "provinceName": "Sulawesi Tengah",
+    "regencyId": "7201",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sulawesi Tengah yang memiliki ciri khas \"Segi empat longgar, lengan selebar kain, hiasan manik-manik mika di dada (Kaili)\" adalah...",
+    "options": [
+      "Pakaian Adat Rejang Lenong",
+      "Kain Tapis",
+      "Baju Nggembe",
+      "Baju Pangsi & Kebaya Sunda"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Baju Nggembe berasal dari KABUPATEN BANGGAI KEPULAUAN, Provinsi Sulawesi Tengah. Baju Nggembe merupakan busana adat tradisional khas Sulawesi Tengah yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-baju-nggembe-72"
+  },
+  {
+    "id": "qz-72-129",
+    "provinceId": "72",
+    "provinceName": "Sulawesi Tengah",
+    "regencyId": "7206",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN TOLI-TOLI, Provinsi Sulawesi Tengah adalah...",
+    "options": [
+      "TENGEN LETTO",
+      "TEPAK DUA",
+      "TIDI LO RANTE",
+      "PAHLAWANSALUMPAGA"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "PAHLAWANSALUMPAGA berasal dari KABUPATEN TOLI-TOLI, Provinsi Sulawesi Tengah. Tari kreasi baru ciptaan Hasan M.",
+    "relatedItemSlug": "tarian-pahlawansalumpaga-72"
+  },
+  {
+    "id": "qz-72-130",
+    "provinceId": "72",
+    "provinceName": "Sulawesi Tengah",
+    "regencyId": "7204",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sulawesi Tengah (KABUPATEN POSO)?",
+    "options": [
+      "Bahasa Bada",
+      "Bahasa Kayaan",
+      "Bahasa Kemak",
+      "Bahasa Keuw"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Bada berasal dari KABUPATEN POSO, Provinsi Sulawesi Tengah. Bahasa Bada dituturkan di (1) Desa Maholo, Kecamatan Lore Timur, Kabupaten Poso; (2) Desa Badangkaia, Kecamatan Lore Selatan, Kabupaten Poso; dan (3) Desa Ampibab...",
+    "relatedItemSlug": "bahasa-bahasa-bada-72"
+  },
+  {
+    "id": "qz-73-131",
+    "provinceId": "73",
+    "provinceName": "Sulawesi Selatan",
+    "regencyId": "7318",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sulawesi Selatan (KABUPATEN TANA TORAJA) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Keledik",
+      "Keso",
+      "Rebana / Rawana",
+      "Pare'e"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Keso berasal dari KABUPATEN TANA TORAJA, Provinsi Sulawesi Selatan. Keso berasal dari Sulawesi Selatan yang mempunyai jenis bunyi Chordofon.",
+    "relatedItemSlug": "musik-keso-73"
+  },
+  {
+    "id": "qz-73-132",
+    "provinceId": "73",
+    "provinceName": "Sulawesi Selatan",
+    "regencyId": "7371",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sulawesi Selatan yang dikenal dengan ciri \"Sup daging sapi/jeroan berkuah kaldu rempah dan kacang tanah giling\" adalah...",
+    "options": [
+      "Rendang",
+      "Bolu Kemojo",
+      "Coto Makassar",
+      "Daging Masak Hitam"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Coto Makassar berasal dari KOTA MAKASSAR, Provinsi Sulawesi Selatan. Sup daging sapi/jeroan berkuah kaldu rempah dan kacang tanah giling",
+    "relatedItemSlug": "makanan-coto-makassar-73"
+  },
+  {
+    "id": "qz-73-133",
+    "provinceId": "73",
+    "provinceName": "Sulawesi Selatan",
+    "regencyId": "7301",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sulawesi Selatan yang memiliki ciri khas \"Potongan kotak transparan kain kasa/sutra\" adalah...",
+    "options": [
+      "Rimpu (Bima)",
+      "Baju Buang Kuat",
+      "Kustin",
+      "Baju Bodo"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Baju Bodo berasal dari KABUPATEN KEPULAUAN SELAYAR, Provinsi Sulawesi Selatan. Baju Bodo merupakan busana adat tradisional khas Sulawesi Selatan yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-baju-bodo-73"
+  },
+  {
+    "id": "qz-73-134",
+    "provinceId": "73",
+    "provinceName": "Sulawesi Selatan",
+    "regencyId": "7304",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN JENEPONTO, Provinsi Sulawesi Selatan adalah...",
+    "options": [
+      "PAANIK",
+      "TORU",
+      "TUGAL",
+      "TURAK"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PAANIK berasal dari KABUPATEN JENEPONTO, Provinsi Sulawesi Selatan. Tari kreasi baru dari Jeneponto di Sulawesi Selatan menggambarkan gadis-gadis mengolah kapas menjadi benang.",
+    "relatedItemSlug": "tarian-paanik-73"
+  },
+  {
+    "id": "qz-73-135",
+    "provinceId": "73",
+    "provinceName": "Sulawesi Selatan",
+    "regencyId": "7301",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sulawesi Selatan (KABUPATEN KEPULAUAN SELAYAR)?",
+    "options": [
+      "Bahasa Kawiyet",
+      "Bahasa Bajo",
+      "Bahasa Kekawia",
+      "Bahasa Ketengban"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Bajo berasal dari KABUPATEN KEPULAUAN SELAYAR, Provinsi Sulawesi Selatan. Bahasa Bajo dituturkan oleh masyarakat di Desa Rajuni, Kecamatan Taka Bonerate, Kabupaten Kepulauan Selayar dan Kelurahan Bajoe, Kecamatan Tanete Riattang Timur, ...",
+    "relatedItemSlug": "bahasa-bahasa-bajo-73"
+  },
+  {
+    "id": "qz-74-136",
+    "provinceId": "74",
+    "provinceName": "Sulawesi Tenggara",
+    "regencyId": "7401",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sulawesi Tenggara (KABUPATEN BUTON) yang memiliki karakter \"Ideofon (Pukul/Getar)\" adalah...",
+    "options": [
+      "Odap",
+      "Gong dan Kempul",
+      "Ladolado",
+      "Keledik"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Ladolado berasal dari KABUPATEN BUTON, Provinsi Sulawesi Tenggara. Ladolado berasal dari Sulawesi Tenggara yang mempunyai jenis bunyi Ideopon.",
+    "relatedItemSlug": "musik-ladolado-74"
+  },
+  {
+    "id": "qz-74-137",
+    "provinceId": "74",
+    "provinceName": "Sulawesi Tenggara",
+    "regencyId": "7471",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sulawesi Tenggara yang dikenal dengan ciri \"Pati sagu kental yang dimakan dengan sayur dan kuah ikan\" adalah...",
+    "options": [
+      "Mie Gomak",
+      "Gulai Tunjang",
+      "Luti Gendang",
+      "Sinonggi"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Sinonggi berasal dari KOTA KENDARI, Provinsi Sulawesi Tenggara. Pati sagu kental yang dimakan dengan sayur dan kuah ikan",
+    "relatedItemSlug": "makanan-sinonggi-74"
+  },
+  {
+    "id": "qz-74-138",
+    "provinceId": "74",
+    "provinceName": "Sulawesi Tenggara",
+    "regencyId": "7401",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sulawesi Tenggara yang memiliki ciri khas \"Atasan longgar sulam emas (wanita), penutup kepala meruncing Kampurui (pria Tolaki)\" adalah...",
+    "options": [
+      "Babu Nggawi & Babu Nggawi Langgai",
+      "Kebaya Rancongan (Madura)",
+      "Rimpu (Bima)",
+      "Baju Buang Kuat"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Babu Nggawi & Babu Nggawi Langgai berasal dari KABUPATEN BUTON, Provinsi Sulawesi Tenggara. Babu Nggawi & Babu Nggawi Langgai merupakan busana adat tradisional khas Sulawesi Tenggara yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-babu-nggawi-babu-nggawi-langgai-74"
+  },
+  {
+    "id": "qz-74-139",
+    "provinceId": "74",
+    "provinceName": "Sulawesi Tenggara",
+    "regencyId": "7402",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN MUNA, Provinsi Sulawesi Tenggara adalah...",
+    "options": [
+      "TANGGULADO",
+      "PADENDA",
+      "TAPUNGINU'",
+      "TASAI MIHIK"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "PADENDA berasal dari KABUPATEN MUNA, Provinsi Sulawesi Tenggara. Tari kreasi baru dari Muna di Sulawesi Tenggara, yang merupakan tari pergaulan.",
+    "relatedItemSlug": "tarian-padenda-74"
+  },
+  {
+    "id": "qz-74-140",
+    "provinceId": "74",
+    "provinceName": "Sulawesi Tenggara",
+    "regencyId": "7401",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sulawesi Tenggara (KABUPATEN BUTON)?",
+    "options": [
+      "Bahasa Ketengban",
+      "Bahasa Kiri-Kiri",
+      "Bahasa Bajo",
+      "Bahasa Kodi"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Bajo berasal dari KABUPATEN BUTON, Provinsi Sulawesi Tenggara. Bahasa Bajo dituturkan oleh masyarakat Desa Terapung, Kecamatan Mawasangka, Kabupaten Buton Tengah dan masyarakat Desa Santiri, Kecamatan Tiworo Utara, Kabupaten ...",
+    "relatedItemSlug": "bahasa-bahasa-bajo-74"
+  },
+  {
+    "id": "qz-75-141",
+    "provinceId": "75",
+    "provinceName": "Gorontalo",
+    "regencyId": "7502",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Gorontalo (KABUPATEN GORONTALO) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Taktok Trieng",
+      "Druni Dana",
+      "Odap",
+      "Ganda"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Ganda berasal dari KABUPATEN GORONTALO, Provinsi Gorontalo. Ganda berasal dari Gorontalo yang mempunyai jenis bunyi Membranofon.",
+    "relatedItemSlug": "musik-ganda-75"
+  },
+  {
+    "id": "qz-75-142",
+    "provinceId": "75",
+    "provinceName": "Gorontalo",
+    "regencyId": "7571",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Gorontalo yang dikenal dengan ciri \"Sup jagung manis, suwiran cakalang, udang, kelapa parut, jeruk nipis\" adalah...",
+    "options": [
+      "Binte Biluhuta",
+      "Gonggong",
+      "Kue Bay Tat",
+      "Rusip"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Binte Biluhuta berasal dari KOTA GORONTALO, Provinsi Gorontalo. Sup jagung manis, suwiran cakalang, udang, kelapa parut, jeruk nipis",
+    "relatedItemSlug": "makanan-binte-biluhuta-75"
+  },
+  {
+    "id": "qz-75-143",
+    "provinceId": "75",
+    "provinceName": "Gorontalo",
+    "regencyId": "7501",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Gorontalo yang memiliki ciri khas \"Baju pengantin cerah, mahkota Bitaqo (Tuo)\" adalah...",
+    "options": [
+      "Baju Antakusuma & Baju Takwo",
+      "Biliu",
+      "Baju Koje & Puruka Pajana",
+      "Babu Nggawi & Babu Nggawi Langgai"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Biliu berasal dari KABUPATEN BOALEMO, Provinsi Gorontalo. Biliu merupakan busana adat tradisional khas Gorontalo yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-biliu-75"
+  },
+  {
+    "id": "qz-75-144",
+    "provinceId": "75",
+    "provinceName": "Gorontalo",
+    "regencyId": "7502",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN GORONTALO, Provinsi Gorontalo adalah...",
+    "options": [
+      "TANGOAI",
+      "TAPAI",
+      "Tari Dana-Dana",
+      "TASAILUNUK"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Tari Dana-Dana berasal dari KABUPATEN GORONTALO, Provinsi Gorontalo. Tari Dana-Dana adalah tarian pergaulan dan penyambutan tradisional khas Provinsi Gorontalo yang memadukan gerak dinamis bernafaskan budaya Islam dengan iringan ga...",
+    "relatedItemSlug": "tarian-tari-dana-dana-75"
+  },
+  {
+    "id": "qz-75-145",
+    "provinceId": "75",
+    "provinceName": "Gorontalo",
+    "regencyId": "7501",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Gorontalo (KABUPATEN BOALEMO)?",
+    "options": [
+      "Bahasa Kerinci",
+      "Bahasa Kiraman",
+      "Bahasa Klufo (Krowai Rawa, Krowai Umum)",
+      "Bahasa Bajo"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Bajo berasal dari KABUPATEN BOALEMO, Provinsi Gorontalo. Bahasa Bajo dituturkan oleh masyarakat Desa Torosiaje, Kecamatan Popayato, Kabupaten Pahuwato, Provinsi Gorontalo.",
+    "relatedItemSlug": "bahasa-bahasa-bajo-75"
+  },
+  {
+    "id": "qz-76-146",
+    "provinceId": "76",
+    "provinceName": "Sulawesi Barat",
+    "regencyId": "7604",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Sulawesi Barat (KABUPATEN MAMUJU) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Kecapi",
+      "Japen",
+      "Ladolado",
+      "Gong"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Kecapi berasal dari KABUPATEN MAMUJU, Provinsi Sulawesi Barat. Kecapi berasal dari Sulawesi Barat yang mempunyai jenis bunyi Kordofon.",
+    "relatedItemSlug": "musik-kecapi-76"
+  },
+  {
+    "id": "qz-76-147",
+    "provinceId": "76",
+    "provinceName": "Sulawesi Barat",
+    "regencyId": "7601",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Sulawesi Barat yang dikenal dengan ciri \"Ikan laut kuah minyak kelapa asli, asam mandar, dan daun bawang\" adalah...",
+    "options": [
+      "Mie Bangka",
+      "Bau Peapi",
+      "Nasi Sumsum",
+      "Karedok"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bau Peapi berasal dari KABUPATEN MAJENE, Provinsi Sulawesi Barat. Ikan laut kuah minyak kelapa asli, asam mandar, dan daun bawang",
+    "relatedItemSlug": "makanan-bau-peapi-76"
+  },
+  {
+    "id": "qz-76-148",
+    "provinceId": "76",
+    "provinceName": "Sulawesi Barat",
+    "regencyId": "7601",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Sulawesi Barat yang memiliki ciri khas \"Baju rawang boko (lengan pendek ketat), sarung lipat bersusun lipaq saqbe (Mandar)\" adalah...",
+    "options": [
+      "Laku Tepu",
+      "Baju Koje & Puruka Pajana",
+      "Pattuqduq Towaine",
+      "Baju Cele"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Pattuqduq Towaine berasal dari KABUPATEN MAJENE, Provinsi Sulawesi Barat. Pattuqduq Towaine merupakan busana adat tradisional khas Sulawesi Barat yang dikenakan oleh Wanita.",
+    "relatedItemSlug": "pakaian-pattuqduq-towaine-76"
+  },
+  {
+    "id": "qz-76-149",
+    "provinceId": "76",
+    "provinceName": "Sulawesi Barat",
+    "regencyId": "7602",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN POLEWALI MANDAR, Provinsi Sulawesi Barat adalah...",
+    "options": [
+      "TASAI LEMU LEMBAI",
+      "TASAISANGKAIKAMBANG",
+      "TASAI UNDUR LAJU",
+      "Tari Patuddu"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Tari Patuddu berasal dari KABUPATEN POLEWALI MANDAR, Provinsi Sulawesi Barat. Tari Patuddu adalah tarian klasik penyambutan tamu kehormatan dari suku Mandar di Sulawesi Barat yang ditarikan dengan lemah gemulai menggunakan kipas dan diiring...",
+    "relatedItemSlug": "tarian-tari-patuddu-76"
+  },
+  {
+    "id": "qz-76-150",
+    "provinceId": "76",
+    "provinceName": "Sulawesi Barat",
+    "regencyId": "7604",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Sulawesi Barat (KABUPATEN MAMUJU)?",
+    "options": [
+      "Bahasa Baras",
+      "Bahasa Kola",
+      "Bahasa Komolom (Mombun)",
+      "Bahasa Korowai Baigun (Atigun)"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Bahasa Baras berasal dari KABUPATEN MAMUJU, Provinsi Sulawesi Barat. Bahasa Baras merupakan bahasa yang bertanah asaldi Provinsi Sulawesi Barat.",
+    "relatedItemSlug": "bahasa-bahasa-baras-76"
+  },
+  {
+    "id": "qz-81-151",
+    "provinceId": "81",
+    "provinceName": "Maluku",
+    "regencyId": "8171",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Maluku (KOTA AMBON) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Ganda",
+      "Nafiri",
+      "Guoto",
+      "Tambua & Tansa"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Nafiri berasal dari KOTA AMBON, Provinsi Maluku. Nafiri berasal dari Maluku yang mempunyai jenis bunyi Membranofon.",
+    "relatedItemSlug": "musik-nafiri-81"
+  },
+  {
+    "id": "qz-81-152",
+    "provinceId": "81",
+    "provinceName": "Maluku",
+    "regencyId": "8101",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Maluku yang dikenal dengan ciri \"Sashimi Ternate berbahan tuna mentah dengan jeruk cui, kemangi, dan cabai\" adalah...",
+    "options": [
+      "Pallubasa",
+      "Gatang Kenari",
+      "Gohu Ikan",
+      "Ayam Tangkap"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Gohu Ikan berasal dari KABUPATEN MALUKU TENGGARA BARAT, Provinsi Maluku. Sashimi Ternate berbahan tuna mentah dengan jeruk cui, kemangi, dan cabai",
+    "relatedItemSlug": "makanan-gohu-ikan-81"
+  },
+  {
+    "id": "qz-81-153",
+    "provinceId": "81",
+    "provinceName": "Maluku",
+    "regencyId": "8101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Maluku yang memiliki ciri khas \"Kotak-kotak kecil/garis geometris dipadu kebaya pendek/kemeja\" adalah...",
+    "options": [
+      "Baju Ti'ilangga (Rote)",
+      "Baju Upak Nyamu",
+      "Baju Antakusuma & Baju Takwo",
+      "Baju Cele"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Baju Cele berasal dari KABUPATEN MALUKU TENGGARA BARAT, Provinsi Maluku. Baju Cele merupakan busana adat tradisional khas Maluku yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-baju-cele-81"
+  },
+  {
+    "id": "qz-81-154",
+    "provinceId": "81",
+    "provinceName": "Maluku",
+    "regencyId": "8101",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN MALUKU TENGGARA BARAT, Provinsi Maluku adalah...",
+    "options": [
+      "PANAH",
+      "TOPENG CIREBON",
+      "TOROMPIO",
+      "TUGAL"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "PANAH berasal dari KABUPATEN MALUKU TENGGARA BARAT, Provinsi Maluku. Tari tradisional yang dikenal ai daerah Maluku, menggambarkan seorang prajurit yang sedang berperang, diba~an oleh penari pria.",
+    "relatedItemSlug": "tarian-panah-81"
+  },
+  {
+    "id": "qz-81-155",
+    "provinceId": "81",
+    "provinceName": "Maluku",
+    "regencyId": "8106",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Maluku (KABUPATEN SERAM BAGIAN BARAT)?",
+    "options": [
+      "Bahasa Ndao",
+      "Bahasa Alune",
+      "Bahasa Ngalum",
+      "Bahasa Nosaudare"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Bahasa Alune berasal dari KABUPATEN SERAM BAGIAN BARAT, Provinsi Maluku. Bahasa Alune dituturkan oleh masyarakat di Desa Rambatu, Desa Manusa, Desa Rumberu, Desa Hukuana Kota, dan Desa Huku Kecil, Kecamatan Inamosol, Kabupaten Seram Ba...",
+    "relatedItemSlug": "bahasa-bahasa-alune-81"
+  },
+  {
+    "id": "qz-82-156",
+    "provinceId": "82",
+    "provinceName": "Maluku Utara",
+    "regencyId": "8271",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Maluku Utara (KOTA TERNATE) yang memiliki karakter \"Aerofon (Tiup)\" adalah...",
+    "options": [
+      "Pupuik Batang Padi",
+      "Bangsi Alas",
+      "FU",
+      "Canang"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "FU berasal dari KOTA TERNATE, Provinsi Maluku Utara. FU berasal dari Maluku Utara yang mempunyai jenis bunyi Aerofon.",
+    "relatedItemSlug": "musik-fu-82"
+  },
+  {
+    "id": "qz-82-157",
+    "provinceId": "82",
+    "provinceName": "Maluku Utara",
+    "regencyId": "8201",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Maluku Utara yang dikenal dengan ciri \"Olahan kepiting pemakan kelapa yang dimasak bumbu rempah kenari\" adalah...",
+    "options": [
+      "Jepa",
+      "Sinonggi",
+      "Udang Selingkuh",
+      "Gatang Kenari"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Gatang Kenari berasal dari KABUPATEN HALMAHERA BARAT, Provinsi Maluku Utara. Olahan kepiting pemakan kelapa yang dimasak bumbu rempah kenari",
+    "relatedItemSlug": "makanan-gatang-kenari-82"
+  },
+  {
+    "id": "qz-82-158",
+    "provinceId": "82",
+    "provinceName": "Maluku Utara",
+    "regencyId": "8201",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Maluku Utara yang memiliki ciri khas \"Jas merah/hitam tertutup bordir emas (Manteren Lamo), kebaya sutra putih (Kimun Gia)\" adalah...",
+    "options": [
+      "Manteren Lamo & Kimun Gia",
+      "Kain Hinggi & Lau (Sumba)",
+      "Baamar Galung Pancar Matahari",
+      "Sapei Sapaq"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Manteren Lamo & Kimun Gia berasal dari KABUPATEN HALMAHERA BARAT, Provinsi Maluku Utara. Manteren Lamo & Kimun Gia merupakan busana adat tradisional khas Maluku Utara yang dikenakan oleh Pria/Wanita.",
+    "relatedItemSlug": "pakaian-manteren-lamo-kimun-gia-82"
+  },
+  {
+    "id": "qz-82-159",
+    "provinceId": "82",
+    "provinceName": "Maluku Utara",
+    "regencyId": "8271",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KOTA TERNATE, Provinsi Maluku Utara adalah...",
+    "options": [
+      "TOPENG CIREBON",
+      "Tari Soya-Soya",
+      "TOROMPIO",
+      "TUAKKUKUR"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Tari Soya-Soya berasal dari KOTA TERNATE, Provinsi Maluku Utara. Tari Soya-Soya adalah tarian kepahlawanan tradisional dari Kesultanan Ternate dan Tidore di Maluku Utara yang melambangkan semangat perjuangan rakyat menggunakan ...",
+    "relatedItemSlug": "tarian-tari-soya-soya-82"
+  },
+  {
+    "id": "qz-82-160",
+    "provinceId": "82",
+    "provinceName": "Maluku Utara",
+    "regencyId": "8204",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Maluku Utara (KABUPATEN HALMAHERA SELATAN)?",
+    "options": [
+      "Bahasa Matlow",
+      "Bahasa Mek Kosarek",
+      "Bahasa Bacan",
+      "Bahasa Minahasa"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Bacan berasal dari KABUPATEN HALMAHERA SELATAN, Provinsi Maluku Utara. Bahasa Bacan dituturkan oleh masyarakat di Desa Amasing Kota, Kecamatan Bacan, Kabupaten Halmahera Selatan, Pulau Bacan, Provinsi Maluku Utara.",
+    "relatedItemSlug": "bahasa-bahasa-bacan-82"
+  },
+  {
+    "id": "qz-91-161",
+    "provinceId": "91",
+    "provinceName": "Papua Barat",
+    "regencyId": "9105",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Papua Barat (KABUPATEN MANOKWARI) yang memiliki karakter \"Kordofon (Dawai)\" adalah...",
+    "options": [
+      "Canang",
+      "Gonrang",
+      "Kendang / Gendang",
+      "Guoto"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Guoto berasal dari KABUPATEN MANOKWARI, Provinsi Papua Barat. Guoto berasal dari Papua Barat yang mempunyai jenis bunyi Kordofon.",
+    "relatedItemSlug": "musik-guoto-91"
+  },
+  {
+    "id": "qz-91-162",
+    "provinceId": "91",
+    "provinceName": "Papua Barat",
+    "regencyId": "9101",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Papua Barat yang dikenal dengan ciri \"Bubur sagu lengket tawar pendamping ikan kuah kuning\" adalah...",
+    "options": [
+      "Papeda",
+      "Naniura",
+      "Gulai Ikan Patin",
+      "Gulai Tempoyak"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Papeda berasal dari KABUPATEN FAK-FAK, Provinsi Papua Barat. Bubur sagu lengket tawar pendamping ikan kuah kuning",
+    "relatedItemSlug": "makanan-papeda-91"
+  },
+  {
+    "id": "qz-91-163",
+    "provinceId": "91",
+    "provinceName": "Papua Barat",
+    "regencyId": "9101",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Papua Barat yang memiliki ciri khas \"Penutup alat vital pria dari labu air panjang\" adalah...",
+    "options": [
+      "Basahan / Solo Basahan",
+      "Koteka (Holim)",
+      "Penadon (Ponorogo)",
+      "Baju Donggo"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "Koteka (Holim) berasal dari KABUPATEN FAK-FAK, Provinsi Papua Barat. Koteka (Holim) merupakan busana adat tradisional khas Papua Barat yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-koteka-holim-91"
+  },
+  {
+    "id": "qz-91-164",
+    "provinceId": "91",
+    "provinceName": "Papua Barat",
+    "regencyId": "9105",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN MANOKWARI, Provinsi Papua Barat adalah...",
+    "options": [
+      "PATRAJAYA",
+      "PAUAT",
+      "Tari Tumbuk Tanah",
+      "PED ANG"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Tari Tumbuk Tanah berasal dari KABUPATEN MANOKWARI, Provinsi Papua Barat. Tari Tumbuk Tanah (Dansa Tumbuk Tanah) adalah tarian komunal khas suku Arfak di Manokwari, Papua Barat, dengan gerakan menghentakkan kaki ke tanah menyerupai gera...",
+    "relatedItemSlug": "tarian-tari-tumbuk-tanah-91"
+  },
+  {
+    "id": "qz-91-165",
+    "provinceId": "91",
+    "provinceName": "Papua Barat",
+    "regencyId": "9109",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Papua Barat (KABUPATEN TAMBRAUW)?",
+    "options": [
+      "Bahasa Wooi",
+      "Bahasa Yaghai Wairu",
+      "Bahasa Yamas",
+      "Bahasa Abun"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Bahasa Abun berasal dari KABUPATEN TAMBRAUW, Provinsi Papua Barat. Bahasa Abun dituturkan di Kampung Wau, Distrik Abun, Kabupaten Tambrauw, Provinsi Papua Barat.",
+    "relatedItemSlug": "bahasa-bahasa-abun-91"
+  },
+  {
+    "id": "qz-94-166",
+    "provinceId": "94",
+    "provinceName": "Papua",
+    "regencyId": "9418",
+    "category": "musik",
+    "question": "Alat musik tradisional khas dari Provinsi Papua (KABUPATEN TOLIKARA) yang memiliki karakter \"Membranofon (Membran)\" adalah...",
+    "options": [
+      "Ore-Ore Mbondu",
+      "Pare'e",
+      "Tifa",
+      "Serune Kale"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Tifa berasal dari KABUPATEN TOLIKARA, Provinsi Papua. Tifa berasal dari Papua yang mempunyai jenis bunyi Membranofon.",
+    "relatedItemSlug": "musik-tifa-94"
+  },
+  {
+    "id": "qz-94-167",
+    "provinceId": "94",
+    "provinceName": "Papua",
+    "regencyId": "9471",
+    "category": "makanan",
+    "question": "Hidangan kuliner tradisional khas Provinsi Papua yang dikenal dengan ciri \"Bubur sagu lengket tawar pendamping ikan kuah kuning\" adalah...",
+    "options": [
+      "Karedok",
+      "Nasi Liwet",
+      "Lontong Balap",
+      "Papeda"
+    ],
+    "correctIndex": 3,
+    "explanationTrivia": "Papeda berasal dari KOTA JAYAPURA, Provinsi Papua. Bubur sagu lengket tawar pendamping ikan kuah kuning",
+    "relatedItemSlug": "makanan-papeda-94"
+  },
+  {
+    "id": "qz-94-168",
+    "provinceId": "94",
+    "provinceName": "Papua",
+    "regencyId": "9401",
+    "category": "pakaian",
+    "question": "Busana adat tradisional dari Provinsi Papua yang memiliki ciri khas \"Penutup alat vital pria dari labu air panjang\" adalah...",
+    "options": [
+      "Koteka (Holim)",
+      "Babaju Kubaya Panjang",
+      "Baju Baniang",
+      "Pattuqduq Towaine"
+    ],
+    "correctIndex": 0,
+    "explanationTrivia": "Koteka (Holim) berasal dari KABUPATEN MERAUKE, Provinsi Papua. Koteka (Holim) merupakan busana adat tradisional khas Papua yang dikenakan oleh Pria.",
+    "relatedItemSlug": "pakaian-koteka-holim-94"
+  },
+  {
+    "id": "qz-94-169",
+    "provinceId": "94",
+    "provinceName": "Papua",
+    "regencyId": "9426",
+    "category": "tarian",
+    "question": "Seni tari tradisional yang berasal dari daerah KABUPATEN WAROPEN, Provinsi Papua adalah...",
+    "options": [
+      "PERSEMBAHAN MEMBANGUN",
+      "RAIMAMUNA",
+      "PHA-RANGKANG",
+      "PIRING (II)"
+    ],
+    "correctIndex": 1,
+    "explanationTrivia": "RAIMAMUNA berasal dari KABUPATEN WAROPEN, Provinsi Papua. Tari tradisional yang dikenal oleh suku Arnbay, di daerah Serki, Kabupaten Yapen Waropen, Irian Jaya.",
+    "relatedItemSlug": "tarian-raimamuna-94"
+  },
+  {
+    "id": "qz-94-170",
+    "provinceId": "94",
+    "provinceName": "Papua",
+    "regencyId": "9428",
+    "category": "bahasa",
+    "question": "Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi Papua (KABUPATEN MAMBERAMO RAYA)?",
+    "options": [
+      "Bahasa Bukat",
+      "Bahasa Cia-Cia",
+      "Bahasa Aabinomin",
+      "Bahasa Dayak Baream"
+    ],
+    "correctIndex": 2,
+    "explanationTrivia": "Bahasa Aabinomin berasal dari KABUPATEN MAMBERAMO RAYA, Provinsi Papua. Bahasa Aabinomin dituturkan oleh etnik Aabinomin di Kampung Baso, Distrik Mamberamo Hulu, Kabupaten Mamberamo Raya, Provinsi Papua.",
+    "relatedItemSlug": "bahasa-bahasa-aabinomin-94"
+  }
+]

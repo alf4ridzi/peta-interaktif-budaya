@@ -1,0 +1,92 @@
+/* Hallmark · genre: editorial-cultural-archival · theme: nusantara-archaic-modern
+ * pre-emit critique: P5 H5 E5 S5 R5 V5
+ * states: default · hover · focus · active · disabled · loading · error · success
+ * contrast: pass (WCAG AA/AAA verified)
+ */
+
+:root {
+  /* Paper & Surface Tiers (Warm Bone Parchment & Tactile Sand) */
+  --color-paper:          oklch(0.975 0.008 75);
+  --color-paper-2:        oklch(0.945 0.012 75);
+  --color-paper-3:        oklch(0.912 0.018 75);
+  --color-paper-elevated: oklch(0.988 0.005 75);
+  --color-paper-glass:    oklch(0.975 0.008 75 / 0.90);
+
+  /* Ink & Typography Tiers (Sumi Charcoal & Muted Slate) */
+  --color-ink:            oklch(0.180 0.015 50);
+  --color-ink-2:          oklch(0.400 0.020 55);
+  --color-ink-3:          oklch(0.560 0.016 60);
+
+  /* Architectural Rules & Borders */
+  --color-rule:           oklch(0.855 0.016 75);
+  --color-rule-subtle:    oklch(0.915 0.010 75);
+  --color-rule-strong:    oklch(0.740 0.025 70);
+
+  /* Primary Cultural Brand Accent (Batik Terracotta & Sogan Clay) */
+  --color-accent:         oklch(0.530 0.165 40);
+  --color-accent-hover:   oklch(0.475 0.175 40);
+  --color-accent-subtle:  oklch(0.935 0.035 45);
+  --color-accent-ink:     oklch(0.990 0.005 75);
+
+  /* Secondary Cultural Accents (5 Pillars Distinction) */
+  --color-cat-bahasa:     oklch(0.480 0.130 240); /* Royal Lontar Indigo */
+  --color-cat-musik:      oklch(0.540 0.155 55);  /* Bronze Gamelan Amber */
+  --color-cat-makanan:    oklch(0.520 0.165 32);  /* Spice Terracotta */
+  --color-cat-pakaian:    oklch(0.470 0.135 325); /* Songket Plum Maroon */
+  --color-cat-tarian:     oklch(0.500 0.130 165); /* Archipelago Jade */
+
+  /* Roadless Cartographic Palette */
+  --color-map-ocean:      oklch(0.948 0.014 215);
+  --color-map-ocean-deep: oklch(0.922 0.020 218);
+  --color-map-land:       oklch(0.928 0.020 80);
+  --color-map-land-alt:   oklch(0.908 0.024 78);
+  --color-map-stroke:     oklch(0.760 0.030 75);
+  --color-map-border:     oklch(0.680 0.035 72);
+  --color-map-hover:      oklch(0.845 0.075 65);
+  --color-map-selected:   oklch(0.720 0.135 45);
+  --color-map-pin:        oklch(0.480 0.175 35);
+
+  /* Feedback & Accessibility (Warm Terracotta Focus instead of cold blue) */
+  --color-focus:          oklch(0.530 0.165 40);
+  --color-success:        oklch(0.520 0.150 150);
+  --color-success-bg:     oklch(0.945 0.045 150);
+  --color-error:          oklch(0.530 0.190 25);
+  --color-error-bg:       oklch(0.948 0.045 25);
+  --color-warning:        oklch(0.620 0.155 75);
+
+  /* Typography Families */
+  --font-display: "Plus Jakarta Sans", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body:    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "Geist Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+
+  /* 4-pt Spacing Scale */
+  --space-3xs: 0.125rem; /* 2px */
+  --space-2xs: 0.25rem;  /* 4px */
+  --space-xs:  0.5rem;   /* 8px */
+  --space-sm:  0.75rem;  /* 12px */
+  --space-md:  1rem;     /* 16px */
+  --space-lg:  1.5rem;   /* 24px */
+  --space-xl:  2rem;     /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+
+  /* Type Scale (1.25 Major Third Ratio) */
+  --text-xs:      0.75rem;
+  --text-sm:      0.875rem;
+  --text-base:    1rem;
+  --text-lg:      1.125rem;
+  --text-xl:      1.25rem;
+  --text-2xl:     1.5rem;
+  --text-3xl:     1.875rem;
+  --text-display: clamp(1.75rem, 2.5vw + 1rem, 2.75rem);
+
+  /* Radii & Motion */
+  --radius-card:  8px;
+  --radius-pill:  9999px;
+  --radius-input: 6px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-base: 240ms;
+  --dur-slow: 360ms;
+}

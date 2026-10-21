@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#f6efe5"/>
+  <rect x="24" y="24" width="752" height="452" rx="8" fill="none" stroke="#c8bba6" stroke-width="1.5"/>
+  <g transform="translate(400, 235)" fill="none" stroke="#9e3b22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0" cy="45" rx="145" ry="32" fill="#e6d8c3" stroke="#5e4332" stroke-width="2.5"/>
+    <path d="M-110 35 L0 -95 L110 35 Z" fill="#d99b38" stroke="#7a4914" stroke-width="2.5"/>
+    <path d="M-125 35 C-125 85, 125 85, 125 35 Z" fill="#b34728" stroke="#5e2414" stroke-width="2.5"/>
+    <path d="M-35 -115 C-45 -135, -25 -145, -35 -165" stroke="#9e3b22" stroke-width="2.5"/>
+    <path d="M0 -120 C-10 -140, 10 -150, 0 -170" stroke="#9e3b22" stroke-width="2.5"/>
+    <path d="M35 -115 C25 -135, 45 -145, 35 -165" stroke="#9e3b22" stroke-width="2.5"/>
+  </g>
+  <text x="400" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#2c241d" letter-spacing="2">KULINER &amp; REMPAH TRADISIONAL</text>
+  <text x="400" y="425" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#6e6256" letter-spacing="3">CITA RASA WARISAN LELUHUR</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#f2efe8"/>
+  <rect x="24" y="24" width="752" height="452" rx="8" fill="none" stroke="#c8bba6" stroke-width="1.5"/>
+  <g transform="translate(400, 225)" fill="none" stroke="#1e5e4e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-125 25 A125 125 0 0 1 125 25 L0 25 Z" fill="#dce8e3" stroke="#1e5e4e" stroke-width="2.5"/>
+    <line x1="0" y1="25" x2="-95" y2="-55" stroke="#1e5e4e" stroke-width="1.75"/>
+    <line x1="0" y1="25" x2="-45" y2="-90" stroke="#1e5e4e" stroke-width="1.75"/>
+    <line x1="0" y1="25" x2="0" y2="-100" stroke="#b35c20" stroke-width="2.2"/>
+    <line x1="0" y1="25" x2="45" y2="-90" stroke="#1e5e4e" stroke-width="1.75"/>
+    <line x1="0" y1="25" x2="95" y2="-55" stroke="#1e5e4e" stroke-width="1.75"/>
+    <circle cx="0" cy="25" r="10" fill="#b35c20" stroke="none"/>
+  </g>
+  <text x="400" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#2c241d" letter-spacing="2">SENI TARI TRADISIONAL</text>
+  <text x="400" y="425" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#6e6256" letter-spacing="3">GERAK WIRAGA &amp; WIRASA NUSANTARA</text>
+</svg>
