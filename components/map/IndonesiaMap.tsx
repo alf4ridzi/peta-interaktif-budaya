@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   GeoCoordinates,
   geometryToSvgPath,
@@ -21,6 +21,7 @@ import {
 } from "@/types/culture";
 import { MapControls } from "./MapControls";
 import { formatTitleCase } from "@/lib/utils";
+import { IconClose, IconMapPin } from "@/components/ui/Icons";
 
 export interface ProvinceGeoFeature {
   type: "Feature";
@@ -139,6 +140,94 @@ export function IndonesiaMap({
     });
   }, [districtsByRegency, selectedRegencyId]);
 
+  const selectedRegencyObj = useMemo(() => {
+    if (!selectedRegencyId) return null;
+    return activeProvinceRegencies.find((r) => r.id === selectedRegencyId) || null;
+  }, [activeProvinceRegencies, selectedRegencyId]);
+
+  const selectedDistrictObj = useMemo(() => {
+    if (!selectedDistrictId) return null;
+    return activeRegencyDistricts.find((d) => d.id === selectedDistrictId) || null;
+  }, [activeRegencyDistricts, selectedDistrictId]);
+
+  // Sort regencies so selected regency is rendered last (on top of others)
+  const sortedRegencies = useMemo(() => {
+    if (!selectedRegencyId) return activeProvinceRegencies;
+    return [...activeProvinceRegencies].sort((a, b) => {
+      if (a.id === selectedRegencyId) return 1;
+      if (b.id === selectedRegencyId) return -1;
+      return 0;
+    });
+  }, [activeProvinceRegencies, selectedRegencyId]);
+
+  // Sort districts so selected district is rendered last
+  const sortedDistricts = useMemo(() => {
+    if (!selectedDistrictId) return activeRegencyDistricts;
+    return [...activeRegencyDistricts].sort((a, b) => {
+      if (a.id === selectedDistrictId) return 1;
+      if (b.id === selectedDistrictId) return -1;
+      return 0;
+    });
+  }, [activeRegencyDistricts, selectedDistrictId]);
+
+  // Smooth animated camera interpolation for silky smooth navigation
+  const [displayCamera, setDisplayCamera] = useState(camera);
+  const animRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (isDragging) {
+      return;
+    }
+
+    const dLon = Math.abs(displayCamera.lon - camera.lon);
+    const dLat = Math.abs(displayCamera.lat - camera.lat);
+    const dZoom = Math.abs(displayCamera.zoom - camera.zoom);
+    if (dLon < 0.0001 && dLat < 0.0001 && dZoom < 0.0001) {
+      return;
+    }
+
+    if (animRef.current) cancelAnimationFrame(animRef.current);
+
+    const startLon = displayCamera.lon;
+    const startLat = displayCamera.lat;
+    const startZoom = displayCamera.zoom;
+    const targetLon = camera.lon;
+    const targetLat = camera.lat;
+    const targetZoom = camera.zoom;
+    const startTime = performance.now();
+    const duration = 480;
+
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const ease = easeOutCubic(progress);
+
+      setDisplayCamera({
+        lon: startLon + (targetLon - startLon) * ease,
+        lat: startLat + (targetLat - startLat) * ease,
+        zoom: startZoom + (targetZoom - startZoom) * ease,
+        activeIsland: camera.activeIsland,
+      });
+
+      if (progress < 1) {
+        animRef.current = requestAnimationFrame(step);
+      } else {
+        animRef.current = null;
+      }
+    };
+
+    animRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [camera, isDragging]);
+
+  const activeCamera = isDragging ? camera : displayCamera;
+
   // Graticule grid lines (Roadless cartographic aesthetic)
   const graticules = useMemo(() => {
     const lonLines = [95, 100, 105, 110, 115, 120, 125, 130, 135, 140].map(
@@ -154,11 +243,11 @@ export function IndonesiaMap({
     return { lonLines, latLines };
   }, []);
 
-  // Compute SVG viewBox from camera (lon, lat, zoom)
+  // Compute SVG viewBox from activeCamera (lon, lat, zoom)
   const viewBox = useMemo(() => {
-    const [centerX, centerY] = projectCoord(camera.lon, camera.lat);
-    const vw = MAP_WIDTH / camera.zoom;
-    const vh = MAP_HEIGHT / camera.zoom;
+    const [centerX, centerY] = projectCoord(activeCamera.lon, activeCamera.lat);
+    const vw = MAP_WIDTH / activeCamera.zoom;
+    const vh = MAP_HEIGHT / activeCamera.zoom;
     const minX = Math.max(
       -80,
       Math.min(MAP_WIDTH - vw + 80, centerX - vw / 2)
@@ -168,7 +257,7 @@ export function IndonesiaMap({
       Math.min(MAP_HEIGHT - vh + 60, centerY - vh / 2)
     );
     return `${minX.toFixed(2)} ${minY.toFixed(2)} ${vw.toFixed(2)} ${vh.toFixed(2)}`;
-  }, [camera]);
+  }, [activeCamera]);
 
   // Pointer drag handlers for smooth panning
   const handlePointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
@@ -216,6 +305,7 @@ export function IndonesiaMap({
   const handlePointerUp = () => {
     setIsDragging(false);
     dragStartRef.current = null;
+    setDisplayCamera(camera);
   };
 
   const handleWheel = (e: React.WheelEvent<SVGSVGElement>) => {
@@ -475,14 +565,15 @@ export function IndonesiaMap({
         </g>
 
         {/* 4. Tier 2: Regencies (Kabupaten/Kota) Nodes when a Province is selected */}
-        {selectedProvinceId && activeProvinceRegencies.length > 0 && (
+        {selectedProvinceId && sortedRegencies.length > 0 && (
           <g role="group" aria-label="Kabupaten dan Kota" style={{ outline: "none" }}>
-            {activeProvinceRegencies.map((reg) => {
+            {sortedRegencies.map((reg) => {
               const isRegSelected = selectedRegencyId === reg.id;
+              const isAnyRegSelected = Boolean(selectedRegencyId);
               const regCount = itemCountsByRegency[reg.id] || 0;
-              const scaleFactor = Math.pow(camera.zoom, 0.72);
+              const scaleFactor = Math.pow(activeCamera.zoom, 0.72);
               const rSize =
-                (isRegSelected ? 4.8 : regCount > 0 ? 3.5 : 2.5) / scaleFactor;
+                (isRegSelected ? 5.8 : regCount > 0 ? 3.5 : 2.5) / scaleFactor;
               const labelSize = 6.8 / scaleFactor;
 
               return (
@@ -490,12 +581,16 @@ export function IndonesiaMap({
                   key={reg.id}
                   transform={`translate(${reg.x}, ${reg.y})`}
                   className="cursor-pointer outline-none focus:outline-none focus-visible:outline-none select-none"
-                  style={{ outline: "none" }}
+                  style={{
+                    outline: "none",
+                    opacity: isRegSelected ? 1 : isAnyRegSelected ? 0.35 : 1,
+                    transition: "opacity 200ms ease",
+                  }}
                   tabIndex={0}
                   role="button"
                   aria-label={`${formatTitleCase(reg.name)}, ${regCount} data budaya`}
                   onMouseDown={(e) => {
-                    // Prevent browser from focusing SVG group on click (eradicates blue box)
+                    // Prevent browser from focusing SVG group on click
                     e.preventDefault();
                   }}
                   onClick={(e) => {
@@ -523,6 +618,68 @@ export function IndonesiaMap({
                   }
                   onMouseLeave={() => setTooltip(null)}
                 >
+                  {/* Generous hit target */}
+                  <circle
+                    r={Math.max(12, rSize * 2.4)}
+                    fill="transparent"
+                  />
+
+                  {/* Pulsing Radar Beacon Waves for Selected Regency */}
+                  {isRegSelected && (
+                    <>
+                      <circle
+                        r={rSize * 1.5}
+                        fill="var(--color-accent)"
+                        opacity={0.3}
+                      >
+                        <animate
+                          attributeName="r"
+                          values={`${rSize * 1.5};${rSize * 5.2}`}
+                          dur="2.2s"
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="opacity"
+                          values="0.5;0"
+                          dur="2.2s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                      <circle
+                        r={rSize * 1.2}
+                        fill="none"
+                        stroke="var(--color-accent)"
+                        strokeWidth={1.8 / scaleFactor}
+                        opacity={0.7}
+                      >
+                        <animate
+                          attributeName="r"
+                          values={`${rSize * 1.2};${rSize * 4.2}`}
+                          dur="2.2s"
+                          begin="0.7s"
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="opacity"
+                          values="0.75;0"
+                          dur="2.2s"
+                          begin="0.7s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                      {/* Steady Outer Target Ring */}
+                      <circle
+                        r={rSize * 2.2}
+                        fill="none"
+                        stroke="var(--color-accent)"
+                        strokeWidth={1.8 / scaleFactor}
+                        strokeDasharray="3 2"
+                        opacity={0.85}
+                      />
+                    </>
+                  )}
+
+                  {/* Node Core */}
                   <circle
                     r={rSize}
                     fill={
@@ -532,20 +689,71 @@ export function IndonesiaMap({
                         ? "var(--color-accent)"
                         : "var(--color-paper-elevated)"
                     }
-                    stroke="var(--color-ink)"
-                    strokeWidth={0.9 / scaleFactor}
+                    stroke={isRegSelected ? "var(--color-paper)" : "var(--color-ink)"}
+                    strokeWidth={(isRegSelected ? 2.2 : 0.9) / scaleFactor}
                   />
-                  {(isRegSelected || camera.zoom >= 2.2) && (
+
+                  {/* Inner pip for selected regency */}
+                  {isRegSelected && (
+                    <circle
+                      r={rSize * 0.45}
+                      fill="var(--color-paper)"
+                    />
+                  )}
+
+                  {/* Floating Callout Banner above Selected Regency Pin */}
+                  {isRegSelected ? (
+                    <g transform={`translate(0, ${-rSize - 8 / scaleFactor})`}>
+                      <polygon
+                        points={`0,${3.5 / scaleFactor} ${-3 / scaleFactor},0 ${3 / scaleFactor},0`}
+                        fill="var(--color-ink)"
+                      />
+                      {(() => {
+                        const title = formatTitleCase(
+                          reg.name.replace(/^KABUPATEN\s+/i, "Kab. ")
+                        );
+                        const countLabel = regCount > 0 ? ` · ${regCount} Budaya` : "";
+                        const fullLabel = `📍 ${title}${countLabel}`;
+                        const charWidth = 4.8 / scaleFactor;
+                        const pillWidth = Math.max(
+                          54 / scaleFactor,
+                          fullLabel.length * charWidth + 14 / scaleFactor
+                        );
+                        const pillHeight = 16 / scaleFactor;
+                        return (
+                          <g>
+                            <rect
+                              x={-pillWidth / 2}
+                              y={-pillHeight}
+                              width={pillWidth}
+                              height={pillHeight}
+                              rx={3.5 / scaleFactor}
+                              fill="var(--color-ink)"
+                              stroke="var(--color-accent)"
+                              strokeWidth={1.2 / scaleFactor}
+                            />
+                            <text
+                              x={0}
+                              y={-pillHeight / 2 + 2.4 / scaleFactor}
+                              textAnchor="middle"
+                              fontSize={6.5 / scaleFactor}
+                              fontWeight={700}
+                              fill="var(--color-paper)"
+                              fontFamily="var(--font-display)"
+                            >
+                              {fullLabel}
+                            </text>
+                          </g>
+                        );
+                      })()}
+                    </g>
+                  ) : (!isAnyRegSelected && activeCamera.zoom >= 2.2) || activeCamera.zoom >= 3.8 ? (
                     <text
                       y={rSize + 7 / scaleFactor}
                       textAnchor="middle"
                       fontSize={labelSize}
-                      fontWeight={isRegSelected ? 700 : 500}
-                      fill={
-                        isRegSelected
-                          ? "var(--color-accent)"
-                          : "var(--color-ink-2)"
-                      }
+                      fontWeight={500}
+                      fill="var(--color-ink-2)"
                       stroke="var(--color-paper)"
                       strokeWidth={1.8 / scaleFactor}
                       paintOrder="stroke"
@@ -554,7 +762,7 @@ export function IndonesiaMap({
                         reg.name.replace(/^KABUPATEN\s+/i, "Kab. ")
                       )}
                     </text>
-                  )}
+                  ) : null}
                 </g>
               );
             })}
@@ -562,19 +770,27 @@ export function IndonesiaMap({
         )}
 
         {/* 5. Tier 3: Sub-districts (Kecamatan) Nodes when a Regency is selected */}
-        {selectedRegencyId && activeRegencyDistricts.length > 0 && (
+        {selectedRegencyId && sortedDistricts.length > 0 && (
           <g role="group" aria-label="Kecamatan" style={{ outline: "none" }}>
-            {activeRegencyDistricts.map((dist) => {
+            {sortedDistricts.map((dist) => {
               const isDistSelected = selectedDistrictId === dist.id;
-              const scaleFactor = Math.pow(camera.zoom, 0.78);
-              const dSize = (isDistSelected ? 3.8 : 2.4) / scaleFactor;
+              const isAnyDistSelected = Boolean(selectedDistrictId);
+              const scaleFactor = Math.pow(activeCamera.zoom, 0.78);
+              const dSize = (isDistSelected ? 4.8 : 3.0) / scaleFactor;
 
               return (
                 <g
                   key={dist.id}
                   transform={`translate(${dist.x}, ${dist.y})`}
                   className="cursor-pointer outline-none focus:outline-none focus-visible:outline-none select-none"
-                  style={{ outline: "none" }}
+                  style={{
+                    outline: "none",
+                    opacity: isDistSelected ? 1 : isAnyDistSelected ? 0.4 : 1,
+                    transition: "opacity 200ms ease",
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`Kecamatan ${formatTitleCase(dist.name)}`}
                   onMouseDown={(e) => {
                     e.preventDefault();
                   }}
@@ -583,6 +799,12 @@ export function IndonesiaMap({
                     (e.currentTarget as SVGElement).blur();
                     window.getSelection()?.removeAllRanges();
                     onSelectDistrict(dist.id);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onSelectDistrict(dist.id);
+                    }
                   }}
                   onMouseMove={(e) =>
                     updateTooltipPosition(e, {
@@ -594,6 +816,44 @@ export function IndonesiaMap({
                   }
                   onMouseLeave={() => setTooltip(null)}
                 >
+                  {/* Hit target */}
+                  <circle
+                    r={Math.max(10, dSize * 2.2)}
+                    fill="transparent"
+                  />
+
+                  {/* Pulsing Beacon for Selected District */}
+                  {isDistSelected && (
+                    <>
+                      <circle
+                        r={dSize * 1.5}
+                        fill="var(--color-success)"
+                        opacity={0.3}
+                      >
+                        <animate
+                          attributeName="r"
+                          values={`${dSize * 1.5};${dSize * 4.8}`}
+                          dur="2s"
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="opacity"
+                          values="0.5;0"
+                          dur="2s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                      <circle
+                        r={dSize * 2.0}
+                        fill="none"
+                        stroke="var(--color-success)"
+                        strokeWidth={1.5 / scaleFactor}
+                        strokeDasharray="2 2"
+                        opacity={0.8}
+                      />
+                    </>
+                  )}
+
                   <rect
                     x={-dSize}
                     y={-dSize}
@@ -605,15 +865,135 @@ export function IndonesiaMap({
                         ? "var(--color-success)"
                         : "var(--color-paper)"
                     }
-                    stroke="var(--color-accent)"
-                    strokeWidth={0.9 / scaleFactor}
+                    stroke={isDistSelected ? "var(--color-paper)" : "var(--color-accent)"}
+                    strokeWidth={(isDistSelected ? 1.8 : 0.9) / scaleFactor}
                   />
+
+                  {/* Inner dot */}
+                  {isDistSelected && (
+                    <circle
+                      r={dSize * 0.4}
+                      fill="var(--color-paper)"
+                    />
+                  )}
+
+                  {/* Floating Callout Banner for Selected District */}
+                  {isDistSelected ? (
+                    <g transform={`translate(0, ${-dSize - 7 / scaleFactor})`}>
+                      <polygon
+                        points={`0,${3 / scaleFactor} ${-2.5 / scaleFactor},0 ${2.5 / scaleFactor},0`}
+                        fill="var(--color-ink)"
+                      />
+                      {(() => {
+                        const name = `📍 Kec. ${formatTitleCase(dist.name)}`;
+                        const charWidth = 4.6 / scaleFactor;
+                        const pillWidth = Math.max(
+                          48 / scaleFactor,
+                          name.length * charWidth + 12 / scaleFactor
+                        );
+                        const pillHeight = 15 / scaleFactor;
+                        return (
+                          <g>
+                            <rect
+                              x={-pillWidth / 2}
+                              y={-pillHeight}
+                              width={pillWidth}
+                              height={pillHeight}
+                              rx={3 / scaleFactor}
+                              fill="var(--color-ink)"
+                              stroke="var(--color-success)"
+                              strokeWidth={1.2 / scaleFactor}
+                            />
+                            <text
+                              x={0}
+                              y={-pillHeight / 2 + 2.3 / scaleFactor}
+                              textAnchor="middle"
+                              fontSize={6.0 / scaleFactor}
+                              fontWeight={700}
+                              fill="var(--color-paper)"
+                              fontFamily="var(--font-display)"
+                            >
+                              {name}
+                            </text>
+                          </g>
+                        );
+                      })()}
+                    </g>
+                  ) : activeCamera.zoom >= 4.5 ? (
+                    <text
+                      y={dSize + 6 / scaleFactor}
+                      textAnchor="middle"
+                      fontSize={5.2 / scaleFactor}
+                      fontWeight={500}
+                      fill="var(--color-ink-2)"
+                      stroke="var(--color-paper)"
+                      strokeWidth={1.4 / scaleFactor}
+                      paintOrder="stroke"
+                    >
+                      {formatTitleCase(dist.name)}
+                    </text>
+                  ) : null}
                 </g>
               );
             })}
           </g>
         )}
       </svg>
+
+      {/* Active Selection Indicator Floating HUD (below breadcrumbs) */}
+      {(selectedRegencyObj || selectedDistrictObj) && (
+        <div className="pointer-events-auto absolute top-14 left-4 z-20 flex max-w-[calc(100vw-2rem)] items-center gap-2 rounded-[var(--radius-card)] border border-[var(--color-accent)] bg-[var(--color-paper-glass)] px-3 py-1.5 shadow-md backdrop-blur-md">
+          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent)] text-[var(--color-paper)]">
+            <IconMapPin size={12} />
+          </div>
+          <div className="flex items-center gap-1.5 truncate text-xs">
+            <span className="font-mono text-[10px] uppercase font-semibold text-[var(--color-accent)]">
+              {selectedDistrictObj ? "Kecamatan Terpilih:" : "Kab/Kota Terpilih:"}
+            </span>
+            <span className="font-display font-bold text-[var(--color-ink)] truncate">
+              {selectedDistrictObj
+                ? `Kec. ${formatTitleCase(selectedDistrictObj.name)}`
+                : formatTitleCase(selectedRegencyObj!.name)}
+            </span>
+            {selectedRegencyObj && (itemCountsByRegency[selectedRegencyObj.id] || 0) > 0 && !selectedDistrictObj && (
+              <span className="rounded bg-[var(--color-accent)]/15 px-1.5 py-0.2 font-mono text-[10px] font-bold text-[var(--color-accent)]">
+                {itemCountsByRegency[selectedRegencyObj.id]} Budaya
+              </span>
+            )}
+          </div>
+          <div className="ml-1 flex items-center gap-1 border-l border-[var(--color-rule)] pl-1.5">
+            <button
+              type="button"
+              onClick={() => {
+                if (selectedDistrictObj) {
+                  onSelectDistrict(selectedDistrictObj.id);
+                } else if (selectedRegencyObj) {
+                  onSelectRegency(selectedRegencyObj.id);
+                }
+              }}
+              className="hm-interactive rounded px-1.5 py-0.5 text-[11px] font-semibold text-[var(--color-accent)] hover:bg-[var(--color-accent)]/10"
+              title="Pusatkan pandangan peta ke wilayah ini"
+            >
+              Pusatkan
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                if (selectedDistrictObj) {
+                  onSelectDistrict("");
+                } else if (selectedRegencyObj) {
+                  onSelectRegency("");
+                }
+              }}
+              className="hm-interactive rounded p-0.5 text-[var(--color-ink-3)] hover:text-[var(--color-ink)]"
+              title="Hapus pilihan wilayah"
+              aria-label="Hapus pilihan wilayah"
+            >
+              <IconClose size={13} />
+            </button>
+          </div>
+        </div>
+      )}
 
       
 

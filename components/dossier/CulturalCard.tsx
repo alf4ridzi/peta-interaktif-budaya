@@ -11,12 +11,14 @@ interface CulturalCardProps {
   item: CulturalItem;
   isHighlighted?: boolean;
   onSelectRegency?: (regencyId: string) => void;
+  onSelectDistrict?: (districtId: string) => void;
 }
 
 export function CulturalCard({
   item,
   isHighlighted = false,
   onSelectRegency,
+  onSelectDistrict,
 }: CulturalCardProps) {
   const meta = CATEGORY_META[item.category];
   const [imgSrc, setImgSrc] = useState(
@@ -106,11 +108,20 @@ export function CulturalCard({
             </span>
           )}
 
-          {item.districtName && (
+          {item.districtName && item.districtId && onSelectDistrict ? (
+            <button
+              type="button"
+              onClick={() => onSelectDistrict(item.districtId!)}
+              className="hm-interactive inline-flex items-center gap-1 rounded-[var(--radius-input)] border border-[var(--color-rule-subtle)] bg-[var(--color-paper)] px-2 py-0.5 font-mono text-[11px] text-[var(--color-ink-2)] hover:border-[var(--color-accent)] hover:text-[var(--color-ink)]"
+              title="Fokuskan peta ke kecamatan ini"
+            >
+              <span>Kec. {formatTitleCase(item.districtName)}</span>
+            </button>
+          ) : item.districtName ? (
             <span className="rounded-[var(--radius-input)] border border-[var(--color-rule-subtle)] bg-[var(--color-paper)] px-2 py-0.5 font-mono text-[11px] text-[var(--color-ink-2)]">
               Kec. {formatTitleCase(item.districtName)}
             </span>
-          )}
+          ) : null}
         </div>
 
         {/* Category-Specific Metadata Pills */}

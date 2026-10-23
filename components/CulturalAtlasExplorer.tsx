@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 import {
   CulturalCategory,
   CulturalItem,
+  DistrictRecord,
   GeoHierarchyData,
   IslandGroup,
 } from "@/types/culture";
@@ -198,27 +199,76 @@ export function CulturalAtlasExplorer({
     if (reg) {
       setSelectedProvinceId(reg.provinceId);
       setIsMobileDossierOpen(true);
+      // Adaptive zoom for focused regency view
+      const regZoom =
+        reg.provinceId === "31" ? 6.2 : reg.provinceId === "34" ? 5.8 : 5.3;
       setCamera((prev) => ({
         ...prev,
         lon: reg.longitude,
         lat: reg.latitude,
-        zoom: 4.2,
+        zoom: regZoom,
       }));
     }
   };
 
   const handleSelectDistrict = (districtId: string | null) => {
     setSelectedDistrictId(districtId);
-    if (!districtId || !selectedRegency) return;
-    const dist = (hierarchy.districtsByRegency[selectedRegency.id] || []).find(
-      (d) => d.id === districtId
-    );
+    setHighlightedItemSlug(null);
+
+    if (!districtId) {
+      if (selectedRegency) {
+        const regZoom =
+          selectedRegency.provinceId === "31"
+            ? 6.2
+            : selectedRegency.provinceId === "34"
+            ? 5.8
+            : 5.3;
+        setCamera((prev) => ({
+          ...prev,
+          lon: selectedRegency.longitude,
+          lat: selectedRegency.latitude,
+          zoom: regZoom,
+        }));
+      }
+      return;
+    }
+
+    // Lookup district across active regency or full hierarchy
+    let dist: DistrictRecord | undefined;
+    let parentRegId = selectedRegencyId;
+
+    if (parentRegId && hierarchy.districtsByRegency[parentRegId]) {
+      dist = hierarchy.districtsByRegency[parentRegId].find(
+        (d) => d.id === districtId
+      );
+    }
+
+    if (!dist) {
+      for (const [rId, dList] of Object.entries(hierarchy.districtsByRegency)) {
+        const found = dList.find((d) => d.id === districtId);
+        if (found) {
+          dist = found;
+          parentRegId = rId;
+          break;
+        }
+      }
+    }
+
     if (dist) {
+      if (parentRegId && parentRegId !== selectedRegencyId) {
+        const reg = hierarchy.regencies.find((r) => r.id === parentRegId);
+        if (reg) {
+          setSelectedProvinceId(reg.provinceId);
+          setSelectedRegencyId(reg.id);
+        }
+      }
+      setIsMobileDossierOpen(true);
+      const distZoom = selectedProvinceId === "31" ? 7.6 : 6.8;
       setCamera((prev) => ({
         ...prev,
-        lon: dist.lon,
-        lat: dist.lat,
-        zoom: 5.5,
+        lon: dist!.lon,
+        lat: dist!.lat,
+        zoom: distZoom,
       }));
     }
   };
@@ -309,7 +359,8 @@ export function CulturalAtlasExplorer({
             selectedDistrict={selectedDistrict}
             onResetToNational={handleResetToNational}
             onSelectProvince={handleSelectProvince}
-            onSelectRegency={(regId) => handleSelectRegency(regId)}
+            onSelectRegency={(regId) => handleSelectRegency(regId ? regId : null)}
+            onSelectDistrict={(distId) => handleSelectDistrict(distId ? distId : null)}
           />
 
           <IndonesiaMap
@@ -325,8 +376,8 @@ export function CulturalAtlasExplorer({
             camera={camera}
             onCameraChange={setCamera}
             onSelectProvince={handleSelectProvince}
-            onSelectRegency={(regId) => handleSelectRegency(regId)}
-            onSelectDistrict={(distId) => handleSelectDistrict(distId)}
+            onSelectRegency={(regId) => handleSelectRegency(regId ? regId : null)}
+            onSelectDistrict={(distId) => handleSelectDistrict(distId ? distId : null)}
           />
 
           {/* Mobile Floating Drawer Trigger Bar (<768px) - Only shown when a region is selected */}

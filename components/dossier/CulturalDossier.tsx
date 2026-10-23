@@ -268,6 +268,7 @@ export function CulturalDossier({
             item={item}
             isHighlighted={highlightedItemSlug === item.slug}
             onSelectRegency={(regId) => onSelectRegency(regId)}
+            onSelectDistrict={(distId) => onSelectDistrict(distId)}
           />
         ))}
       </div>

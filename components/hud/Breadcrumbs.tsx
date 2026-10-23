@@ -16,6 +16,7 @@ interface BreadcrumbsProps {
   onResetToNational: () => void;
   onSelectProvince: (provinceId: string) => void;
   onSelectRegency: (regencyId: string) => void;
+  onSelectDistrict?: (districtId: string) => void;
 }
 
 export function Breadcrumbs({
@@ -25,6 +26,7 @@ export function Breadcrumbs({
   onResetToNational,
   onSelectProvince,
   onSelectRegency,
+  onSelectDistrict,
 }: BreadcrumbsProps) {
   return (
     <nav
@@ -90,9 +92,20 @@ export function Breadcrumbs({
             size={13}
             className="shrink-0 text-[var(--color-ink-3)]"
           />
-          <span className="shrink-0 whitespace-nowrap px-1.5 py-0.5 font-bold text-[var(--color-accent)]">
-            Kec. {formatTitleCase(selectedDistrict.name)}
-          </span>
+          {onSelectDistrict ? (
+            <button
+              type="button"
+              onClick={() => onSelectDistrict(selectedDistrict.id)}
+              className="hm-interactive shrink-0 whitespace-nowrap rounded px-1.5 py-0.5 font-bold text-[var(--color-accent)] hover:underline"
+              title="Pusatkan ke kecamatan ini"
+            >
+              Kec. {formatTitleCase(selectedDistrict.name)}
+            </button>
+          ) : (
+            <span className="shrink-0 whitespace-nowrap px-1.5 py-0.5 font-bold text-[var(--color-accent)]">
+              Kec. {formatTitleCase(selectedDistrict.name)}
+            </span>
+          )}
         </>
       )}
     </nav>
