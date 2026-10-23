@@ -5,12 +5,13 @@ import { QuizQuestion } from "@/types/quiz";
 import { QuizQuestionCard } from "./QuizQuestionCard";
 import { QuizSummary } from "./QuizSummary";
 import { IconClose, IconQuiz } from "@/components/ui/Icons";
-import { recordQuizAttempt } from "@/lib/progress/progress-service";
+import { recordAnsweredQuestion, recordQuizAttempt } from "@/lib/progress/progress-service";
 
 interface QuizModalProps {
   isOpen: boolean;
   regionName: string;
   questions: QuizQuestion[];
+  onRetry?: () => void;
   onClose: () => void;
 }
 
@@ -18,6 +19,7 @@ export function QuizModal({
   isOpen,
   regionName,
   questions,
+  onRetry,
   onClose,
 }: QuizModalProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,9 +36,11 @@ export function QuizModal({
 
   const handleSelectOption = (index: number) => {
     setSelectedOption(index);
-    if (index === currentQuestion.correctIndex) {
+    const isCorrect = index === currentQuestion.correctIndex;
+    if (isCorrect) {
       setScore((prev) => prev + 1);
     }
+    recordAnsweredQuestion(currentQuestion.id, isCorrect, index);
   };
 
   const handleNext = () => {
@@ -57,6 +61,7 @@ export function QuizModal({
   };
 
   const handleRetry = () => {
+    onRetry?.();
     setCurrentIndex(0);
     setSelectedOption(null);
     setScore(0);

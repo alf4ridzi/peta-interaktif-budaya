@@ -877,16 +877,49 @@ function ingestAllCulturalDatasets() {
 }
 
 // ============================================================================
-// STEP 3: Generate Regional Quizzes for All 34 Provinces
+// STEP 3: Generate Comprehensive Regional Quizzes from Full Dataset
 // ============================================================================
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function cleanSummaryForQuestion(summary, name) {
+  if (!summary) return "";
+  let s = summary;
+  const esc = escapeRegex(name);
+  s = s.replace(new RegExp(`\\b${esc}\\b`, "gi"), "...");
+  const words = name
+    .split(/[\s/()]+/)
+    .filter(
+      (w) =>
+        w.length >= 4 &&
+        !["bahasa", "tari", "tarian", "baju", "adat", "alat", "musik"].includes(
+          w.toLowerCase()
+        )
+    );
+  for (const w of words) {
+    s = s.replace(new RegExp(`\\b${escapeRegex(w)}\\b`, "gi"), "...");
+  }
+  s = s.replace(/\s+/g, " ").trim();
+  if (s.length > 150) {
+    const cut = s.slice(0, 150);
+    const lastSpace = cut.lastIndexOf(" ");
+    s = (lastSpace > 80 ? cut.slice(0, lastSpace) : cut) + "...";
+  }
+  return s;
+}
+
 function generateQuizzes(items) {
   const quizzes = [];
-  let qSeq = 1;
 
-  const byProv = new Map();
+  const allProvinceNames = Object.values(PROVINCE_META).map((m) => m.displayName);
+
+  // Pre-index items per province & category for lightning-fast distractor exclusion
+  const provCatNames = new Map();
   for (const item of items) {
-    if (!byProv.has(item.provinceId)) byProv.set(item.provinceId, []);
-    byProv.get(item.provinceId).push(item);
+    const key = `${item.provinceId}_${item.category}`;
+    if (!provCatNames.has(key)) provCatNames.set(key, new Set());
+    provCatNames.get(key).add(item.name.toLowerCase().trim());
   }
 
   // Global pool of names by category for realistic distractors
@@ -898,64 +931,126 @@ function generateQuizzes(items) {
     bahasa: [...new Set(items.filter((i) => i.category === "bahasa").map((i) => i.name))],
   };
 
-  function pickDistractors(category, correctName, excludeSet, seed) {
-    const pool = poolByCategory[category].filter(
-      (n) => n !== correctName && !excludeSet.has(n)
-    );
-    const out = [];
-    let idx = seed % Math.max(1, pool.length);
-    while (out.length < 3 && out.length < pool.length) {
-      const candidate = pool[idx % pool.length];
-      if (!out.includes(candidate)) out.push(candidate);
-      idx += 7;
+  for (const target of items) {
+    const pid = target.provinceId;
+    const pName = PROVINCE_META[pid]?.displayName || target.provinceName;
+    const cat = target.category;
+    const regencyText = target.regencyName ? target.regencyName : "";
+    const districtText = target.districtName ? `${target.districtName}, ` : "";
+
+    // Deterministic 32-bit integer hash from item id
+    let hash = 0;
+    for (let i = 0; i < target.id.length; i++) {
+      hash = (hash * 31 + target.id.charCodeAt(i)) >>> 0;
     }
-    return out;
-  }
 
-  for (const p of provincesRaw) {
-    const pid = p.id;
-    const pName = PROVINCE_META[pid].displayName;
-    const pItems = byProv.get(pid) || [];
+    // --- TYPE 1: Tebak Nama Budaya dari Ciri Khas ---
+    const provNames = provCatNames.get(`${pid}_${cat}`) || new Set();
+    const candidates = poolByCategory[cat].filter(
+      (n) => !provNames.has(n.toLowerCase().trim()) && n !== target.name
+    );
 
-    const categories = ["musik", "makanan", "pakaian", "tarian", "bahasa"];
-    categories.forEach((cat, cIdx) => {
-      const catItems = pItems.filter((i) => i.category === cat);
-      if (!catItems.length) return;
+    if (candidates.length >= 3) {
+      const distractors = [];
+      const startIdx = hash % candidates.length;
+      for (let i = 0; i < candidates.length && distractors.length < 3; i++) {
+        const name = candidates[(startIdx + i) % candidates.length];
+        if (name !== target.name && !distractors.includes(name)) {
+          distractors.push(name);
+        }
+      }
 
-      const target = catItems[0];
-      const excludeNames = new Set(catItems.map((i) => i.name));
-      const distractors = pickDistractors(
-        cat,
-        target.name,
-        excludeNames,
-        Number(pid) * 13 + cIdx * 5
-      );
+      if (distractors.length === 3) {
+        const correctIndex = hash % 4;
+        const options = [...distractors];
+        options.splice(correctIndex, 0, target.name);
 
-      const options = [...distractors];
-      const correctIndex = (Number(pid) + cIdx) % 4;
-      options.splice(correctIndex, 0, target.name);
+        const cs = cleanSummaryForQuestion(target.summary, target.name);
 
-      const promptByCategory = {
-        musik: `Alat musik tradisional khas dari Provinsi ${pName} (${target.regencyName || pName}) yang memiliki karakter "${target.attributes.instrumentType || "khas daerah"}" adalah...`,
-        makanan: `Hidangan kuliner tradisional khas Provinsi ${pName} yang dikenal dengan ciri "${target.summary.replace(new RegExp(target.name, "gi"), "...")}" adalah...`,
-        pakaian: `Busana adat tradisional dari Provinsi ${pName} yang memiliki ciri khas "${target.attributes.materialAndMotif || "tenun dan ornamen daerah"}" adalah...`,
-        tarian: `Seni tari tradisional yang berasal dari daerah ${target.regencyName || pName}, Provinsi ${pName} adalah...`,
-        bahasa: `Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di Provinsi ${pName} (${target.regencyName || pName})?`,
-      };
+        let qText = "";
+        if (cat === "musik") {
+          const char =
+            target.attributes?.instrumentType || target.attributes?.playingMethod;
+          if (char && !char.toLowerCase().includes("tradisional")) {
+            qText = `Alat musik tradisional khas Provinsi ${pName}${regencyText ? ` (${regencyText})` : ""} yang memiliki karakter "${char}" adalah...`;
+          } else {
+            qText = `Alat musik tradisional khas Provinsi ${pName}${regencyText ? ` (${regencyText})` : ""} yang dikenal dengan catatan: "${cs}" adalah...`;
+          }
+        } else if (cat === "makanan") {
+          qText = `Hidangan kuliner tradisional khas Provinsi ${pName}${regencyText ? ` (${regencyText})` : ""} yang dikenal dengan ciri: "${cs}" adalah...`;
+        } else if (cat === "pakaian") {
+          const mat = target.attributes?.materialAndMotif;
+          if (mat && mat.length > 5) {
+            qText = `Busana adat tradisional khas Provinsi ${pName}${regencyText ? ` (${regencyText})` : ""} dengan ciri bahan/ornamen "${mat}" adalah...`;
+          } else {
+            qText = `Busana adat tradisional khas Provinsi ${pName}${regencyText ? ` (${regencyText})` : ""} yang memiliki catatan: "${cs}" adalah...`;
+          }
+        } else if (cat === "tarian") {
+          qText = `Seni tari tradisional yang berasal dari ${regencyText ? `${regencyText}, ` : ""}Provinsi ${pName}${cs ? ` dengan keunikan: "${cs}"` : ""} adalah...`;
+        } else if (cat === "bahasa") {
+          qText = `Manakah di antara bahasa daerah berikut yang dituturkan oleh masyarakat lokal di ${districtText}${regencyText ? `${regencyText}, ` : ""}Provinsi ${pName}?`;
+        }
 
-      quizzes.push({
-        id: `qz-${pid}-${String(qSeq++).padStart(3, "0")}`,
-        provinceId: pid,
-        provinceName: pName,
-        regencyId: target.regencyId,
-        category: cat,
-        question: promptByCategory[cat],
-        options,
-        correctIndex,
-        explanationTrivia: `${target.name} berasal dari ${target.regencyName ? `${target.regencyName}, ` : ""}Provinsi ${pName}. ${target.summary}`,
-        relatedItemSlug: target.slug,
-      });
-    });
+        quizzes.push({
+          id: `qz-${target.id}-name`,
+          provinceId: pid,
+          provinceName: pName,
+          regencyId: target.regencyId,
+          category: cat,
+          question: qText,
+          options,
+          correctIndex,
+          explanationTrivia: `${target.name} merupakan warisan budaya ${cat} khas dari ${regencyText ? `${regencyText}, ` : ""}Provinsi ${pName}. ${target.summary}`,
+          relatedItemSlug: target.slug,
+        });
+      }
+    }
+
+    // --- TYPE 2: Tebak Asal Daerah / Provinsi Budaya ---
+    const provCandidates = allProvinceNames.filter((p) => p !== pName);
+    if (provCandidates.length >= 3) {
+      const provDistractors = [];
+      const pStartIdx = (hash >> 2) % provCandidates.length;
+      for (let i = 0; i < provCandidates.length && provDistractors.length < 3; i++) {
+        const pCandidate = provCandidates[(pStartIdx + i) % provCandidates.length];
+        if (pCandidate !== pName && !provDistractors.includes(pCandidate)) {
+          provDistractors.push(pCandidate);
+        }
+      }
+
+      if (provDistractors.length === 3) {
+        const pCorrectIndex = (hash >> 4) % 4;
+        const pOptions = [...provDistractors];
+        pOptions.splice(pCorrectIndex, 0, pName);
+
+        const cs = cleanSummaryForQuestion(target.summary, target.name);
+        const catLabel =
+          cat === "musik"
+            ? "alat musik"
+            : cat === "makanan"
+            ? "kuliner"
+            : cat === "pakaian"
+            ? "busana adat"
+            : cat === "tarian"
+            ? "seni tari"
+            : "bahasa daerah";
+
+        const qText = `Warisan ${catLabel} "${target.name}"${cs ? ` yang dikenal dengan catatan: "${cs}"` : ""} berasal dari daerah provinsi...`;
+
+        quizzes.push({
+          id: `qz-${target.id}-origin`,
+          provinceId: pid,
+          provinceName: pName,
+          regencyId: target.regencyId,
+          category: cat,
+          question: qText,
+          options: pOptions,
+          correctIndex: pCorrectIndex,
+          explanationTrivia: `${target.name} merupakan warisan ${catLabel} tradisional yang berasal dari ${regencyText ? `${regencyText}, ` : ""}Provinsi ${pName}. ${target.summary}`,
+          relatedItemSlug: target.slug,
+        });
+      }
+    }
   }
 
   return quizzes;

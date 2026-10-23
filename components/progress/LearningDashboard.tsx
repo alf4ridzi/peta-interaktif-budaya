@@ -168,8 +168,8 @@ export function LearningDashboard({ culturalItems }: LearningDashboardProps) {
               </span>
             </div>
             <p className="mt-4 text-[11px] text-[var(--color-ink-2)]">
-              {stats.totalQuizzes > 0
-                ? "Evaluasi pemahaman aktif tercatat"
+              {stats.totalAnsweredQuestions > 0
+                ? `${stats.totalAnsweredQuestions} soal unik telah dijawab`
                 : "Belum ada sesi kuis yang diselesaikan"}
             </p>
           </div>

@@ -28,9 +28,17 @@ export interface QuizHistoryRecord {
   durationSeconds?: number;
 }
 
+export interface AnsweredQuizRecord {
+  questionId: string;
+  answeredAt: string;
+  isCorrect: boolean;
+  selectedOption: number;
+}
+
 export interface ProgressSummaryStats {
   totalLearned: number;
   totalQuizzes: number;
+  totalAnsweredQuestions: number;
   averageScore: number;
   highestScore: number;
   categoryCounts: Record<CulturalCategory, number>;
@@ -49,11 +57,13 @@ const EVENT_NAME = "culture-progress-updated";
 export interface StoredData {
   learnedItems: Record<string, LearnedItemRecord>;
   quizHistory: QuizHistoryRecord[];
+  answeredQuestions: Record<string, AnsweredQuizRecord>;
 }
 
 export const EMPTY_PROGRESS_DATA: StoredData = Object.freeze({
   learnedItems: {},
   quizHistory: [],
+  answeredQuestions: {},
 });
 
 let cachedData: StoredData = EMPTY_PROGRESS_DATA;
@@ -80,6 +90,7 @@ function loadFromLocalStorage(): StoredData {
     cachedData = {
       learnedItems: parsed.learnedItems || {},
       quizHistory: Array.isArray(parsed.quizHistory) ? parsed.quizHistory : [],
+      answeredQuestions: parsed.answeredQuestions || {},
     };
     isCacheInitialized = true;
     return cachedData;
@@ -136,6 +147,7 @@ export function recordLearnedItem(item: CulturalItem): void {
   const newData: StoredData = {
     learnedItems: updatedLearned,
     quizHistory: current.quizHistory,
+    answeredQuestions: current.answeredQuestions,
   };
 
   saveData(newData);
@@ -156,10 +168,45 @@ export function recordQuizAttempt(record: Omit<QuizHistoryRecord, "id" | "comple
   const newData: StoredData = {
     learnedItems: current.learnedItems,
     quizHistory: [newAttempt, ...current.quizHistory],
+    answeredQuestions: current.answeredQuestions,
   };
 
   saveData(newData);
   return newAttempt;
+}
+
+/**
+ * Record an individual answered quiz question in persistent history.
+ */
+export function recordAnsweredQuestion(
+  questionId: string,
+  isCorrect: boolean,
+  selectedOption = 0
+): void {
+  const current = loadFromLocalStorage();
+  const answeredAt = new Date().toISOString();
+  const newData: StoredData = {
+    ...current,
+    answeredQuestions: {
+      ...current.answeredQuestions,
+      [questionId]: {
+        questionId,
+        answeredAt,
+        isCorrect,
+        selectedOption,
+      },
+    },
+  };
+
+  saveData(newData);
+}
+
+/**
+ * Retrieve the Set of question IDs previously answered by the user.
+ */
+export function getAnsweredQuestionIds(data?: StoredData): Set<string> {
+  const state = data || getStoredProgress();
+  return new Set(Object.keys(state.answeredQuestions || {}));
 }
 
 /**
@@ -186,6 +233,7 @@ export function getProgressStats(data?: StoredData): ProgressSummaryStats {
   const learnedList: LearnedItemRecord[] = Object.values(state.learnedItems);
   const totalLearned = learnedList.length;
   const totalQuizzes = state.quizHistory.length;
+  const totalAnsweredQuestions = Object.keys(state.answeredQuestions || {}).length;
 
   let scoreSum = 0;
   let highestScore = 0;
@@ -221,6 +269,7 @@ export function getProgressStats(data?: StoredData): ProgressSummaryStats {
   return {
     totalLearned,
     totalQuizzes,
+    totalAnsweredQuestions,
     averageScore,
     highestScore,
     categoryCounts,

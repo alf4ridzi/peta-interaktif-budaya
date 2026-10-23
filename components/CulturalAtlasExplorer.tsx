@@ -18,6 +18,7 @@ import { Breadcrumbs } from "@/components/hud/Breadcrumbs";
 import { CulturalDossier } from "@/components/dossier/CulturalDossier";
 import { QuizModal } from "@/components/quiz/QuizModal";
 import { buildRegionalQuizSession } from "@/lib/quiz/quiz-engine";
+import { getAnsweredQuestionIds } from "@/lib/progress/progress-service";
 import { formatTitleCase } from "@/lib/utils";
 import { IconQuiz } from "@/components/ui/Icons";
 
@@ -52,7 +53,13 @@ export function CulturalAtlasExplorer({
     null
   );
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [quizSessionNonce, setQuizSessionNonce] = useState(0);
   const [isMobileDossierOpen, setIsMobileDossierOpen] = useState(false);
+
+  const handleOpenQuiz = () => {
+    setQuizSessionNonce((prev) => prev + 1);
+    setIsQuizOpen(true);
+  };
 
   const [camera, setCamera] = useState<{
     lon: number;
@@ -138,18 +145,24 @@ export function CulturalAtlasExplorer({
   );
 
   // Active Quiz Session Questions
-  const activeQuizQuestions = useMemo(
-    () =>
-      selectedProvince
-        ? buildRegionalQuizSession(
-            selectedProvince.id,
-            selectedRegencyId,
-            quizzes,
-            culturalItems
-          )
-        : [],
-    [selectedProvince, selectedRegencyId, quizzes, culturalItems]
-  );
+  const activeQuizQuestions = useMemo(() => {
+    if (!selectedProvince) return [];
+    const answeredIds = getAnsweredQuestionIds();
+    return buildRegionalQuizSession(
+      selectedProvince.id,
+      selectedRegencyId,
+      quizzes,
+      culturalItems,
+      answeredIds,
+      quizSessionNonce
+    );
+  }, [
+    selectedProvince,
+    selectedRegencyId,
+    quizzes,
+    culturalItems,
+    quizSessionNonce,
+  ]);
 
   // Handlers
   const handleSelectProvince = (provinceId: string) => {
@@ -345,7 +358,7 @@ export function CulturalAtlasExplorer({
           handleSelectRegency(regId);
         }}
         onSelectCulturalItem={handleSelectCulturalItemFromSearch}
-        onStartQuiz={() => selectedProvince && setIsQuizOpen(true)}
+        onStartQuiz={() => selectedProvince && handleOpenQuiz()}
         activeRegionName={activeRegionLabel}
       />
 
@@ -394,7 +407,7 @@ export function CulturalAtlasExplorer({
               <div className="flex items-center gap-2">
                 <button
                   type="button"
-                  onClick={() => setIsQuizOpen(true)}
+                  onClick={handleOpenQuiz}
                   className="hm-interactive flex items-center gap-1 rounded-[var(--radius-input)] border border-[var(--color-accent)] px-2.5 py-1.5 text-xs font-bold text-[var(--color-accent)]"
                 >
                   <IconQuiz size={14} />
@@ -427,7 +440,7 @@ export function CulturalAtlasExplorer({
               onSelectTab={setActiveDossierTab}
               onSelectRegency={handleSelectRegency}
               onSelectDistrict={handleSelectDistrict}
-              onStartQuiz={() => setIsQuizOpen(true)}
+              onStartQuiz={handleOpenQuiz}
               onClose={handleResetToNational}
             />
           </div>
@@ -449,7 +462,7 @@ export function CulturalAtlasExplorer({
                 onSelectTab={setActiveDossierTab}
                 onSelectRegency={handleSelectRegency}
                 onSelectDistrict={handleSelectDistrict}
-                onStartQuiz={() => setIsQuizOpen(true)}
+                onStartQuiz={handleOpenQuiz}
                 onCloseMobile={() => setIsMobileDossierOpen(false)}
               />
             </div>
@@ -460,10 +473,11 @@ export function CulturalAtlasExplorer({
       {/* Regional Culture Quiz Modal */}
       {isQuizOpen && selectedProvince && (
         <QuizModal
-          key={`${selectedProvince.id}-${selectedRegencyId || "all"}`}
+          key={`${selectedProvince.id}-${selectedRegencyId || "all"}-${quizSessionNonce}`}
           isOpen={isQuizOpen}
           regionName={activeRegionLabel}
           questions={activeQuizQuestions}
+          onRetry={() => setQuizSessionNonce((prev) => prev + 1)}
           onClose={() => setIsQuizOpen(false)}
         />
       )}
