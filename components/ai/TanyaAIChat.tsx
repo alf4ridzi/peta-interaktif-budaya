@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { RetrievedReference } from "@/lib/ai/culture-rag";
 import { CATEGORY_META, CulturalCategory } from "@/types/culture";
 import {
@@ -38,8 +38,34 @@ const DEFAULT_SAMPLE_QUESTIONS = [
 
 export function TanyaAIChat() {
   const searchParams = useSearchParams();
-  const initialBudaya = searchParams.get("budaya") || "";
-  const initialSlug = searchParams.get("slug") || "";
+  const currentBudaya = searchParams.get("budaya") || "";
+  const currentSlug = searchParams.get("slug") || "";
+
+  // Dynamic key causes React to remount TanyaAIChatContent on context changes,
+  // guaranteeing fresh state initialization without cascading effect re-renders.
+  const chatSessionKey = `${currentBudaya}::${currentSlug}`;
+
+  return (
+    <TanyaAIChatContent
+      key={chatSessionKey}
+      initialBudaya={currentBudaya}
+      initialSlug={currentSlug}
+    />
+  );
+}
+
+function TanyaAIChatContent({
+  initialBudaya,
+  initialSlug,
+}: {
+  initialBudaya: string;
+  initialSlug: string;
+}) {
+  const router = useRouter();
+
+  const [activeContext, setActiveContext] = useState<{ name: string; slug: string } | null>(
+    initialBudaya ? { name: initialBudaya, slug: initialSlug } : null
+  );
 
   const [messages, setMessages] = useState<Message[]>(() => {
     if (initialBudaya) {
@@ -60,9 +86,21 @@ export function TanyaAIChat() {
   const [inputQuery, setInputQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [activeContext, setActiveContext] = useState<{ name: string; slug: string } | null>(
-    initialBudaya ? { name: initialBudaya, slug: initialSlug } : null
-  );
+
+  const handleClearContext = () => {
+    setActiveContext(null);
+    if (
+      messages.length <= 1 &&
+      (messages.length === 0 || messages[0]?.id.startsWith("welcome-seeded"))
+    ) {
+      setMessages([]);
+    }
+    router.replace("/tanya-ai");
+  };
+
+  const handleResetChat = () => {
+    router.replace("/tanya-ai");
+  };
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -200,8 +238,8 @@ export function TanyaAIChat() {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
       e.preventDefault();
       handleSendMessage();
     }
@@ -236,9 +274,14 @@ export function TanyaAIChat() {
               />
             </Link>
             <div>
-              <h1 className="font-display text-sm font-bold text-[var(--color-ink)] sm:text-base">
+              <Link
+                href="/tanya-ai"
+                onClick={handleResetChat}
+                className="font-display text-sm font-bold text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent)] sm:text-base"
+                title="Mulai Sesi Baru"
+              >
                 Tanya AI tentang Budaya Indonesia
-              </h1>
+              </Link>
               <p className="hidden text-xs text-[var(--color-ink-2)] sm:block">
                 Pendamping Cerdas Belajar Warisan Budaya Nusantara & Grounded RAG
               </p>
@@ -247,6 +290,16 @@ export function TanyaAIChat() {
         </div>
 
         <div className="flex items-center gap-2">
+          {(messages.length > 0 || activeContext) && (
+            <button
+              type="button"
+              onClick={handleResetChat}
+              className="hm-interactive inline-flex items-center gap-1 rounded-[var(--radius-input)] border border-[var(--color-rule)] bg-[var(--color-paper)] px-2.5 py-1.5 text-xs font-semibold text-[var(--color-ink-2)] hover:border-[var(--color-accent)] hover:text-[var(--color-ink)]"
+              title="Bersihkan percakapan dan mulai sesi baru"
+            >
+              <span>Percakapan Baru</span>
+            </button>
+          )}
           <Link
             href="/progres"
             className="hm-interactive inline-flex items-center gap-1.5 rounded-[var(--radius-input)] border border-[var(--color-rule)] bg-[var(--color-paper)] px-3 py-1.5 text-xs font-semibold text-[var(--color-ink)] hover:border-[var(--color-accent)]"
@@ -268,7 +321,7 @@ export function TanyaAIChat() {
           </div>
           <button
             type="button"
-            onClick={() => setActiveContext(null)}
+            onClick={handleClearContext}
             className="text-xs hover:underline flex items-center gap-1 text-[var(--color-ink-2)]"
           >
             <span>Hapus Fokus</span>
@@ -439,9 +492,16 @@ export function TanyaAIChat() {
 
       {/* Input Bar */}
       <footer className="shrink-0 border-t border-[var(--color-rule)] bg-[var(--color-paper-elevated)] p-3 sm:p-4">
-        <div className="mx-auto flex max-w-3xl items-end gap-2">
-          <div className="relative flex-1">
-            <textarea
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSendMessage();
+          }}
+          className="mx-auto flex max-w-3xl items-center gap-2"
+        >
+          <div className="relative min-w-0 flex-1">
+            <input
+              type="text"
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -450,22 +510,20 @@ export function TanyaAIChat() {
                   ? `Tanyakan sesuatu tentang ${activeContext.name}...`
                   : "Tanyakan makna, sejarah, tarian, makanan, atau pakaian adat Nusantara..."
               }
-              rows={1}
-              className="hm-interactive max-h-32 w-full resize-none rounded-[var(--radius-input)] border border-[var(--color-rule)] bg-[var(--color-paper)] p-2.5 text-xs text-[var(--color-ink)] placeholder:text-[var(--color-ink-3)] focus:border-[var(--color-accent)] sm:text-sm"
+              className="hm-interactive block h-10 w-full rounded-[var(--radius-input)] border border-[var(--color-rule)] bg-[var(--color-paper)] px-3.5 text-xs text-[var(--color-ink)] placeholder:text-[var(--color-ink-3)] focus:border-[var(--color-accent)] sm:text-sm"
             />
           </div>
 
           <button
-            type="button"
-            onClick={() => handleSendMessage()}
+            type="submit"
             disabled={!inputQuery.trim() || isLoading}
-            className="hm-interactive flex h-10 items-center justify-center rounded-[var(--radius-input)] bg-[var(--color-accent)] px-4 font-bold text-xs text-[var(--color-accent-ink)] shadow-xs disabled:opacity-40 disabled:cursor-not-allowed"
+            className="hm-interactive flex h-10 shrink-0 items-center justify-center rounded-[var(--radius-input)] bg-[var(--color-accent)] px-4 font-bold text-xs text-[var(--color-accent-ink)] shadow-xs disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <span>Kirim</span>
           </button>
-        </div>
+        </form>
         <p className="mt-2 text-center font-mono text-[10px] text-[var(--color-ink-3)]">
-          Pamong Budaya AI adalah chabot dan dapat membuat kesalahan.
+          Pamong Budaya AI adalah chatbot dan dapat membuat kesalahan.
         </p>
       </footer>
     </div>

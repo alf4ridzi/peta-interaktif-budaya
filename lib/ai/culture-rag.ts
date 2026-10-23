@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { CulturalCategory, CulturalItem } from "@/types/culture";
+import { CATEGORY_META, CulturalCategory, CulturalItem } from "@/types/culture";
 
 export interface RetrievedReference {
   id: string;
@@ -52,6 +52,196 @@ const CONCEPT_SYNONYMS: Record<string, string[]> = {
   kecak: ["bali", "gianyar", "ramayana", "tari kecak"],
   jaipong: ["karawang", "jawa barat", "sunda", "tari jaipong"],
 };
+
+export const CATEGORY_KEYWORDS: Record<CulturalCategory, string[]> = {
+  makanan: [
+    "makanan", "kuliner", "masakan", "santapan", "hidangan", "kudapan", "minuman", "lauk", "kue", "pangan",
+    "khas kuliner", "soto", "rawon", "rendang", "gudeg", "rujak", "sate", "nasi", "sambal", "peuyeum", "batagor", "seblak", "karedok"
+  ],
+  tarian: [
+    "tarian", "tari", "seni tari", "gerak tari", "sendratari", "joged", "tari daerah", "tari-tarian"
+  ],
+  musik: [
+    "alat musik", "musik tradisional", "alat musik tradisional", "musik", "instrumen", "tetabuhan", "dawai", "gamelan", "angklung", "sasando", "kolintang", "tifa", "talempong", "saluang"
+  ],
+  pakaian: [
+    "pakaian adat", "baju adat", "busana adat", "pakaian tradisional", "pakaian", "baju", "busana", "wastra", "kain adat", "kain tradisional", "kebaya", "sarung", "ulos", "songket", "destar", "blangkon"
+  ],
+  bahasa: [
+    "bahasa daerah", "bahasa", "dialek", "aksara", "tutur daerah", "tutur"
+  ]
+};
+
+export const PROVINCE_SYNONYMS: Record<string, string[]> = {
+  "Aceh": ["aceh", "gayo", "pidie", "serambi mekkah", "sabang", "banda aceh"],
+  "Sumatera Utara": ["sumatera utara", "sumut", "batak", "medan", "toba", "mandailing", "karo", "nias", "simalungun"],
+  "Sumatera Barat": ["sumatera barat", "sumbar", "minang", "minangkabau", "padang", "bukittinggi", "payakumbuh", "pariaman"],
+  "Riau": ["riau", "pekanbaru", "siak", "kampar", "dumai"],
+  "Kepulauan Riau": ["kepulauan riau", "kepri", "batam", "tanjung pinang", "bintan", "natuna", "anambas", "lingga"],
+  "Jambi": ["jambi", "kerinci", "muaro jambi"],
+  "Sumatera Selatan": ["sumatera selatan", "sumsel", "palembang", "sriwijaya", "ogan", "lahat", "komering"],
+  "Bengkulu": ["bengkulu", "rejang", "mukomuko"],
+  "Lampung": ["lampung", "bandar lampung", "pepadun", "saibatin"],
+  "Kepulauan Bangka Belitung": ["bangka belitung", "babel", "bangka", "belitung"],
+  "DKI Jakarta": ["dki jakarta", "jakarta", "betawi"],
+  "Jawa Barat": ["jawa barat", "jabar", "sunda", "priangan", "parahyangan", "bandung", "bogor", "purwakarta", "cirebon", "tasikmalaya", "garut", "sukabumi"],
+  "Jawa Tengah": ["jawa tengah", "jateng", "semarang", "solo", "surakarta", "banyumas", "pekalongan", "kudus", "magelang", "cilacap"],
+  "DI Yogyakarta": ["di yogyakarta", "yogyakarta", "jogja", "yogya", "sleman", "bantul", "gunungkidul", "kulon progo", "kraton"],
+  "Jawa Timur": ["jawa timur", "jatim", "surabaya", "malang", "ponorogo", "madura", "banyuwangi", "lamongan", "madiun", "jember", "kediri", "blitar"],
+  "Banten": ["banten", "baduy", "serang", "cilegon", "tangerang", "lebak", "pandeglang"],
+  "Bali": ["bali", "denpasar", "gianyar", "ubud", "buleleng", "karangasem", "klungkung", "tabanan", "badung"],
+  "Nusa Tenggara Barat": ["nusa tenggara barat", "ntb", "sasak", "lombok", "mataram", "sumbawa", "bima", "dompu"],
+  "Nusa Tenggara Timur": ["nusa tenggara timur", "ntt", "rote", "flores", "timor", "sumba", "kupang", "manggarai", "alor"],
+  "Kalimantan Barat": ["kalimantan barat", "kalbar", "pontianak", "singkawang", "dayak kanayatn"],
+  "Kalimantan Tengah": ["kalimantan tengah", "kalteng", "palangkaraya", "dayak ngaju", "sampit"],
+  "Kalimantan Selatan": ["kalimantan selatan", "kalsel", "banjar", "banjarmasin", "martapura", "dayak meratus"],
+  "Kalimantan Timur": ["kalimantan timur", "kaltim", "samarinda", "balikpapan", "kutai"],
+  "Kalimantan Utara": ["kalimantan utara", "kaltara", "tarakan", "bulungan"],
+  "Sulawesi Utara": ["sulawesi utara", "sulut", "manado", "minahasa", "tomohon", "sangihe"],
+  "Gorontalo": ["gorontalo"],
+  "Sulawesi Tengah": ["sulawesi tengah", "sulteng", "palu", "kaili", "poso", "donggala"],
+  "Sulawesi Barat": ["sulawesi barat", "sulbar", "mandar", "mamuju", "polewali"],
+  "Sulawesi Selatan": ["sulawesi selatan", "sulsel", "bugis", "makassar", "toraja", "mangkasara", "maros", "gowa", "bone"],
+  "Sulawesi Tenggara": ["sulawesi tenggara", "sultra", "kendari", "buton", "muna"],
+  "Maluku": ["maluku", "ambon", "seram", "banda", "tual"],
+  "Maluku Utara": ["maluku utara", "malut", "ternate", "tidore", "halmahera"],
+  "Papua": ["papua", "asmat", "dani", "sentani", "jayapura", "biak", "merauke", "wamena"],
+  "Papua Barat": ["papua barat", "manokwari", "raja ampat", "sorong", "fakfak"],
+};
+
+export function matchCategory(query: string): CulturalCategory | null {
+  const q = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  // Check multi-word keywords first
+  for (const [cat, kws] of Object.entries(CATEGORY_KEYWORDS) as [CulturalCategory, string[]][]) {
+    for (const kw of kws) {
+      if (kw.includes(" ")) {
+        const regex = new RegExp(`(?:^|\\s)${kw.replace(/\s+/g, "\\s+")}(?:$|\\s)`, "i");
+        if (regex.test(q)) return cat;
+      }
+    }
+  }
+  // Check single-word keywords
+  for (const [cat, kws] of Object.entries(CATEGORY_KEYWORDS) as [CulturalCategory, string[]][]) {
+    for (const kw of kws) {
+      const regex = new RegExp(`(?:^|\\s)${kw}(?:$|\\s)`, "i");
+      if (regex.test(q)) return cat;
+    }
+  }
+  return null;
+}
+
+export function matchProvince(query: string): string | null {
+  const q = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  for (const [prov, aliases] of Object.entries(PROVINCE_SYNONYMS)) {
+    for (const alias of aliases) {
+      const regex = new RegExp(`(?:^|\\s)${alias.replace(/\s+/g, "\\s+")}(?:$|\\s)`, "i");
+      if (regex.test(q)) return prov;
+    }
+  }
+  return null;
+}
+
+/**
+ * Retrieve top relevant cultural records matching user query using weighted keyword ranking.
+ */
+export function retrieveCultureContext(query: string, targetSlug?: string, limit = 6): RetrievedReference[] {
+  const items = getCulturalDatabase();
+  const qClean = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  const targetCategory = matchCategory(query);
+  const targetProvince = matchProvince(query);
+
+  const rawTokens = qClean
+    .split(/\s+/)
+    .filter(
+      (t) =>
+        t.length > 2 &&
+        ![
+          "apa", "itu", "dan", "yang", "dari", "pada", "untuk", "bagaimana", "mengapa", "sejarah",
+          "makna", "khas", "daerah", "saja", "sebutkan", "ragam", "macam", "asal", "usul", "provinsi"
+        ].includes(t)
+    );
+
+  const expandedTokens = new Set<string>(rawTokens);
+  for (const token of rawTokens) {
+    for (const [key, syns] of Object.entries(CONCEPT_SYNONYMS)) {
+      if (token.includes(key) || key.includes(token)) {
+        syns.forEach((s) => expandedTokens.add(s));
+      }
+    }
+  }
+
+  const tokens = Array.from(expandedTokens);
+  const scored: RetrievedReference[] = [];
+
+  for (const item of items) {
+    let score = 0;
+    const itemName = item.name.toLowerCase();
+    const itemProv = item.provinceName.toLowerCase();
+    const itemReg = (item.regencyName || "").toLowerCase();
+    const itemCat = item.category.toLowerCase();
+    const itemDesc = item.description.toLowerCase();
+    const itemNote = (item.originNote || "").toLowerCase();
+
+    // Specific slug target boost
+    if (targetSlug && item.slug === targetSlug) {
+      score += 200;
+    }
+
+    // Category intent filter / boost
+    if (targetCategory) {
+      if (item.category === targetCategory) {
+        score += 150;
+      } else {
+        // Skip items that belong to a completely different category
+        continue;
+      }
+    }
+
+    // Province intent filter / boost
+    if (targetProvince) {
+      if (item.provinceName.toLowerCase() === targetProvince.toLowerCase()) {
+        score += 120;
+      } else {
+        score -= 50;
+      }
+    }
+
+    // Exact title match boost
+    if (itemName === qClean || qClean.includes(itemName) || itemName.includes(qClean)) {
+      score += 100;
+    }
+
+    // Token matches
+    for (const token of tokens) {
+      if (itemName.includes(token)) score += 35;
+      if (itemProv.includes(token)) score += 18;
+      if (itemReg.includes(token)) score += 14;
+      if (itemCat === token) score += 12;
+      if (itemNote.includes(token)) score += 8;
+      if (itemDesc.includes(token)) score += 4;
+    }
+
+    if (score > 0) {
+      scored.push({
+        id: item.id,
+        slug: item.slug,
+        name: item.name,
+        category: item.category,
+        provinceName: item.provinceName,
+        regencyName: item.regencyName,
+        districtName: item.districtName,
+        description: item.description,
+        originNote: item.originNote,
+        localImagePath: item.media?.localImagePath,
+        sourceDataset: item.provenance.sourceDataset,
+        score,
+      });
+    }
+  }
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit);
+}
 
 /**
  * Patterns that represent queries explicitly outside the Indonesian cultural exploration domain.
@@ -151,86 +341,16 @@ Silakan ajukan pertanyaan yang berkaitan dengan warisan budaya Indonesia!`,
 };
 
 /**
- * Retrieve top relevant cultural records matching user query using weighted keyword ranking.
- */
-export function retrieveCultureContext(query: string, targetSlug?: string, limit = 5): RetrievedReference[] {
-  const items = getCulturalDatabase();
-  const qClean = query.toLowerCase().trim();
-  const rawTokens = qClean
-    .split(/[\s,.-]+/)
-    .filter((t) => t.length > 2 && !["apa", "itu", "dan", "yang", "dari", "pada", "untuk", "bagaimana", "mengapa", "sejarah", "makna"].includes(t));
-
-  const expandedTokens = new Set<string>(rawTokens);
-  for (const token of rawTokens) {
-    for (const [key, syns] of Object.entries(CONCEPT_SYNONYMS)) {
-      if (token.includes(key) || key.includes(token)) {
-        syns.forEach((s) => expandedTokens.add(s));
-      }
-    }
-  }
-
-  const tokens = Array.from(expandedTokens);
-  const scored: RetrievedReference[] = [];
-
-  for (const item of items) {
-    let score = 0;
-    const itemName = item.name.toLowerCase();
-    const itemProv = item.provinceName.toLowerCase();
-    const itemReg = (item.regencyName || "").toLowerCase();
-    const itemCat = item.category.toLowerCase();
-    const itemDesc = item.description.toLowerCase();
-    const itemNote = (item.originNote || "").toLowerCase();
-
-    // Specific slug target boost
-    if (targetSlug && item.slug === targetSlug) {
-      score += 200;
-    }
-
-    // Exact title match boost
-    if (itemName === qClean || qClean.includes(itemName) || itemName.includes(qClean)) {
-      score += 100;
-    }
-
-    // Token matches
-    for (const token of tokens) {
-      if (itemName.includes(token)) score += 35;
-      if (itemProv.includes(token)) score += 18;
-      if (itemReg.includes(token)) score += 14;
-      if (itemCat === token) score += 12;
-      if (itemNote.includes(token)) score += 8;
-      if (itemDesc.includes(token)) score += 4;
-    }
-
-    if (score > 0) {
-      scored.push({
-        id: item.id,
-        slug: item.slug,
-        name: item.name,
-        category: item.category,
-        provinceName: item.provinceName,
-        regencyName: item.regencyName,
-        districtName: item.districtName,
-        description: item.description,
-        originNote: item.originNote,
-        localImagePath: item.media?.localImagePath,
-        sourceDataset: item.provenance.sourceDataset,
-        score,
-      });
-    }
-  }
-
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, limit);
-}
-
-/**
  * Local Grounded Synthesis when external Gemini API is unreachable or offline.
  * Generates an accurate, structured, and deep explanation directly from verified data.
  */
 function generateLocalSynthesis(query: string, references: RetrievedReference[]): ChatResponsePayload {
-  const qLower = query.toLowerCase().trim();
+  const qLower = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  const targetCategory = matchCategory(query);
+  const targetProvince = matchProvince(query);
 
   // 1. Curated knowledge for iconic Indonesian culture topics
+  // 1a. Reog Ponorogo
   if (qLower.includes("reog") || (qLower.includes("ponorogo") && !qLower.includes("pakaian"))) {
     const reogRef = references.find((r) => r.name.toLowerCase().includes("reog")) || references[0];
     const relatedPonorogo = references.filter((r) => r.id !== reogRef?.id);
@@ -275,7 +395,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
     };
   }
 
-  // 2. Curated knowledge for Batik
+  // 1b. Curated knowledge for Batik
   if (qLower.includes("batik")) {
     const lines: string[] = [
       `### Filosofi & Sejarah Seni Batik Indonesia`,
@@ -307,7 +427,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
     };
   }
 
-  // 3. Curated knowledge for Tari Saman
+  // 1c. Curated knowledge for Tari Saman
   if (qLower.includes("saman")) {
     const lines: string[] = [
       `### Tari Saman: Warisan Budaya Takbenda Dunia dari Aceh`,
@@ -337,10 +457,191 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
     };
   }
 
+  // 1d. Curated knowledge for Pakaian Adat Bali (Default Question 4)
+  if (
+    (qLower.includes("pakaian") || qLower.includes("baju") || qLower.includes("busana")) &&
+    qLower.includes("bali")
+  ) {
+    const lines: string[] = [
+      `### Makna & Filosofi Pakaian Adat Bali`,
+      `**Asal Wilayah:** Provinsi Bali.`,
+      `**Landasan Filosofis:** Konsep Kosmologi *Tri Angga* & Keseimbangan Jiwa *Tri Hita Karana*.`,
+      "",
+      `#### 1. Tiga Zona Sakral Tubuh (*Tri Angga*)`,
+      `Pakaian adat Bali dirancang berlandaskan ajaran pembagian tubuh manusia menjadi tiga tingkatan kesucian:`,
+      `* **Utama Angga (Bagian Kepala / Zona Suci):** Kaum pria mengenakan **Udeng** (destar penutup kepala) dengan lekukan simpul di tengah dahi yang tegak menjulang ke atas, melambangkan pemusatan pikiran lurus (*Manacika*) kepada Sang Hyang Widhi Wasa. Kaum wanita menata rambut dengan sanggul pusung dan hiasan bunga cempaka kuning atau kamboja putih yang harum sebagai lambang kesucian budi pekerti.`,
+      `* **Madya Angga (Bagian Badan / Pengendalian Emosi):** Bagian badan dibalut kain penutup dada (*Kamen*) dan diikat dengan **Selendang (Senteng)** di pinggang. Selendang ini berfungsi mengikat hawa nafsu hewani, emosi rendah, dan kemarahan agar tidak mengotori pikiran suci. Pada pria dipadukan dengan baju safari atau beskap, sedangkan wanita mengenakan kebaya Bali yang anggun berpotongan pas badan.`,
+      `* **Nista Angga (Bagian Kaki / Penghormatan Bumi):** Ditutupi oleh lembaran kain panjang **Kamen** yang menjuntai rapi. Bagi pria, ujung kain sengaja dilipat lancip ke bawah menyentuh tanah sebagai simbol kejantanan (*Dharma*) dan penghormatan kepada Ibu Pertiwi. Bagi wanita, kain dililitkan rapat melingkar dari kiri ke kanan yang melambangkan keanggunan, ketertiban langkah, dan kesopanan adat.`,
+      "",
+      `#### 2. Tingkatan Busana Tradisional Bali`,
+      `* **Payas Agung:** Busana adat kebesaran teragung bermahkota emas bertingkat (*badong*), kain prada gemerlap, dan tapih sutra, dikenakan pada prosesi pernikahan ningrat dan upacara potong gigi (*Mapandes*).`,
+      `* **Payas Madya:** Busana persembahyangan harian ke pura dan upacara keagamaan di desa adat, terdiri atas kebaya/safari, senteng, dan kamen.`,
+      `* **Payas Alit:** Busana adat paling sederhana dan luwes yang dikenakan saat gotong royong (*ngayah*) mempersiapkan upacara di banjar.`,
+      "",
+      `#### 3. Nilai Spiritual & Kebijaksanaan`,
+      `Busana adat Bali bukan semata busana pesta, melainkan manifestasi pembersihan diri lahiriah dan batiniah (*Sauca*), rasa syukur atas anugerah alam, serta peneguhan tatanan keselarasan antara manusia, alam semesta, dan Sang Pencipta.`,
+    ];
+
+    return {
+      text: lines.join("\n"),
+      references,
+      isAiPowered: false,
+      modelName: "Pamong Budaya AI",
+      suggestedQuestions: [
+        "Apa perbedaan Payas Agung dan Payas Madya?",
+        "Mengapa selendang senteng wajib diikatkan di pinggang saat ke pura?",
+        "Apa makna filosofis di balik lipatan Udeng Bali?",
+      ],
+    };
+  }
+
+  // 1e. Curated knowledge for "Mengapa masyarakat Indonesia memiliki banyak tradisi yang berbeda?" (Default Question 5)
+  if (
+    (qLower.includes("mengapa") || qLower.includes("kenapa")) &&
+    (qLower.includes("banyak tradisi") ||
+      qLower.includes("tradisi yang berbeda") ||
+      qLower.includes("tradisi berbeda") ||
+      qLower.includes("beragam") ||
+      qLower.includes("bhinneka"))
+  ) {
+    const lines: string[] = [
+      `### Mengapa Masyarakat Indonesia Memiliki Banyak Tradisi yang Berbeda?`,
+      `**Prinsip Utama:** Keberagaman dalam Bingkai Kesatuan (*Bhinneka Tunggal Ika*).`,
+      "",
+      `Kekayaan tradisi, adat istiadat, bahasa, dan kebudayaan Indonesia yang sangat majemuk lahir dari perpaduan faktor geografis, migrasi sejarah, dan adaptasi lingkungan:`,
+      "",
+      `#### 1. Bentang Geografis Kepulauan Terbesar di Dunia (*Archipelago*)`,
+      `Indonesia terbentang di atas lebih dari 17.000 pulau yang dipisahkan oleh selat, lautan luas, pegunungan terjal, dan hutan tropis. Sebelum era transportasi modern, keterpisahan alami ini membuat setiap kelompok suku bangsa mengembangkan cara hidup, bahasa daerah, pakaian adat, arsitektur rumah, dan tradisi upacara secara mandiri untuk beradaptasi dengan lingkungan lokal mereka.`,
+      "",
+      `#### 2. Pertemuan Gelombang Migrasi Prasejarah`,
+      `Nusantara merupakan titik temu dua rumpun besar peradaban manusia: ras **Melanesoid** di kawasan timur dan penutur rumpun bahasa **Austronesia** yang bermigrasi ribuan tahun silam dari arah barat dan utara. Interaksi ribuan tahun melahirkan lebih dari 300 kelompok etnis dan 718 bahasa daerah yang memiliki kekhasan sistem kekerabatan masing-masing (patrilineal, matrilineal, hingga bilateral).`,
+      "",
+      `#### 3. Posisi Silang Strategis Jalur Perdagangan Rempah Dunia (*Spice Route*)`,
+      `Berada di persimpangan dua benua (Asia dan Australia) serta dua samudra (Hindia dan Pasifik), kepulauan Nusantara menjadi pusat perdagangan maritim dunia selama ribuan tahun. Pedagang dan musafir dari India (membawa pengaruh Hindu-Buddha), Tiongkok, Arab-Persia (membawa Islam), hingga bangsa Eropa membawa khazanah seni, kuliner, dan busana yang kemudian diakulturasi secara harmonis dengan kearifan lokal pribumi.`,
+      "",
+      `#### 4. Falsafah Luhur Bhinneka Tunggal Ika`,
+      `Keberagaman tradisi ini dipandang para pendiri bangsa bukan sebagai pemecah belah, melainkan sebagai taman sari kebudayaan yang saling melengkapi. Dari tradisi bahari suku Bugis dan Bajo, tradisi agraris Jawa dan Sunda, hingga tradisi rimba Dayak dan Asmat, semuanya disatukan oleh komitmen kebangsaan: *Berbeda-beda tetapi tetap satu jua*.`,
+    ];
+
+    return {
+      text: lines.join("\n"),
+      references,
+      isAiPowered: false,
+      modelName: "Pamong Budaya AI",
+      suggestedQuestions: [
+        "Bagaimana pengaruh Jalur Rempah terhadap kekayaan kuliner Indonesia?",
+        "Apa suku bangsa tertua yang mendiami kepulauan Nusantara?",
+        "Bagaimana cara generasi muda merawat persatuan di tengah keberagaman?",
+      ],
+    };
+  }
+
+  // 2. Regional Category Query (e.g. "makanan dari jawa barat", "kuliner jawa timur", "tarian bali", "alat musik ntt")
+  if (targetCategory && targetProvince) {
+    const categoryTitle =
+      targetCategory === "makanan"
+        ? "Kuliner & Makanan Tradisional"
+        : targetCategory === "musik"
+        ? "Alat Musik Tradisional"
+        : targetCategory === "pakaian"
+        ? "Pakaian Adat & Wastra"
+        : targetCategory === "tarian"
+        ? "Seni Tari Tradisional"
+        : "Bahasa Daerah";
+    const itemsInRegion = references.filter(
+      (r) => r.category === targetCategory && r.provinceName.toLowerCase() === targetProvince.toLowerCase()
+    );
+
+    const lines: string[] = [
+      `### 🌟 Khazanah ${categoryTitle} Khas ${targetProvince}`,
+      `Provinsi **${targetProvince}** menyimpan warisan ${categoryTitle.toLowerCase()} yang kaya akan teknik tradisional, sejarah, dan filosofi kearifan lokal.`,
+      "",
+      `Berikut adalah ragam ${categoryTitle.toLowerCase()} khas ${targetProvince} yang tercatat dalam basis data budaya Nusantara terverifikasi:`,
+      "",
+    ];
+
+    if (itemsInRegion.length > 0) {
+      for (const item of itemsInRegion) {
+        const regencyText = item.regencyName ? ` *(${item.regencyName})*` : "";
+        lines.push(`* **${item.name}**${regencyText}`);
+        lines.push(`  ${item.description}`);
+        if (item.originNote) {
+          lines.push(`  *Ciri Khas & Tradisi:* ${item.originNote}`);
+        }
+        lines.push("");
+      }
+    } else {
+      lines.push(`* *Catatan:* Khazanah ${categoryTitle.toLowerCase()} dari ${targetProvince} terus diperkaya dalam basis data nasional.`);
+      lines.push("");
+    }
+
+    lines.push(`#### Nilai & Makna Filosofis Tradisi ${targetProvince}:`);
+    if (targetCategory === "makanan") {
+      lines.push(`Kuliner tradisional ${targetProvince} bukan sekadar santapan lezat, melainkan ungkapan rasa syukur atas kesuburan tanah Nusantara, kepiawaian mengolah bumbu rempah alami, serta medium perekat tali silaturahmi antarwarga masyarakat.`);
+    } else if (targetCategory === "tarian") {
+      lines.push(`Setiap gerak tarian tradisional ${targetProvince} mencerminkan narasi sejarah leluhur, ungkapan spiritual kepada Sang Pencipta, serta media pendidikan moral bagi generasi penerus.`);
+    } else if (targetCategory === "musik") {
+      lines.push(`Instrumen musik tradisional ${targetProvince} berperan sebagai media komunikasi sakral leluhur dan pengiring upacara adat yang mengutamakan keselarasan nada serta solidaritas gotong royong.`);
+    } else if (targetCategory === "pakaian") {
+      lines.push(`Busana adat ${targetProvince} sarat akan simbol martabat, etika kesopanan, dan penghormatan terhadap tatanan tata krama leluhur.`);
+    } else {
+      lines.push(`Bahasa daerah di ${targetProvince} menjaga memori kolektif peradaban suku setempat, ungkapan kearifan lokal (*local wisdom*), dan etika bertutur santun.`);
+    }
+
+    const activeList = itemsInRegion.length > 0 ? itemsInRegion : references;
+    return {
+      text: lines.join("\n"),
+      references: activeList,
+      isAiPowered: false,
+      modelName: "Pamong Budaya AI",
+      suggestedQuestions: [
+        activeList[0] ? `Bagaimana sejarah dan asal-usul ${activeList[0].name}?` : `Apa tradisi unik di ${targetProvince}?`,
+        `Apa tarian atau pakaian adat terkenal lainnya dari ${targetProvince}?`,
+        `Bagaimana cara melestarikan warisan budaya ${targetProvince}?`,
+      ],
+    };
+  }
+
+  // 3. Category Only Query (e.g. "alat musik tradisional indonesia", "makanan khas nusantara")
+  if (targetCategory && references.length > 0) {
+    const catLabel = CATEGORY_META[targetCategory].label;
+    const catShort = CATEGORY_META[targetCategory].shortLabel;
+
+    const lines: string[] = [
+      `### 🌟 Khazanah ${catLabel} Nusantara`,
+      `Kebudayaan Indonesia memiliki kekayaan ${catShort.toLowerCase()} yang luar biasa beragam dari Sabang sampai Merauke.`,
+      "",
+      `Berikut adalah beberapa contoh ${catShort.toLowerCase()} tradisional Nusantara terverifikasi dalam basis data kami:`,
+      "",
+    ];
+
+    for (const item of references) {
+      const originText = ` *(Provinsi ${item.provinceName}${item.regencyName ? `, ${item.regencyName}` : ""})*`;
+      lines.push(`* **${item.name}**${originText}`);
+      lines.push(`  ${item.description}`);
+      lines.push("");
+    }
+
+    lines.push(`#### Nilai Filosofis & Keberagaman:`);
+    lines.push(`Setiap ${catShort.toLowerCase()} daerah mencerminkan kearifan lokal suku bangsa pengembangnya serta adaptasi harmonis terhadap alam dan sejarah Nusantara.`);
+
+    return {
+      text: lines.join("\n"),
+      references,
+      isAiPowered: false,
+      modelName: "Pamong Budaya AI",
+      suggestedQuestions: [
+        `Apa ${catShort.toLowerCase()} yang paling terkenal dari Jawa?`,
+        `Bagaimana perkembangan ${catShort.toLowerCase()} tradisional di era modern?`,
+        `Apa makna filosofis di balik ${references[0]?.name || "budaya ini"}?`,
+      ],
+    };
+  }
+
   // 4. Empty references fallback
   if (references.length === 0) {
     return {
-      text: `Pertanyaan Anda mengenai **"${query}"** belum dapat dipadankan secara spesifik dengan 1.727 data warisan budaya terverifikasi di basis data kami (meliputi Bahasa Daerah, Alat Musik, Makanan Tradisional, Pakaian Adat, dan Seni Tari).\n\nAnda dapat menanyakan budaya spesifik Nusantara seperti:\n* **Seni Tari & Pertunjukan**: Reog Ponorogo, Tari Saman, Tari Kecak, Tari Jaipong, Tari Piring\n* **Alat Musik Tradisional**: Sasando, Angklung, Gamelan, Kolintang, Tifa\n* **Kuliner Nusantara**: Rendang, Rawon, Gudeg, Papeda, Soto Betawi\n* **Pakaian & Wastra**: Batik, Ulos, Payas Agung, Baju Bodo\n* **Bahasa Daerah**: Bahasa Jawa, Sunda, Minangkabau, Bugis, Asmat`,
+      text: `Pertanyaan Anda mengenai **"${query}"** belum dapat dipadankan secara spesifik dengan 1.722 data warisan budaya terverifikasi di basis data kami (meliputi Bahasa Daerah, Alat Musik, Makanan Tradisional, Pakaian Adat, dan Seni Tari).\n\nAnda dapat menanyakan budaya spesifik Nusantara seperti:\n* **Seni Tari & Pertunjukan**: Reog Ponorogo, Tari Saman, Tari Kecak, Tari Jaipong, Tari Piring\n* **Alat Musik Tradisional**: Sasando, Angklung, Gamelan, Kolintang, Tifa\n* **Kuliner Nusantara**: Rendang, Rawon, Gudeg, Papeda, Soto Betawi\n* **Pakaian & Wastra**: Batik, Ulos, Payas Agung, Baju Bodo\n* **Bahasa Daerah**: Bahasa Jawa, Sunda, Minangkabau, Bugis, Asmat`,
       references: [],
       isAiPowered: false,
       modelName: "Pamong Budaya AI",
@@ -352,7 +653,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
     };
   }
 
-  // 5. Default grounded synthesis from verified record
+  // 5. Default grounded synthesis from verified single record
   const primary = references[0];
   const otherRefs = references.slice(1);
 
@@ -412,14 +713,14 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
 }
 
 /**
- * Call Google Gemini API trying gemini-3.8-flash first, then gemini-flash-latest.
+ * Call Google Gemini API trying current standard models.
  */
 async function callGeminiApi(
   systemInstruction: string,
   contents: Array<{ role: string; parts: Array<{ text: string }> }>,
   apiKey: string
 ): Promise<{ text: string; modelName: string } | null> {
-  const models = ["gemini-3.8-flash", "gemini-flash-latest"];
+  const models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"];
   for (const model of models) {
     try {
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
@@ -468,7 +769,7 @@ export async function processCultureChat(
   targetSlug?: string,
   history: Array<{ role: "user" | "model"; text: string }> = []
 ): Promise<ChatResponsePayload> {
-  const references = retrieveCultureContext(query, targetSlug, 4);
+  const references = retrieveCultureContext(query, targetSlug, 6);
 
   // 1. Wall Protection Guardrail Check
   if (!isCulturalQuery(query, references)) {
