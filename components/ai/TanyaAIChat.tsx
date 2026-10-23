@@ -103,6 +103,15 @@ function TanyaAIChatContent({
   };
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  // True while waiting for the server OR while the answer is still being typed out
+  const isGenerating = isLoading || messages.some((m) => m.isStreaming);
+
+  // Cancel any in-flight request when this chat session is unmounted
+  useEffect(() => {
+    return () => abortControllerRef.current?.abort();
+  }, []);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -194,6 +203,9 @@ function TanyaAIChatContent({
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     try {
       const historyPayload = messages
         .filter((m) => !m.id.startsWith("welcome-seeded"))
@@ -206,6 +218,7 @@ function TanyaAIChatContent({
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
         body: JSON.stringify({
           query: text,
           targetSlug: activeContext?.slug,
@@ -231,11 +244,36 @@ function TanyaAIChatContent({
 
       setMessages((prev) => [...prev, botMessage]);
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Terjadi kesalahan jaringan.";
-      setErrorMsg(msg);
+      if (err instanceof DOMException && err.name === "AbortError") {
+        // User pressed "Berhenti": give the question back so it can be edited or resent.
+        setInputQuery(text);
+      } else {
+        const msg = err instanceof Error ? err.message : "Terjadi kesalahan jaringan.";
+        setErrorMsg(msg);
+      }
     } finally {
+      if (abortControllerRef.current === controller) {
+        abortControllerRef.current = null;
+      }
       setIsLoading(false);
     }
+  };
+
+  // Stop generating: cancel the pending request, or freeze the typing animation where it is.
+  const handleStopGenerating = () => {
+    abortControllerRef.current?.abort();
+    abortControllerRef.current = null;
+
+    setMessages((prev) =>
+      prev
+        .map((m) =>
+          m.isStreaming
+            ? { ...m, content: (m.displayedContent ?? "").trimEnd(), isStreaming: false }
+            : m
+        )
+        // Drop an assistant bubble that was stopped before any text appeared
+        .filter((m) => !(m.role === "assistant" && !m.isStreaming && m.content === ""))
+    );
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -514,13 +552,26 @@ function TanyaAIChatContent({
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={!inputQuery.trim() || isLoading}
-            className="hm-interactive flex h-10 shrink-0 items-center justify-center rounded-[var(--radius-input)] bg-[var(--color-accent)] px-4 font-bold text-xs text-[var(--color-accent-ink)] shadow-xs disabled:opacity-40 disabled:cursor-not-allowed"
-          >
-            <span>Kirim</span>
-          </button>
+          {isGenerating ? (
+            <button
+              type="button"
+              onClick={handleStopGenerating}
+              aria-label="Berhenti menjawab"
+              title="Berhenti menjawab"
+              className="hm-interactive flex h-10 shrink-0 items-center justify-center gap-2 rounded-[var(--radius-input)] border border-[var(--color-ink)] bg-[var(--color-paper)] px-4 font-bold text-xs text-[var(--color-ink)]"
+            >
+              <span className="inline-block h-2.5 w-2.5 rounded-xs bg-[var(--color-ink)]" aria-hidden="true" />
+              
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={!inputQuery.trim()}
+              className="hm-interactive flex h-10 shrink-0 items-center justify-center rounded-[var(--radius-input)] bg-[var(--color-accent)] px-4 font-bold text-xs text-[var(--color-accent-ink)] shadow-xs disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <span>Kirim</span>
+            </button>
+          )}
         </form>
         <p className="mt-2 text-center font-mono text-[10px] text-[var(--color-ink-3)]">
           Pamong Budaya AI adalah chatbot dan dapat membuat kesalahan.

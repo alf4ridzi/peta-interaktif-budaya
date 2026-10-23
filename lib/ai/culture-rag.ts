@@ -131,13 +131,337 @@ export function matchCategory(query: string): CulturalCategory | null {
 }
 
 export function matchProvince(query: string): string | null {
-  const q = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
+  const q = query.toLowerCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
+  const padded = " " + q + " ";
+  // Longest alias wins, so "kepulauan riau" -> Kepulauan Riau (not Riau), "papua barat" -> Papua Barat
+  let bestProvince: string | null = null;
+  let bestLength = 0;
   for (const [prov, aliases] of Object.entries(PROVINCE_SYNONYMS)) {
     for (const alias of aliases) {
-      const regex = new RegExp(`(?:^|\\s)${alias.replace(/\s+/g, "\\s+")}(?:$|\\s)`, "i");
-      if (regex.test(q)) return prov;
+      const a = alias.toLowerCase();
+      if (a.length > bestLength && padded.includes(" " + a + " ")) {
+        bestProvince = prov;
+        bestLength = a.length;
+      }
     }
   }
+  return bestProvince;
+}
+
+/**
+ * Words that carry no entity meaning (question words, generic descriptors, category words and
+ * region words). What remains in a query is the name of a specific cultural entity, e.g. "nafiri".
+ */
+const GENERIC_QUERY_WORDS = new Set([
+  // question / filler words
+  "apa", "itu", "ini", "dan", "atau", "yang", "dari", "di", "ke", "pada", "untuk", "dengan", "bagaimana",
+  "mengapa", "kenapa", "siapa", "kapan", "dimana", "mana", "berapa", "jelaskan", "ceritakan", "sebutkan",
+  "daftar", "ragam", "macam", "contoh", "mengenal", "tentang", "saja", "adalah", "merupakan", "dalam",
+  "balik", "cara", "memainkan", "tolong", "dong", "ada", "apakah", "sih", "kah", "bisa", "lebih",
+  // generic descriptors
+  "sejarah", "makna", "filosofi", "filosofis", "fungsi", "arti", "nilai", "keunikan", "ciri", "khas",
+  "daerah", "tradisional", "adat", "nusantara", "indonesia", "provinsi", "kabupaten", "kota", "asal",
+  "usul", "usulnya", "asalusul", "terkenal", "terdapat", "punya", "miliki", "memiliki", "semua", "seluruh",
+  "kecamatan", "kelurahan", "desa", "lengkap", "beserta", "kekayaan", "khazanah", "wilayah", "pulau", "tempat",
+  // category words
+  "makanan", "kuliner", "masakan", "santapan", "hidangan", "kudapan", "minuman", "lauk", "kue", "pangan",
+  "tarian", "tari", "sendratari", "joged", "seni", "pertunjukan", "musik", "alat", "instrumen", "tetabuhan",
+  "bunyi", "pakaian", "baju", "busana", "wastra", "kain", "kostum", "bahasa", "dialek", "aksara", "tutur",
+  "budaya", "kebudayaan", "tradisi", "warisan",
+  // generic region words
+  "barat", "timur", "tengah", "utara", "selatan", "kepulauan", "nusa", "tenggara",
+]);
+
+const REGION_TOKENS: Set<string> = new Set(
+  Object.entries(PROVINCE_SYNONYMS).flatMap(([prov, aliases]) =>
+    [prov, ...aliases].flatMap((a) => a.toLowerCase().split(/\s+/))
+  )
+);
+
+/**
+ * Extract tokens that identify a specific cultural entity (e.g. "nafiri" in "apa itu musik nafiri?").
+ * Returns an empty list for broad / regional questions such as "apa makanan dari jawa barat?".
+ */
+export function extractSpecificTokens(query: string): string[] {
+  return query
+    .toLowerCase()
+    .replace(/[^\w\s]/g, " ")
+    .split(/\s+/)
+    .filter((t) => t.length >= 3 && !GENERIC_QUERY_WORDS.has(t) && !REGION_TOKENS.has(t));
+}
+
+function itemNameWords(name: string): string[] {
+  return name.toLowerCase().replace(/[^\w\s]/g, " ").split(/\s+/).filter(Boolean);
+}
+
+/**
+ * Number of specific tokens that appear as (or as the prefix of) a word in the item's name.
+ */
+function countNameTokenMatches(name: string, specificTokens: string[]): number {
+  if (specificTokens.length === 0) return 0;
+  const words = itemNameWords(name);
+  let matched = 0;
+  for (const token of specificTokens) {
+    if (words.some((w) => w === token || (token.length >= 4 && w.startsWith(token)))) {
+      matched += 1;
+    }
+  }
+  return matched;
+}
+
+/** Words stripped from an item name to get its "core" name (e.g. "Bahasa Sunda" -> "sunda"). */
+const NAME_PREFIX_WORDS = new Set([
+  "bahasa", "tari", "tarian", "pakaian", "adat", "baju", "kain", "alat", "musik", "kuliner", "makanan",
+]);
+
+/** Directional words are part of province names, so they must count when comparing names exactly. */
+const DIRECTION_WORDS = new Set(["barat", "timur", "tengah", "utara", "selatan", "kepulauan", "nusa", "tenggara"]);
+
+function itemCoreWords(name: string): string[] {
+  const noParen = name.replace(/\([^)]*\)/g, " ");
+  return itemNameWords(noParen).filter((w) => !NAME_PREFIX_WORDS.has(w));
+}
+
+/**
+ * Query remainder after removing filler/category words, but KEEPING region and direction words.
+ * "apa itu bahasa sunda?" -> ["sunda"]; "bahasa dari jawa barat" -> ["jawa", "barat"].
+ */
+function extractNameRemainder(query: string): string[] {
+  return query
+    .toLowerCase()
+    .replace(/[^\w\s]/g, " ")
+    .split(/\s+/)
+    .filter((t) => t.length >= 3 && (!GENERIC_QUERY_WORDS.has(t) || DIRECTION_WORDS.has(t)));
+}
+
+function toReference(item: CulturalItem, score: number): RetrievedReference {
+  return {
+    id: item.id,
+    slug: item.slug,
+    name: item.name,
+    category: item.category,
+    provinceName: item.provinceName,
+    regencyName: item.regencyName,
+    districtName: item.districtName,
+    description: item.description,
+    originNote: item.originNote,
+    localImagePath: item.media?.localImagePath,
+    sourceDataset: item.provenance.sourceDataset,
+    score,
+  };
+}
+
+/**
+ * True when a record is recorded in the entity's home region, e.g. "Bahasa Sunda" in Jawa Barat
+ * (as opposed to Sunda-speaking diaspora communities in Lampung or Bengkulu).
+ */
+function isHomeRecord(item: { name: string; provinceName: string }): boolean {
+  const core = itemCoreWords(item.name).join(" ");
+  if (!core) return false;
+  const provLower = item.provinceName.toLowerCase();
+  const aliases = (PROVINCE_SYNONYMS[item.provinceName] || []).map((a) => a.toLowerCase());
+  return provLower === core || aliases.includes(core) || provLower.split(/\s+/).includes(core);
+}
+
+/** Keep a description readable: cut at a sentence boundary after ~max characters. */
+function shortenDescription(text: string, max = 600): string {
+  if (text.length <= max) return text;
+  const slice = text.slice(0, max);
+  const lastStop = Math.max(slice.lastIndexOf(". "), slice.lastIndexOf("; "));
+  return (lastStop > 200 ? slice.slice(0, lastStop + 1) : slice.trimEnd() + "…").trim();
+}
+
+/**
+ * Items whose NAME matches the specific entity the user asked about. Only the best-matching
+ * records are returned, so "apa itu musik nafiri?" yields just Nafiri and
+ * "apa itu bahasa sunda?" yields just Bahasa Sunda.
+ */
+export function findNamedEntityMatches(query: string, limit = 4): RetrievedReference[] {
+  const targetCategory = matchCategory(query);
+  const items = getCulturalDatabase();
+
+  // Phase 1: the whole remainder of the question is exactly one item's core name
+  // (works for names that coincide with region words, e.g. "Bahasa Sunda", "Bahasa Bali").
+  const remainder = extractNameRemainder(query);
+  if (remainder.length > 0) {
+    const remainderKey = remainder.join(" ");
+    const exact = items.filter(
+      (item) =>
+        (!targetCategory || item.category === targetCategory) &&
+        itemCoreWords(item.name).join(" ") === remainderKey
+    );
+    if (exact.length > 0) {
+      // Home-region records first, so the limit never cuts them off
+      exact.sort((a, b) => Number(isHomeRecord(b)) - Number(isHomeRecord(a)));
+      return exact.slice(0, limit).map((item) => toReference(item, 400));
+    }
+  }
+
+  // Phase 2: rare/specific tokens (e.g. "nafiri") found inside item names
+  const specificTokens = extractSpecificTokens(query);
+  if (specificTokens.length === 0) return [];
+
+  let best = 0;
+  const hits: Array<{ item: CulturalItem; matched: number }> = [];
+
+  for (const item of items) {
+    if (targetCategory && item.category !== targetCategory) continue;
+    const matched = countNameTokenMatches(item.name, specificTokens);
+    if (matched === 0) continue;
+    best = Math.max(best, matched);
+    hits.push({ item, matched });
+  }
+
+  return hits
+    .filter((h) => h.matched === best)
+    .slice(0, limit)
+    .map(({ item }) => toReference(item, 300 + best * 50));
+}
+
+// ---------------------------------------------------------------------------
+// Place (province / regency / district) overview queries, e.g. "apa saja kebudayaan di kepulauan seribu"
+// ---------------------------------------------------------------------------
+
+function normalizeText(s: string): string {
+  return s.toLowerCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function regencyCoreName(raw: string): string {
+  return normalizeText(raw).replace(/^(kabupaten|kota|kab)\s+/, "");
+}
+
+function toTitleCase(raw: string): string {
+  return raw
+    .toLowerCase()
+    .split(/\s+/)
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(" ");
+}
+
+interface PlaceIndexEntry {
+  core: string;
+  raws: Set<string>;
+}
+
+let placeIndexCache: { regencies: PlaceIndexEntry[]; districts: PlaceIndexEntry[] } | null = null;
+
+function getPlaceIndex() {
+  if (placeIndexCache) return placeIndexCache;
+  const reg = new Map<string, Set<string>>();
+  const dis = new Map<string, Set<string>>();
+  for (const item of getCulturalDatabase()) {
+    if (item.regencyName) {
+      const core = regencyCoreName(item.regencyName);
+      if (!reg.has(core)) reg.set(core, new Set());
+      reg.get(core)!.add(item.regencyName);
+    }
+    if (item.districtName) {
+      const core = normalizeText(item.districtName);
+      if (!dis.has(core)) dis.set(core, new Set());
+      dis.get(core)!.add(item.districtName);
+    }
+  }
+  const toEntries = (m: Map<string, Set<string>>, minLen: number) =>
+    Array.from(m.entries())
+      .filter(([core]) => core.length >= minLen && !GENERIC_QUERY_WORDS.has(core))
+      .map(([core, raws]) => ({ core, raws }))
+      .sort((a, b) => b.core.length - a.core.length);
+  placeIndexCache = { regencies: toEntries(reg, 4), districts: toEntries(dis, 5) };
+  return placeIndexCache;
+}
+
+export interface PlaceOverview {
+  level: "district" | "regency" | "province";
+  label: string;
+  provinceName?: string;
+  items: CulturalItem[];
+  truncated: boolean;
+  category?: CulturalCategory;
+}
+
+const OVERVIEW_CATEGORY_ORDER: CulturalCategory[] = ["makanan", "tarian", "musik", "pakaian", "bahasa"];
+
+/**
+ * Detect a question about a whole place (province / regency / district) and collect that place's
+ * records. Returns null when the question also names a specific entity or topic.
+ */
+export function detectPlaceOverview(query: string): PlaceOverview | null {
+  const q = normalizeText(query);
+  const targetCategory = matchCategory(query);
+  const { regencies, districts } = getPlaceIndex();
+  const items = getCulturalDatabase();
+
+  const leftoverIsEmpty = (phrase: string) =>
+    extractSpecificTokens((" " + q + " ").replace(" " + phrase + " ", " ")).length === 0;
+
+  const dedupe = (list: CulturalItem[]) => {
+    const seen = new Set<string>();
+    return list.filter((i) => {
+      const key = i.category + "|" + i.name.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  };
+
+  // 1) Regency (kabupaten / kota) - most specific first
+  for (const entry of regencies) {
+    if (!(" " + q + " ").includes(" " + entry.core + " ")) continue;
+    if (!leftoverIsEmpty(entry.core)) continue;
+    let raws = Array.from(entry.raws);
+    if (/\bkota\b/.test(q) && raws.some((r) => /^kota/i.test(r))) raws = raws.filter((r) => /^kota/i.test(r));
+    else if (/\bkab(upaten)?\b/.test(q) && raws.some((r) => /^kabupaten/i.test(r))) raws = raws.filter((r) => /^kabupaten/i.test(r));
+    const rawSet = new Set(raws);
+    const found = dedupe(
+      items.filter((i) => i.regencyName && rawSet.has(i.regencyName) && (!targetCategory || i.category === targetCategory))
+    );
+    if (found.length === 0) continue;
+    return {
+      level: "regency",
+      label: toTitleCase(raws[0]),
+      provinceName: found[0].provinceName,
+      items: found.slice(0, 14),
+      truncated: found.length > 14,
+      category: targetCategory ?? undefined,
+    };
+  }
+
+  // 2) District (kecamatan)
+  for (const entry of districts) {
+    if (!(" " + q + " ").includes(" " + entry.core + " ")) continue;
+    if (!leftoverIsEmpty(entry.core)) continue;
+    const rawSet = new Set(entry.raws);
+    const found = dedupe(
+      items.filter((i) => i.districtName && rawSet.has(i.districtName) && (!targetCategory || i.category === targetCategory))
+    );
+    if (found.length === 0) continue;
+    return {
+      level: "district",
+      label: "Kecamatan " + toTitleCase(Array.from(entry.raws)[0]),
+      provinceName: found[0].provinceName,
+      items: found.slice(0, 14),
+      truncated: found.length > 14,
+      category: targetCategory ?? undefined,
+    };
+  }
+
+  // 3) Province without a category: balanced sample across the five cultural pillars
+  const province = matchProvince(query);
+  if (province && !targetCategory) {
+    const aliases = [province, ...(PROVINCE_SYNONYMS[province] || [])].map((a) => a.toLowerCase());
+    const hit = aliases.find((a) => (" " + q + " ").includes(" " + a + " "));
+    if (hit && leftoverIsEmpty(hit)) {
+      const all = dedupe(items.filter((i) => i.provinceName === province));
+      const picked: CulturalItem[] = [];
+      for (const cat of OVERVIEW_CATEGORY_ORDER) {
+        picked.push(...all.filter((i) => i.category === cat).slice(0, 3));
+      }
+      if (picked.length > 0) {
+        return { level: "province", label: province, provinceName: province, items: picked, truncated: all.length > picked.length };
+      }
+    }
+  }
+
   return null;
 }
 
@@ -145,6 +469,16 @@ export function matchProvince(query: string): string | null {
  * Retrieve top relevant cultural records matching user query using weighted keyword ranking.
  */
 export function retrieveCultureContext(query: string, targetSlug?: string, limit = 6): RetrievedReference[] {
+  // A question about one specific named entity must only be grounded on that entity.
+  if (!targetSlug) {
+    const entityMatches = findNamedEntityMatches(query);
+    if (entityMatches.length > 0) return entityMatches;
+
+    // A question about a whole place must only be grounded on that place's records.
+    const place = detectPlaceOverview(query);
+    if (place) return place.items.map((item) => toReference(item, 250));
+  }
+
   const items = getCulturalDatabase();
   const qClean = query.toLowerCase().replace(/[^\w\s]/g, " ").trim();
   const targetCategory = matchCategory(query);
@@ -416,7 +750,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
 
     return {
       text: lines.join("\n"),
-      references,
+      references: [],
       isAiPowered: false,
       modelName: "Pamong Budaya AI",
       suggestedQuestions: [
@@ -484,7 +818,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
 
     return {
       text: lines.join("\n"),
-      references,
+      references: references.filter((r) => r.provinceName === "Bali"),
       isAiPowered: false,
       modelName: "Pamong Budaya AI",
       suggestedQuestions: [
@@ -525,7 +859,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
 
     return {
       text: lines.join("\n"),
-      references,
+      references: [],
       isAiPowered: false,
       modelName: "Pamong Budaya AI",
       suggestedQuestions: [
@@ -534,6 +868,143 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
         "Bagaimana cara generasi muda merawat persatuan di tengah keberagaman?",
       ],
     };
+  }
+
+  // 1f. Specific named entity (e.g. "apa itu musik nafiri?") -> answer ONLY about that entity
+  const entityIds = new Set(findNamedEntityMatches(query).map((r) => r.id));
+  if (entityIds.size > 0 && references.length > 0 && references.every((r) => entityIds.has(r.id))) {
+    const primary = references[0];
+    const sameEntity = references.filter(
+      (r) => r.category === primary.category && itemNameWords(r.name).join(" ") === itemNameWords(primary.name).join(" ")
+    );
+    const sameEntityList = sameEntity.length > 0 ? sameEntity : [primary];
+    // Prefer records from the entity's home region (e.g. Bahasa Sunda in Jawa Barat) over diaspora records
+    const homeRecords = sameEntityList.filter(isHomeRecord);
+    const entityRecords = homeRecords.length > 0 ? homeRecords : sameEntityList;
+    const displayName = primary.name.replace(/\s*\([^)]*\)\s*$/, "").trim() || primary.name;
+
+    const categoryNoun: Record<CulturalCategory, string> = {
+      musik: "alat musik tradisional",
+      makanan: "kuliner tradisional",
+      pakaian: "pakaian adat",
+      tarian: "tarian tradisional",
+      bahasa: "bahasa daerah",
+    };
+
+    const lines: string[] = [`### Mengenal ${displayName}`];
+
+    if (entityRecords.length === 1) {
+      const r = entityRecords[0];
+      const place = [r.districtName ? `Kec. ${r.districtName}` : "", r.regencyName || "", `Provinsi ${r.provinceName}`]
+        .filter(Boolean)
+        .join(", ");
+      lines.push(`**${displayName}** adalah ${categoryNoun[r.category]} dari **${r.provinceName}**.`);
+      lines.push(`**Asal Wilayah:** ${place}.`);
+      lines.push("");
+      lines.push(shortenDescription(r.description, 900));
+      if (r.originNote) {
+        lines.push("");
+        lines.push(`**Catatan Tradisi:** ${r.originNote}`);
+      }
+    } else {
+      lines.push(
+        `**${displayName}** adalah ${categoryNoun[primary.category]} yang tercatat di beberapa wilayah Nusantara dalam basis data kami:`
+      );
+      lines.push("");
+      for (const r of entityRecords) {
+        const place = [r.regencyName || "", r.provinceName].filter(Boolean).join(", ");
+        lines.push(`* **${place}** — ${shortenDescription(r.description, 350)}`);
+      }
+    }
+
+    lines.push("");
+    lines.push(`#### Nilai & Makna Budaya`);
+    switch (primary.category) {
+      case "musik":
+        lines.push(`Sebagai alat musik tradisional, **${displayName}** menjadi sarana ekspresi, pengiring upacara adat, dan perekat kebersamaan masyarakat setempat.`);
+        break;
+      case "tarian":
+        lines.push(`**${displayName}** mengekspresikan rasa syukur, penghormatan kepada leluhur, dan nilai-nilai kehidupan masyarakat pendukungnya.`);
+        break;
+      case "makanan":
+        lines.push(`**${displayName}** mencerminkan kearifan lokal dalam mengolah bahan dan rempah khas daerahnya serta menjadi bagian dari tradisi kebersamaan.`);
+        break;
+      case "pakaian":
+        lines.push(`**${displayName}** memuat simbol status, kesopanan, dan identitas budaya masyarakat pemakainya.`);
+        break;
+      case "bahasa":
+        lines.push(`**${displayName}** adalah penjaga identitas, ungkapan kearifan lokal, dan memori kolektif penuturnya.`);
+        break;
+    }
+
+    return {
+      text: lines.join("\n"),
+      references: entityRecords,
+      isAiPowered: false,
+      modelName: "Pamong Budaya AI",
+      suggestedQuestions: [
+        `Bagaimana cara memainkan atau menikmati ${displayName}?`,
+        `Apa budaya khas lain dari ${primary.provinceName}?`,
+        `Bagaimana cara melestarikan ${displayName}?`,
+      ],
+    };
+  }
+
+  // 1g. Whole-place question (e.g. "apa saja kebudayaan di kepulauan seribu") -> overview of THAT place only
+  const placeOverview = detectPlaceOverview(query);
+  if (placeOverview) {
+    const placeIds = new Set(placeOverview.items.map((i) => i.id));
+    if (references.length > 0 && references.every((r) => placeIds.has(r.id))) {
+      const categoryHeading: Record<CulturalCategory, string> = {
+        makanan: "Kuliner & Makanan Tradisional",
+        tarian: "Seni Tari",
+        musik: "Alat Musik Tradisional",
+        pakaian: "Pakaian Adat & Wastra",
+        bahasa: "Bahasa Daerah",
+      };
+      const where =
+        placeOverview.level === "province"
+          ? `Provinsi ${placeOverview.label}`
+          : `${placeOverview.label}${placeOverview.provinceName ? `, Provinsi ${placeOverview.provinceName}` : ""}`;
+
+      const lines: string[] = [
+        placeOverview.category
+          ? `### 🌟 ${categoryHeading[placeOverview.category]} di ${placeOverview.label}`
+          : `### 🌟 Kekayaan Budaya ${placeOverview.label}`,
+        `Berikut warisan budaya yang tercatat di **${where}** dalam basis data terverifikasi kami:`,
+        "",
+      ];
+
+      for (const cat of OVERVIEW_CATEGORY_ORDER) {
+        const group = references.filter((r) => r.category === cat);
+        if (group.length === 0) continue;
+        lines.push(`#### ${categoryHeading[cat]}`);
+        for (const r of group) {
+          const detail = shortenDescription(r.description, 180);
+          lines.push(`* **${r.name}** — ${detail}`);
+        }
+        lines.push("");
+      }
+
+      if (placeOverview.truncated) {
+        lines.push(
+          `*Menampilkan sebagian contoh. Tanyakan kategori tertentu untuk daftar lengkap, misalnya "makanan di ${placeOverview.label}".*`
+        );
+      }
+
+      const first = references[0];
+      return {
+        text: lines.join("\n").trimEnd(),
+        references,
+        isAiPowered: false,
+        modelName: "Pamong Budaya AI",
+        suggestedQuestions: [
+          first ? `Apa itu ${first.name}?` : `Apa budaya khas ${placeOverview.label}?`,
+          `Apa makanan khas ${placeOverview.label}?`,
+          `Apa pakaian adat dari ${placeOverview.label}?`,
+        ],
+      };
+    }
   }
 
   // 2. Regional Category Query (e.g. "makanan dari jawa barat", "kuliner jawa timur", "tarian bali", "alat musik ntt")
@@ -713,12 +1184,43 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
 }
 
 /**
+ * Static system instruction. It is intentionally IDENTICAL on every request (no per-request data)
+ * so it forms a long, stable prompt prefix that Gemini implicit context caching can reuse.
+ * Per-request retrieved context is sent in the final user turn instead.
+ */
+const GEMINI_SYSTEM_INSTRUCTION = `Anda adalah "Pamong Budaya AI", pakar kurator dan pendidik kebudayaan Nusantara Indonesia yang berwawasan luas, santun, objektif, dan inspiratif.
+
+[WALL PROTECTION & BATASAN KONTEKS - SANGAT KETAT]:
+1. Anda HANYA DAN HARUS menjawab pertanyaan yang berkaitan dengan KEBUDAYAAN INDONESIA / NUSANTARA (sejarah kebudayaan daerah di Indonesia, tradisi, seni tari dan pertunjukan, musik dan alat musik tradisional, pakaian dan wastra adat, kuliner khas daerah Indonesia, bahasa daerah, rumah adat, upacara adat, kerajinan tangan, dan nilai kearifan lokal suku-suku di Indonesia).
+2. JIKA PENGGUNA BERTANYA DI LUAR KONTEKS KEBUDAYAAN INDONESIA (misalnya: matematika/hitungan, pemrograman/koding komputer, sains umum dunia, sejarah asing di luar Indonesia, selebriti/tokoh internasional, politik global, rekomendasi medis/kesehatan, saran keuangan/kripto, atau pertanyaan non-budaya lainnya):
+   ANDA WAJIB MENOLAK UNTUK MENJAWAB TOPIK TERSEBUT SECARA SANTUN DAN TEGAS.
+   Gunakan format penolakan:
+   "### 🛡️ Di Luar Konteks Kebudayaan Nusantara\n\nMaaf, saya adalah **Pamong Budaya AI** yang dikhususkan sebagai pendamping belajar dan eksplorasi **kebudayaan Indonesia & Nusantara**.\n\nSaya tidak dapat memberikan jawaban untuk topik di luar kebudayaan Nusantara. Silakan ajukan pertanyaan seputar seni tari, musik tradisional, pakaian adat, kuliner daerah, bahasa daerah, maupun kearifan lokal Indonesia!"
+   JANGAN MENJAWAB PERTANYAAN DI LUAR BUDAYA INDONESIA DALAM KONDISI APA PUN.
+
+PEDOMAN JAWABAN BUDAYA:
+0a. FOKUS WILAYAH: Jika pertanyaan menanyakan kebudayaan suatu wilayah (provinsi, kabupaten/kota, atau kecamatan, misalnya "apa saja kebudayaan di Kepulauan Seribu"), rangkum HANYA kebudayaan dari wilayah itu berdasarkan [DATA_TERVERIFIKASI KAMI], dikelompokkan per kategori. JANGAN memasukkan budaya dari daerah lain yang namanya mirip (misalnya Kepulauan Seribu bukan Kepulauan Riau atau Kepulauan Anambas).
+0. FOKUS ENTITAS: Jika pertanyaan menyebut satu budaya/benda budaya tertentu (misalnya "apa itu musik nafiri?"), jawab HANYA tentang entitas tersebut secara ringkas dan padat. JANGAN menambahkan daftar budaya lain, alat musik lain, atau contoh lain yang tidak ditanyakan.
+1. JAWABLAH TEPAT SESUAI TOPIK PERTANYAAN PENGGUNA. Jika pengguna bertanya tentang seni pertunjukan atau tarian (misalnya "Reog Ponorogo", "Tari Saman"), fokuskan penjelasan pada seni tari/pertunjukan tersebut (sejarah legenda, tokoh utama seperti Singo Barong & Warok, makna filosofis, dan keindahannya). JANGAN PERNAH mengalihkan topik ke pakaian atau atribut lain hanya karena atribut tersebut terdaftar di arsip wilayah terkait.
+2. JELASKAN SECARA MENDALAM: Jelaskan bukan hanya "apa" kebudayaan tersebut, tetapi juga latar belakang sejarahnya, asal wilayah daerah asalnya, fungsi dan peranan adat, simbolisme, serta nilai filosofis kearifan lokal (*local wisdom*) yang terkandung di dalamnya.
+3. INTEGRASI BASIS DATA TERVERIFIKASI: Gunakan [DATA_TERVERIFIKASI KAMI] sebagai rujukan valid. Jika data terverifikasi mencakup pakaian adat, alat musik, atau tradisi yang menyertai kebudayaan tersebut di daerah yang sama, posisikan hal itu sebagai elemen pendukung atau konteks pelengkap, BUKAN mengganti esensi topik utama yang ditanyakan.
+4. KEJUJURAN & INTEGRITAS FAKTA: Hindari mengarang fakta sejarah fiktif, tokoh palsu, atau tautan URL palsu. Jika ada hal yang bersumber dari cerita rakyat atau mitos tutur lisan, sebutkan secara jelas sebagai warisan tutur rakyat setempat.
+5. FORMAT JAWABAN: Susun jawaban dengan Markdown yang rapi dan terstruktur:
+   - Gunakan judul sub-bab dengan heading Markdown level 3 (###) atau level 4 (####) seperti "### Sejarah & Asal-Usul", "### Nilai Filosofis", "### Tokoh & Karakter Budaya".
+   - Gunakan poin-poin bertitik (*) atau bernomor untuk keterbacaan yang nyaman.
+   - Gunakan penekanan tebal (**kata kunci**) pada istilah penting kebudayaan.
+   - Hindari menulis teks catatan mentah sistem/metadata API atau nama model AI.
+
+Data arsip terverifikasi untuk setiap pertanyaan diberikan pada pesan pengguna di bawah label [DATA_TERVERIFIKASI KAMI].`;
+
+/**
  * Call Google Gemini API trying current standard models.
  */
 async function callGeminiApi(
   systemInstruction: string,
   contents: Array<{ role: string; parts: Array<{ text: string }> }>,
-  apiKey: string
+  apiKey: string,
+  signal?: AbortSignal
 ): Promise<{ text: string; modelName: string } | null> {
   const models = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"];
   for (const model of models) {
@@ -729,6 +1231,7 @@ async function callGeminiApi(
         headers: {
           "Content-Type": "application/json",
         },
+        signal,
         body: JSON.stringify({
           system_instruction: {
             parts: [{ text: systemInstruction }],
@@ -743,6 +1246,13 @@ async function callGeminiApi(
 
       if (res.ok) {
         const json = await res.json();
+        // Implicit caching is automatic on Gemini 2.5+; cached prefix tokens are reported here.
+        const usage = json.usageMetadata;
+        if (usage && process.env.NODE_ENV !== "production") {
+          console.info(
+            `[gemini:${model}] prompt=${usage.promptTokenCount ?? 0} cached=${usage.cachedContentTokenCount ?? 0}`
+          );
+        }
         const candidateText = json.candidates?.[0]?.content?.parts?.[0]?.text;
         if (candidateText && candidateText.trim().length > 0) {
           return {
@@ -755,6 +1265,8 @@ async function callGeminiApi(
         console.warn(`Gemini API model ${model} HTTP ${res.status}:`, errBody.slice(0, 250));
       }
     } catch (err) {
+      // Client pressed "stop generating": do not try fallback models
+      if (signal?.aborted) return null;
       console.warn(`Gemini API model ${model} network error:`, err);
     }
   }
@@ -767,7 +1279,8 @@ async function callGeminiApi(
 export async function processCultureChat(
   query: string,
   targetSlug?: string,
-  history: Array<{ role: "user" | "model"; text: string }> = []
+  history: Array<{ role: "user" | "model"; text: string }> = [],
+  signal?: AbortSignal
 ): Promise<ChatResponsePayload> {
   const references = retrieveCultureContext(query, targetSlug, 6);
 
@@ -798,31 +1311,13 @@ File Data: ${r.sourceDataset}`
     )
     .join("\n\n");
 
-  const systemInstruction = `Anda adalah "Pamong Budaya AI", pakar kurator dan pendidik kebudayaan Nusantara Indonesia yang berwawasan luas, santun, objektif, dan inspiratif.
 
-[WALL PROTECTION & BATASAN KONTEKS - SANGAT KETAT]:
-1. Anda HANYA DAN HARUS menjawab pertanyaan yang berkaitan dengan KEBUDAYAAN INDONESIA / NUSANTARA (sejarah kebudayaan daerah di Indonesia, tradisi, seni tari dan pertunjukan, musik dan alat musik tradisional, pakaian dan wastra adat, kuliner khas daerah Indonesia, bahasa daerah, rumah adat, upacara adat, kerajinan tangan, dan nilai kearifan lokal suku-suku di Indonesia).
-2. JIKA PENGGUNA BERTANYA DI LUAR KONTEKS KEBUDAYAAN INDONESIA (misalnya: matematika/hitungan, pemrograman/koding komputer, sains umum dunia, sejarah asing di luar Indonesia, selebriti/tokoh internasional, politik global, rekomendasi medis/kesehatan, saran keuangan/kripto, atau pertanyaan non-budaya lainnya):
-   ANDA WAJIB MENOLAK UNTUK MENJAWAB TOPIK TERSEBUT SECARA SANTUN DAN TEGAS.
-   Gunakan format penolakan:
-   "### 🛡️ Di Luar Konteks Kebudayaan Nusantara\n\nMaaf, saya adalah **Pamong Budaya AI** yang dikhususkan sebagai pendamping belajar dan eksplorasi **kebudayaan Indonesia & Nusantara**.\n\nSaya tidak dapat memberikan jawaban untuk topik di luar kebudayaan Nusantara. Silakan ajukan pertanyaan seputar seni tari, musik tradisional, pakaian adat, kuliner daerah, bahasa daerah, maupun kearifan lokal Indonesia!"
-   JANGAN MENJAWAB PERTANYAAN DI LUAR BUDAYA INDONESIA DALAM KONDISI APA PUN.
-
-PEDOMAN JAWABAN BUDAYA:
-1. JAWABLAH TEPAT SESUAI TOPIK PERTANYAAN PENGGUNA. Jika pengguna bertanya tentang seni pertunjukan atau tarian (misalnya "Reog Ponorogo", "Tari Saman"), fokuskan penjelasan pada seni tari/pertunjukan tersebut (sejarah legenda, tokoh utama seperti Singo Barong & Warok, makna filosofis, dan keindahannya). JANGAN PERNAH mengalihkan topik ke pakaian atau atribut lain hanya karena atribut tersebut terdaftar di arsip wilayah terkait.
-2. JELASKAN SECARA MENDALAM: Jelaskan bukan hanya "apa" kebudayaan tersebut, tetapi juga latar belakang sejarahnya, asal wilayah daerah asalnya, fungsi dan peranan adat, simbolisme, serta nilai filosofis kearifan lokal (*local wisdom*) yang terkandung di dalamnya.
-3. INTEGRASI BASIS DATA TERVERIFIKASI: Gunakan [DATA_TERVERIFIKASI KAMI] sebagai rujukan valid. Jika data terverifikasi mencakup pakaian adat, alat musik, atau tradisi yang menyertai kebudayaan tersebut di daerah yang sama, posisikan hal itu sebagai elemen pendukung atau konteks pelengkap, BUKAN mengganti esensi topik utama yang ditanyakan.
-4. KEJUJURAN & INTEGRITAS FAKTA: Hindari mengarang fakta sejarah fiktif, tokoh palsu, atau tautan URL palsu. Jika ada hal yang bersumber dari cerita rakyat atau mitos tutur lisan, sebutkan secara jelas sebagai warisan tutur rakyat setempat.
-5. FORMAT JAWABAN: Susun jawaban dengan Markdown yang rapi dan terstruktur:
-   - Gunakan judul sub-bab dengan heading Markdown level 3 (###) atau level 4 (####) seperti "### Sejarah & Asal-Usul", "### Nilai Filosofis", "### Tokoh & Karakter Budaya".
-   - Gunakan poin-poin bertitik (*) atau bernomor untuk keterbacaan yang nyaman.
-   - Gunakan penekanan tebal (**kata kunci**) pada istilah penting kebudayaan.
-   - Hindari menulis teks catatan mentah sistem/metadata API atau nama model AI.
-
-[DATA_TERVERIFIKASI KAMI]:
+  const contextBlock = `[DATA_TERVERIFIKASI KAMI]:
 ${contextSnippet || "Tidak ada data arsip spesifik langsung untuk kata kunci ini di database internal kami. Berikan penjelasan komprehensif berdasarkan khazanah sejarah kebudayaan Indonesia yang terverifikasi dan sahih."}`;
 
   try {
+    // Order matters for implicit caching: static system instruction -> conversation history
+    // (shared prefix across turns) -> per-request context + question (changes every call).
     const contents = [
       ...history.slice(-4).map((h) => ({
         role: h.role,
@@ -830,11 +1325,11 @@ ${contextSnippet || "Tidak ada data arsip spesifik langsung untuk kata kunci ini
       })),
       {
         role: "user",
-        parts: [{ text: query }],
+        parts: [{ text: `${contextBlock}\n\n[PERTANYAAN PENGGUNA]:\n${query}` }],
       },
     ];
 
-    const geminiResult = await callGeminiApi(systemInstruction, contents, apiKey);
+    const geminiResult = await callGeminiApi(GEMINI_SYSTEM_INSTRUCTION, contents, apiKey, signal);
 
     if (geminiResult) {
       return {

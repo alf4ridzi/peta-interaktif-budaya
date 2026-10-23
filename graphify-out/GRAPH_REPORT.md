@@ -1,16 +1,16 @@
-# Graph Report - peta-interaktif-budaya  (2026-10-21)
+# Graph Report - peta-interaktif-budaya  (2026-10-23)
 
 ## Corpus Check
-- 182 files · ~2,162,914 words
+- 183 files · ~2,164,975 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1360 nodes · 1674 edges · 98 communities (69 shown, 28 thin omitted)
+- 1370 nodes · 1688 edges · 94 communities (64 shown, 28 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a850271c`
+- Built from commit: `46b4013f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,29 +33,24 @@
 - Recipes
 - ingest-datasets.mjs
 - Study — extracting design DNA from a screenshot or URL
-- LearningDashboard.tsx
-- CulturalAtlasExplorer.tsx
+- Icons.tsx
 - Hero enrichment — when, what, and how much
 - Theme — Carnival
-- culture.ts
 - Interaction and states
-- Icons.tsx
 - Major (looks AI-generated)
 - Bundle optimizer
 - Slop test — 58 gates + pre-emit self-critique
 - next-cache-components-optimizer
 - Technical Architecture & Design Document — Peta Interaktif Budaya
 - Copy
-- IndonesiaMap.tsx
 - Critical (ships as slop)
 - Typography
-- CulturalCategory
+- culture-rag.ts
 - next-partial-prefetching-adoption
 - Microinteraction tells
 - Archetype index — load ONLY the picks you need
 - Theme — Cobalt
 - Theme - Grid
-- culture-rag.ts
 - Responsive
 - The six axes
 - RED-test robustness: verify the RED before optimizing
@@ -126,21 +121,21 @@
 10. `compilerOptions` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `POST()` --calls--> `processCultureChat()`  [EXTRACTED]
+  app/api/chat/route.ts → lib/ai/culture-rag.ts
+- `CategoryTabsProps` --references--> `CulturalCategory`  [EXTRACTED]
+  components/dossier/CategoryTabs.tsx → types/culture.ts
 - `CulturalCardProps` --references--> `CulturalItem`  [EXTRACTED]
   components/dossier/CulturalCard.tsx → types/culture.ts
 - `LearningDashboardProps` --references--> `CulturalItem`  [EXTRACTED]
   components/progress/LearningDashboard.tsx → types/culture.ts
-- `POST()` --calls--> `processCultureChat()`  [EXTRACTED]
-  app/api/chat/route.ts → lib/ai/culture-rag.ts
-- `CulturalAtlasExplorer()` --calls--> `formatTitleCase()`  [EXTRACTED]
-  components/CulturalAtlasExplorer.tsx → lib/utils.ts
-- `CategoryTabsProps` --references--> `CulturalCategory`  [EXTRACTED]
-  components/dossier/CategoryTabs.tsx → types/culture.ts
+- `LearningDashboard()` --indirect_call--> `getStoredProgress()`  [INFERRED]
+  components/progress/LearningDashboard.tsx → lib/progress/progress-service.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (98 total, 28 thin omitted)
+## Communities (94 total, 28 thin omitted)
 
 ### Community 0 - "component-cookbook.md"
 Cohesion: 0.03
@@ -171,8 +166,8 @@ Cohesion: 0.06
 Nodes (32): 1. The button system — three variations, the press is the feedback, 2. Multi-accent section bands, 3. Color-shift card grid, 4. Streak / counter tick-up, 5. Character moment — one small reacting mark, 6. Big rounded everything, 7. Star-burst micro-celebration on success, Anti-patterns (theme-specific) (+24 more)
 
 ### Community 7 - "devDependencies"
-Cohesion: 0.06
-Nodes (32): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+24 more)
+Cohesion: 0.05
+Nodes (36): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+28 more)
 
 ### Community 8 - "next-cache-components-adoption"
 Cohesion: 0.06
@@ -214,13 +209,9 @@ Nodes (24): RFC-4180, allItems, allQuizzes, buildProvincesGeoJSON(), compactDist
 Cohesion: 0.08
 Nodes (26): After the file is written, Emitting a `design.md` from `study`, Image-mode template, Junk-or-blocked detection, Limits and disclaimers, Refusal — when not to study, Remote URL safety, Source mode — image or URL (+18 more)
 
-### Community 18 - "LearningDashboard.tsx"
-Cohesion: 0.16
-Nodes (22): metadata, CATEGORY_ICONS, getServerSnapshot(), LearningDashboard(), LearningDashboardProps, subscribeProgress(), QuizModal(), clearStoredProgress() (+14 more)
-
-### Community 19 - "CulturalAtlasExplorer.tsx"
-Cohesion: 0.17
-Nodes (17): CulturalAtlasExplorer(), CulturalAtlasExplorerProps, QuizModalProps, QuizQuestionCard(), QuizQuestionCardProps, QuizSummary(), QuizSummaryProps, IconCheck() (+9 more)
+### Community 18 - "Icons.tsx"
+Cohesion: 0.05
+Nodes (90): metadata, CulturalAtlasExplorer(), CulturalAtlasExplorerProps, CategoryTabs(), CategoryTabsProps, ICONS, CulturalCard(), CulturalCardProps (+82 more)
 
 ### Community 20 - "Hero enrichment — when, what, and how much"
 Cohesion: 0.09
@@ -230,17 +221,9 @@ Nodes (23): Animation discipline (hero specifically), Common mistakes — and th
 Cohesion: 0.09
 Nodes (22): Anti-patterns (theme-specific), Axes (diversification), Build hint, Drop 01 · Cold Snap *(default)*, Drop 02 · Citrus Riot, Drop 03 · Diner Sign, Drop 04 · Studio Night, Drop 05 · Aqua Park (+14 more)
 
-### Community 22 - "culture.ts"
-Cohesion: 0.21
-Nodes (15): CulturalCard(), CulturalCardProps, CulturalDossier(), CulturalDossierProps, Breadcrumbs(), BreadcrumbsProps, HeaderHUDProps, IndonesiaMapProps (+7 more)
-
 ### Community 23 - "Interaction and states"
 Cohesion: 0.10
 Nodes (21): Bans, Computation, Contrast discipline, Don't, list, Dropdowns, tooltips, popovers, Focus rings, Forms, Heights and rhythm (+13 more)
-
-### Community 24 - "Icons.tsx"
-Cohesion: 0.16
-Nodes (17): CategoryTabs(), ICONS, CATEGORY_ICON_MAP, HeaderHUD(), MapControls(), IconBahasa(), IconChevronRight(), IconCompass() (+9 more)
 
 ### Community 25 - "Major (looks AI-generated)"
 Cohesion: 0.10
@@ -266,10 +249,6 @@ Nodes (18): 1. Executive Summary & The Kitchen Secret Recipe, 2.1 Hallmark Pre-F
 Cohesion: 0.11
 Nodes (17): Austere, Banned opening lines (anti-patterns), Brutalist, Buttons, Copy, Editorial, Empty states, Error messages (+9 more)
 
-### Community 31 - "IndonesiaMap.tsx"
-Cohesion: 0.24
-Nodes (16): IndonesiaMap(), ProvinceGeoFeature, TooltipState, MapControlsProps, GeoCoordinates, geometryToSvgPath(), IslandViewportPreset, LAT_MAX (+8 more)
-
 ### Community 32 - "Critical (ships as slop)"
 Cohesion: 0.12
 Nodes (17): Aurora-blob background, Card-in-card, Critical (ships as slop), Default-attractor sameness, Floating-orb decoration, Full-viewport centred hero, Inter-everywhere, Lazy-loaded LCP (+9 more)
@@ -278,9 +257,9 @@ Nodes (17): Aurora-blob background, Card-in-card, Critical (ships as slop), Defa
 Cohesion: 0.12
 Nodes (17): Banned defaults, Bans, Body text rules, Free body faces, Free display faces, Free mono / outlier faces, Headings rules, Hero headline sizing — match size to copy length (+9 more)
 
-### Community 34 - "CulturalCategory"
-Cohesion: 0.16
-Nodes (13): metadata, DEFAULT_SAMPLE_QUESTIONS, Message, nextMsgId(), TanyaAIChat(), CategoryTabsProps, IconArrowLeft(), MarkdownContent() (+5 more)
+### Community 34 - "culture-rag.ts"
+Cohesion: 0.09
+Nodes (27): POST(), metadata, DEFAULT_SAMPLE_QUESTIONS, Message, nextMsgId(), TanyaAIChat(), TanyaAIChatContent(), IconArrowLeft() (+19 more)
 
 ### Community 35 - "next-partial-prefetching-adoption"
 Cohesion: 0.12
@@ -301,10 +280,6 @@ Nodes (13): Anti-patterns, Axes (diversification), Build hint, How Cobalt differ
 ### Community 39 - "Theme - Grid"
 Cohesion: 0.14
 Nodes (13): Axes (diversification), Build hint, Do-nots (this theme's own failure modes), How Grid differs from its neighbours, Material, Motion, Reference register, The marks kit (+5 more)
-
-### Community 40 - "culture-rag.ts"
-Cohesion: 0.22
-Nodes (12): POST(), callGeminiApi(), ChatResponsePayload, CONCEPT_SYNONYMS, CULTURAL_ANCHOR_KEYWORDS, generateLocalSynthesis(), getCulturalDatabase(), isCulturalQuery() (+4 more)
 
 ### Community 41 - "Responsive"
 Cohesion: 0.15
@@ -419,21 +394,21 @@ Cohesion: 0.50
 Nodes (3): FALLBACK_DIR, FALLBACKS, ROOT
 
 ## Knowledge Gaps
-- **896 isolated node(s):** `here`, `out`, `dir`, `themes`, `sans` (+891 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 934 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **900 isolated node(s):** `here`, `out`, `dir`, `themes`, `sans` (+895 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 939 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **28 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Assets — sourcing canon for icons, logos, illustrations, photography, video` connect `Assets — sourcing canon for icons, logos, illustrations, photography, video` to `hallmark/SKILL.md`?**
-  _High betweenness centrality (0.062) - this node is a cross-community bridge._
+  _High betweenness centrality (0.052) - this node is a cross-community bridge._
 - **Why does `Anti-patterns — the named tells` connect `Minor (small taste issues)` to `Critical (ships as slop)`, `Major (looks AI-generated)`, `Microinteraction tells`, `hallmark/SKILL.md`?**
-  _High betweenness centrality (0.031) - this node is a cross-community bridge._
-- **Why does `Custom craft — how to hand-build hero artwork` connect `Custom craft — how to hand-build hero artwork` to `hallmark/SKILL.md`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `Hero enrichment — when, what, and how much` connect `Hero enrichment — when, what, and how much` to `hallmark/SKILL.md`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **What connects `here`, `out`, `dir` to the rest of the system?**
-  _896 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _900 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `component-cookbook.md` be split into smaller, more focused modules?**
   _Cohesion score 0.03278688524590164 - nodes in this community are weakly interconnected._
 - **Should `Assets — sourcing canon for icons, logos, illustrations, photography, video` be split into smaller, more focused modules?**

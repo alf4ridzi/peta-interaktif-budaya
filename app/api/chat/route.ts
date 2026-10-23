@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const payload = await processCultureChat(query, targetSlug, history);
+    const payload = await processCultureChat(query, targetSlug, history, req.signal);
 
     return NextResponse.json({
       success: true,
