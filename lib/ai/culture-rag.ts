@@ -674,6 +674,9 @@ Silakan ajukan pertanyaan yang berkaitan dengan warisan budaya Indonesia!`,
   ],
 };
 
+import { stripSourceDataLines } from "@/lib/utils";
+export { stripSourceDataLines };
+
 /**
  * Local Grounded Synthesis when external Gemini API is unreachable or offline.
  * Generates an accurate, structured, and deep explanation directly from verified data.
@@ -1138,8 +1141,7 @@ function generateLocalSynthesis(query: string, references: RetrievedReference[])
 
   if (primary.originNote) {
     lines.push(`#### 2. Konteks Pelaksanaan & Ciri Khas`);
-    lines.push(`* **Catatan Tradisi:** ${primary.originNote}`);
-    lines.push(`* **Sumber Terverifikasi:** Arsip Budaya Kemendikbud & dataset *${primary.sourceDataset}*.`);
+    lines.push(primary.originNote);
     lines.push("");
   }
 
@@ -1210,6 +1212,7 @@ PEDOMAN JAWABAN BUDAYA:
    - Gunakan poin-poin bertitik (*) atau bernomor untuk keterbacaan yang nyaman.
    - Gunakan penekanan tebal (**kata kunci**) pada istilah penting kebudayaan.
    - Hindari menulis teks catatan mentah sistem/metadata API atau nama model AI.
+6. JANGAN MENULISKAN TEKS SUMBER DATA: JANGAN PERNAH menyertakan baris teks seperti "Sumber data:", "Sumber Terverifikasi:", "Sumber:", "Data bersumber dari:", atau nama dataset file di akhir atau di dalam jawaban Anda. Tuliskan narasi kebudayaan secara langsung, mengalir, dan informatif tanpa teks rujukan metadata/sumber data mentah.
 
 Data arsip terverifikasi untuk setiap pertanyaan diberikan pada pesan pengguna di bawah label [DATA_TERVERIFIKASI KAMI].`;
 
@@ -1292,22 +1295,25 @@ export async function processCultureChat(
   const apiKey = process.env.GEMINI_API_KEY;
 
   if (!apiKey) {
-    return generateLocalSynthesis(query, references);
+    const local = generateLocalSynthesis(query, references);
+    return {
+      ...local,
+      text: stripSourceDataLines(local.text),
+    };
   }
 
   // Build Context for Gemini RAG
   const contextSnippet = references
     .map(
       (r, idx) =>
-        `[Sumber ${idx + 1}]
+        `[Catatan Kebudayaan ${idx + 1}]
 Nama: ${r.name}
 Kategori: ${r.category}
 Provinsi: ${r.provinceName}
 Kabupaten/Kota: ${r.regencyName || "-"}
 Kecamatan: ${r.districtName || "-"}
 Asal/Konteks: ${r.originNote || "-"}
-Deskripsi: ${r.description}
-File Data: ${r.sourceDataset}`
+Deskripsi: ${r.description}`
     )
     .join("\n\n");
 
@@ -1333,7 +1339,7 @@ ${contextSnippet || "Tidak ada data arsip spesifik langsung untuk kata kunci ini
 
     if (geminiResult) {
       return {
-        text: geminiResult.text,
+        text: stripSourceDataLines(geminiResult.text),
         references,
         isAiPowered: true,
         modelName: "Pamong Budaya AI",
@@ -1346,9 +1352,17 @@ ${contextSnippet || "Tidak ada data arsip spesifik langsung untuk kata kunci ini
     }
 
     // Fallback to local grounded synthesis if Gemini API call did not succeed
-    return generateLocalSynthesis(query, references);
+    const fallback = generateLocalSynthesis(query, references);
+    return {
+      ...fallback,
+      text: stripSourceDataLines(fallback.text),
+    };
   } catch (error) {
     console.error("Error communicating with Gemini API", error);
-    return generateLocalSynthesis(query, references);
+    const fallback = generateLocalSynthesis(query, references);
+    return {
+      ...fallback,
+      text: stripSourceDataLines(fallback.text),
+    };
   }
 }

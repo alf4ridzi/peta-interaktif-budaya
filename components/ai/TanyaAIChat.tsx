@@ -4,7 +4,8 @@ import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useSearchParams, useRouter } from "next/navigation";
-import { RetrievedReference } from "@/lib/ai/culture-rag";
+import type { RetrievedReference } from "@/lib/ai/culture-rag";
+import { stripSourceDataLines } from "@/lib/utils";
 import { CATEGORY_META, CulturalCategory } from "@/types/culture";
 import {
   IconArrowLeft,
@@ -235,7 +236,7 @@ function TanyaAIChatContent({
       const botMessage: Message = {
         id: nextMsgId("ast"),
         role: "assistant",
-        content: data.data.text,
+        content: stripSourceDataLines(data.data.text),
         displayedContent: "",
         isStreaming: true,
         references: data.data.references,

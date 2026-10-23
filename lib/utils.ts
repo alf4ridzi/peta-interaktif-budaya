@@ -25,3 +25,15 @@ export function formatTitleCase(text: string): string {
     .join(" ");
 }
 
+/**
+ * Strips any residual source citation lines such as "Sumber Data: ...",
+ * "* **Sumber Terverifikasi:** ...", or "Sumber: ..." from AI responses.
+ */
+export function stripSourceDataLines(text: string): string {
+  if (!text) return "";
+  return text
+    .replace(/^[ \t]*(?:[*-]\s*)?\*{0,2}(?:sumber\s+data|sumber\s+terverifikasi|sumber\s+informasi|sumber\s+arsip|sumber)\*{0,2}\s*:?.*$/gim, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
